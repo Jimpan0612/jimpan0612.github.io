@@ -12,26 +12,27 @@ body {
   border-bottom: 2px solid #8b4513;  /* 深棕色边框 */
 }
 
+/* 确保导航栏链接的颜色应用 */
 .navbar a {
-  color: #333;  /* 导航栏链接颜色为深灰色 */
-  transition: color 0.3s ease;  /* 添加過渡效果，滑鼠懸停時顏色平滑變化 */
+  color: #333;  /* 导航栏链接颜色为深灰色，使用 !important 确保颜色应用 */
+  transition: color 0.3s ease;  /* 添加过渡效果，鼠标悬停时颜色平滑变化 */
 }
 
 .navbar a:hover {
-  color: #ff8c00;  /* 鼠标悬停时的链接颜色为亮橙色 */
+  color: #ff8c00 !important;  /* 鼠标悬停时的链接颜色为亮橙色 */
 }
 
-/* 確保導航欄圖標的顯示 */
+/* 确保导航栏图标的显示 */
 .navbar .fa-github, .navbar .fa-linkedin {
-  font-size: 1.3em;  /* 調整圖標大小 */
-  color: #333;  /* 確保圖標顏色與其他鏈接一致 */
-  margin-left: 5px;  /* 給圖標與其他鏈接留出間距 */
-  transition: color 0.5s ease;  /* 添加過渡效果，滑鼠懸停時顏色平滑變化 */
+  font-size: 1.3em;  /* 调整图标大小 */
+  color: #333 !important;  /* 确保图标颜色与其他链接一致 */
+  margin-left: 5px;  /* 给图标与其他链接留出间距 */
+  transition: color 0.5s ease;  /* 添加过渡效果，鼠标悬停时颜色平滑变化 */
 }
 
-/* 滑鼠懸停時的圖標變色效果 */
+/* 鼠标悬停时的图标变色效果 */
 .navbar .fa-github:hover, .navbar .fa-linkedin:hover {
-  color: #ff8c00;  /* 滑鼠懸停時的顏色變為亮橙色 */
+  color: #ff8c00 !important;  /* 鼠标悬停时的颜色变为亮橙色 */
 }
 
 /* 标题样式 */
@@ -77,22 +78,25 @@ pre, code {
   color: #2c3e50;
 }
 
-/* 页脚样式 */
-.footer {
-  background-color: #8b4513;  /* 深棕色背景 */
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  border-top: 2px solid #d2b48c;  /* 使用卡其色作为边框 */
+/* 更新日志部分样式 */
+.update-log {
+  background-color: #e6f4e6; /* 淡绿色背景 */
+  border-left: 5px solid #769C70; /* 深抹茶色左边框 */
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-radius: 5px;
 }
 
-.footer a {
-  color: #d2b48c;  /* 使用卡其色作为链接颜色 */
-  text-decoration: none;
+.update-log h3 {
+  color: #769C70; /* 深抹茶色标题 */
+  margin-top: 0;
 }
 
-.footer a:hover {
-  color: #f5deb3;  /* 鼠标悬停时颜色变为小麦色 */
+.update-log ul {
+  list-style-type: square; /* 方块样式的列表符号 */
+  color: #4a7745; /* 更深的茶绿色，增强可读性 */
 }
 
+.update-log ul li {
+  margin-bottom: 5px; /* 列表项之间的间距 */
+}
