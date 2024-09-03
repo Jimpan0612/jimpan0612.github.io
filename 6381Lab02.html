@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jim Pan">
 
-<title>Jimpan’s Knowledge Hub - 6381Lab02</title>
+<title>Jimpan’s Knowledge Hub - Lab 02: Projections in ArcGIS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6381Lab02.html">6381Lab02</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6381Lab02.html">Lab 02: Projections in ArcGIS</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -185,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./arcgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ArcGIS</span></a>
+ <span class="menu-text">ArcGIS Labs Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -197,53 +198,103 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./6381Lab02.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">6381Lab02</span></a>
+ <span class="menu-text">Lab 02: Projections in ArcGIS</span></a>
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab03.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 03: Data Entry and Digitizing</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab04.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 04: Digitizing and Topology</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab05.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 05: Digital Data and Table Operations</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab06.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 06: Tables in ArcGIS</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab07.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 07: Spatial Selection in ArcGIS</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab08.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 08: Spatial Analysis Buffering and Overlay</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab09.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 09: Raster Analysis</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab10.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 10: Remote Sensing Data Analysis</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives"><span class="header-section-number">2</span> Objectives</a></li>
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><span class="header-section-number">3</span> Tasks</a>
+  <ul class="collapse">
+  <li><a href="#create-and-compare-maps" id="toc-create-and-compare-maps" class="nav-link" data-scroll-target="#create-and-compare-maps"><span class="header-section-number">3.1</span> 1. Create and Compare Maps</a></li>
+  <li><a href="#measure-distances" id="toc-measure-distances" class="nav-link" data-scroll-target="#measure-distances"><span class="header-section-number">3.2</span> 2. Measure Distances</a></li>
+  <li><a href="#record-coordinates" id="toc-record-coordinates" class="nav-link" data-scroll-target="#record-coordinates"><span class="header-section-number">3.3</span> 3. Record Coordinates</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4</span> Results</a>
+  <ul class="collapse">
+  <li><a href="#distance-across-minnesota" id="toc-distance-across-minnesota" class="nav-link" data-scroll-target="#distance-across-minnesota"><span class="header-section-number">4.1</span> Distance Across Minnesota</a></li>
+  <li><a href="#coordinates-of-northeast-corner-of-ramsey-county" id="toc-coordinates-of-northeast-corner-of-ramsey-county" class="nav-link" data-scroll-target="#coordinates-of-northeast-corner-of-ramsey-county"><span class="header-section-number">4.2</span> Coordinates of Northeast Corner of Ramsey County</a></li>
+  <li><a href="#final-maps" id="toc-final-maps" class="nav-link" data-scroll-target="#final-maps"><span class="header-section-number">4.3</span> Final Maps</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">6381Lab02</h1>
+<h1 class="title">Lab 02: Projections in ArcGIS</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jim Pan </p>
+          </div>
+  </div>
     
   
     
@@ -254,8 +305,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>In this lab, the goal was to learn about basic methods for map projections in ArcGIS Pro. The task involved creating maps of Minnesota in three different statewide projections, as well as a map of reprojected Minnesota county boundaries with an inset global view. Additionally, the lab involved recording areas and coordinates for various projections and measurements.</p>
+</section>
+<section id="objectives" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="objectives"><span class="header-section-number">2</span> Objectives</h2>
+<ul>
+<li>Understand the differences in map projections and how they affect spatial data.</li>
+<li>Create maps using different projections: Albers, UTM, and Mercator.</li>
+<li>Learn how to use on-the-fly projections in ArcGIS Pro.</li>
+<li>Measure distances and coordinates in different projections.</li>
+</ul>
+</section>
+<section id="tasks" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="tasks"><span class="header-section-number">3</span> Tasks</h2>
+<section id="create-and-compare-maps" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="create-and-compare-maps"><span class="header-section-number">3.1</span> 1. Create and Compare Maps</h3>
+<p>Three maps were created to compare different projections:</p>
+<ol type="1">
+<li><strong>Albers Projection</strong></li>
+<li><strong>UTM Projection</strong></li>
+<li><strong>Mercator Projection</strong></li>
+</ol>
+<p>These maps were then analyzed to understand how the projections affect the shape and measurements within the state of Minnesota.</p>
+</section>
+<section id="measure-distances" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="measure-distances"><span class="header-section-number">3.2</span> 2. Measure Distances</h3>
+<p>Using the measure tool in ArcGIS Pro, distances between specific points were measured in each of the projections. For example, the distance from the northeastern-most point of Minnesota to the southwestern-most point was calculated in kilometers for all three projections.</p>
+</section>
+<section id="record-coordinates" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="record-coordinates"><span class="header-section-number">3.3</span> 3. Record Coordinates</h3>
+<p>Coordinates for the northeast corner of Ramsey County were recorded in three projections: Albers, UTM, and Custom Mercator. This step highlighted how different projections can result in different coordinate values for the same geographic location.</p>
+</section>
+</section>
+<section id="results" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="results"><span class="header-section-number">4</span> Results</h2>
+<section id="distance-across-minnesota" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="distance-across-minnesota"><span class="header-section-number">4.1</span> Distance Across Minnesota</h3>
+<ul>
+<li><strong>Albers Projection:</strong> 738.38 km</li>
+<li><strong>UTM Zone 15N:</strong> 739.11 km</li>
+<li><strong>Custom Mercator:</strong> 1059.32 km</li>
+</ul>
+</section>
+<section id="coordinates-of-northeast-corner-of-ramsey-county" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="coordinates-of-northeast-corner-of-ramsey-county"><span class="header-section-number">4.2</span> Coordinates of Northeast Corner of Ramsey County</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Projection</th>
+<th>X-Coordinate</th>
+<th>Y-Coordinate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Albers (Meters)</td>
+<td>237015.86E</td>
+<td>2463303.93N</td>
+</tr>
+<tr class="even">
+<td>UTM Zone 15 (Meters)</td>
+<td>501167.40E</td>
+<td>4996740.42N</td>
+</tr>
+<tr class="odd">
+<td>Custom Mercator</td>
+<td>10351044.86W</td>
+<td>5610717.55N</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="final-maps" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="final-maps"><span class="header-section-number">4.3</span> Final Maps</h3>
+<section id="comparison-of-three-map-projections" class="level4" data-number="4.3.1">
+<h4 data-number="4.3.1" class="anchored" data-anchor-id="comparison-of-three-map-projections"><span class="header-section-number">4.3.1</span> Comparison of Three Map Projections</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/6381LabImages/6381Lab00002/compare_3map_projections.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Compare of Three Map Projections</figcaption>
+</figure>
+</div>
+</section>
+<section id="minnesota-counties---utm-projection" class="level4" data-number="4.3.2">
+<h4 data-number="4.3.2" class="anchored" data-anchor-id="minnesota-counties---utm-projection"><span class="header-section-number">4.3.2</span> Minnesota Counties - UTM Projection</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/6381LabImages/6381Lab00002/minnesota_county.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Minnesota Counties - UTM Projection</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5</span> Conclusion</h2>
+<p>This lab provided valuable insights into the importance of map projections in GIS. By working with different projections, it became clear how much projections can impact spatial data, particularly in terms of shape and distance measurements. Understanding and correctly applying map projections is crucial for any spatial analysis in GIS.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

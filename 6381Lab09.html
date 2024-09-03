@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Karl Ho">
+<meta name="author" content="Jim Pan">
 
-<title>Jimpan’s Knowledge Hub - EPPS 6302: Lab01</title>
+<title>Jimpan’s Knowledge Hub - Lab 09: Raster Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -180,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./arcgis.html"> 
+    <a class="nav-link active" href="./arcgis.html" aria-current="page"> 
 <span class="menu-text">ArcGIS</span></a>
   </li>  
 </ul>
@@ -205,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab01.html">EPPS 6302: Lab01</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6381Lab09.html">Lab 09: Raster Analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -219,32 +185,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assign01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">assign01.html</span></a>
+  <a href="./arcgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ArcGIS Labs Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assign02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">assign02.html</span></a>
+  <a href="./6381Lab01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 01: Introduction to ArcGIS and Basic Map Operations</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">EPPS 6302: Lab01</span></a>
+  <a href="./6381Lab02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 02: Projections in ArcGIS</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EPPS 6323: Lab02</span></a>
+  <a href="./6381Lab03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 03: Data Entry and Digitizing</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EPPS 6323: Lab03</span></a>
+  <a href="./6381Lab04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 04: Digitizing and Topology</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 05: Digital Data and Table Operations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 06: Tables in ArcGIS</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 07: Spatial Selection in ArcGIS</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 08: Spatial Analysis Buffering and Overlay</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab09.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 09: Raster Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 10: Remote Sensing Data Analysis</span></a>
   </div>
 </li>
     </ul>
@@ -257,15 +259,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-commands" id="toc-basic-commands" class="nav-link active" data-scroll-target="#basic-commands"><span class="header-section-number">1</span> Basic Commands</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives"><span class="header-section-number">2</span> Objectives</a></li>
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><span class="header-section-number">3</span> Tasks</a>
   <ul class="collapse">
-  <li><a href="#create-object-using-the-assignment-operator--" id="toc-create-object-using-the-assignment-operator--" class="nav-link" data-scroll-target="#create-object-using-the-assignment-operator--"><span class="header-section-number">1.1</span> Create object using the assignment operator (&lt;-, =)</a></li>
-  <li><a href="#using-function" id="toc-using-function" class="nav-link" data-scroll-target="#using-function"><span class="header-section-number">1.2</span> Using function</a></li>
-  <li><a href="#using---operators" id="toc-using---operators" class="nav-link" data-scroll-target="#using---operators"><span class="header-section-number">1.3</span> Using +, -, *, /,^ operators</a></li>
-  <li><a href="#matrix-operations" id="toc-matrix-operations" class="nav-link" data-scroll-target="#matrix-operations"><span class="header-section-number">1.4</span> Matrix operations</a></li>
-  <li><a href="#simple-descriptive-statistics" id="toc-simple-descriptive-statistics" class="nav-link" data-scroll-target="#simple-descriptive-statistics"><span class="header-section-number">1.5</span> Simple descriptive statistics</a></li>
-  <li><a href="#graphics-using-r-graphics-without-packages" id="toc-graphics-using-r-graphics-without-packages" class="nav-link" data-scroll-target="#graphics-using-r-graphics-without-packages"><span class="header-section-number">1.6</span> Graphics using R Graphics (without packages)</a></li>
+  <li><a href="#mosaic-dems-and-generate-hillshade" id="toc-mosaic-dems-and-generate-hillshade" class="nav-link" data-scroll-target="#mosaic-dems-and-generate-hillshade"><span class="header-section-number">3.1</span> 1. Mosaic DEMs and Generate Hillshade</a></li>
+  <li><a href="#correct-dem-artifacts-using-filters" id="toc-correct-dem-artifacts-using-filters" class="nav-link" data-scroll-target="#correct-dem-artifacts-using-filters"><span class="header-section-number">3.2</span> 2. Correct DEM Artifacts Using Filters</a></li>
+  <li><a href="#develop-a-cost-surface" id="toc-develop-a-cost-surface" class="nav-link" data-scroll-target="#develop-a-cost-surface"><span class="header-section-number">3.3</span> 3. Develop a Cost Surface</a></li>
+  <li><a href="#reclassification-and-final-cost-calculation" id="toc-reclassification-and-final-cost-calculation" class="nav-link" data-scroll-target="#reclassification-and-final-cost-calculation"><span class="header-section-number">3.4</span> 4. Reclassification and Final Cost Calculation</a></li>
   </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4</span> Results</a>
+  <ul class="collapse">
+  <li><a href="#combined-dem-hillshade" id="toc-combined-dem-hillshade" class="nav-link" data-scroll-target="#combined-dem-hillshade"><span class="header-section-number">4.1</span> Combined DEM Hillshade</a></li>
+  <li><a href="#filtered-shasta-dem-hillshade" id="toc-filtered-shasta-dem-hillshade" class="nav-link" data-scroll-target="#filtered-shasta-dem-hillshade"><span class="header-section-number">4.2</span> Filtered Shasta DEM Hillshade</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -274,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">EPPS 6302: Lab01</h1>
+<h1 class="title">Lab 09: Raster Analysis</h1>
 </div>
 
 
@@ -284,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Karl Ho </p>
+             <p>Jim Pan </p>
           </div>
   </div>
     
@@ -297,177 +305,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="basic-commands" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Basic Commands</h1>
-<section id="create-object-using-the-assignment-operator--" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="create-object-using-the-assignment-operator--"><span class="header-section-number">1.1</span> Create object using the assignment operator (&lt;-, =)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 3 2 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">2</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 6 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>This lab focuses on spatial analysis and modeling using raster data. The goal is to estimate access costs across a landscape based on factors like slope and distance to roads. The process includes raster resampling, combining DEMs, filtering data, and creating cost surfaces. The lab also includes a project on correcting DEMs and generating hillshade maps.</p>
 </section>
-<section id="using-function" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="using-function"><span class="header-section-number">1.2</span> Using function</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)  <span class="co"># What does length() do?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
+<section id="objectives" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="objectives"><span class="header-section-number">2</span> Objectives</h2>
+<ul>
+<li>Learn to mosaic raster data with different resolutions.</li>
+<li>Apply filtering techniques to correct noisy DEM data.</li>
+<li>Develop cost surfaces using slope and distance factors.</li>
+<li>Use raster calculator for advanced spatial analysis.</li>
+</ul>
 </section>
-<section id="using---operators" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="using---operators"><span class="header-section-number">1.3</span> Using +, -, *, /,^ operators</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">+</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  2 10  5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># List objects in the environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "x" "y"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x,y) <span class="co"># Remove objects</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Danger! What does this do?  Not recommended!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="tasks" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="tasks"><span class="header-section-number">3</span> Tasks</h2>
+<section id="mosaic-dems-and-generate-hillshade" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="mosaic-dems-and-generate-hillshade"><span class="header-section-number">3.1</span> 1. Mosaic DEMs and Generate Hillshade</h3>
+<ul>
+<li>Combine Valley3 and Valley9 DEMs, and generate hillshade maps for both.</li>
+<li>Resample Valley9 DEM to match Valley3’s 3-meter resolution.</li>
+<li>Combine the two DEMs into a single dataset using raster calculator.</li>
+</ul>
 </section>
-<section id="matrix-operations" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="matrix-operations"><span class="header-section-number">1.4</span> Matrix operations</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>?matrix</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">matrix</span>(<span class="at">data=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">2</span>) <span class="co"># Create a 2x2 matrix object</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]    1    3
-[2,]    2    4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">2</span>,<span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># What about byrow=F?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]    1    2
-[2,]    3    4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x) <span class="co"># What does x look like?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         [,1]     [,2]
-[1,] 1.000000 1.732051
-[2,] 1.414214 2.000000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]    1    9
-[2,]    4   16</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">50</span>) <span class="co"># Generate a vector of 50 numbers using the rnorm() function</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span>x<span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="at">mean=</span><span class="dv">50</span>,<span class="at">sd=</span>.<span class="dv">1</span>) <span class="co"># What does rnorm(50,mean=50,sd=.1) generate?</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x,y) <span class="co"># Correlation of x and y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9950367</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1303</span>) <span class="co"># Set the seed for Random Number Generator (RNG) to generate values that are reproducible.</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] -1.1439763145  1.3421293656  2.1853904757  0.5363925179  0.0631929665
- [6]  0.5022344825 -0.0004167247  0.5658198405 -0.5725226890 -1.1102250073
-[11] -0.0486871234 -0.6956562176  0.8289174803  0.2066528551 -0.2356745091
-[16] -0.5563104914 -0.3647543571  0.8623550343 -0.6307715354  0.3136021252
-[21] -0.9314953177  0.8238676185  0.5233707021  0.7069214120  0.4202043256
-[26] -0.2690521547 -1.5103172999 -0.6902124766 -0.1434719524 -1.0135274099
-[31]  1.5732737361  0.0127465055  0.8726470499  0.4220661905 -0.0188157917
-[36]  2.6157489689 -0.6931401748 -0.2663217810 -0.7206364412  1.3677342065
-[41]  0.2640073322  0.6321868074 -1.3306509858  0.0268888182  1.0406363208
-[46]  1.3120237985 -0.0300020767 -0.2500257125  0.0234144857  1.6598706557</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>) <span class="co"># Try different seeds?</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="correct-dem-artifacts-using-filters" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="correct-dem-artifacts-using-filters"><span class="header-section-number">3.2</span> 2. Correct DEM Artifacts Using Filters</h3>
+<ul>
+<li>Apply a low-pass filter to the Shasta DEM to correct data spikes and pits.</li>
+<li>Generate a new hillshade map to visualize the corrections.</li>
+<li>Subtract the filtered DEM from the original DEM to isolate errors, then replace erroneous cells using raster calculator.</li>
+</ul>
 </section>
-<section id="simple-descriptive-statistics" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="simple-descriptive-statistics"><span class="header-section-number">1.5</span> Simple descriptive statistics</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.01103557</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7328675</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8560768</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8560768</code></pre>
-</div>
-</div>
+<section id="develop-a-cost-surface" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="develop-a-cost-surface"><span class="header-section-number">3.3</span> 3. Develop a Cost Surface</h3>
+<ul>
+<li>Calculate slope from DulNorthDEM and apply an exponential cost formula.</li>
+<li>Generate a distance raster using the Euclidean Distance tool.</li>
+<li>Combine slope and distance costs into a total cost surface, applying a threshold to focus on areas under $25,000.</li>
+</ul>
 </section>
-<section id="graphics-using-r-graphics-without-packages" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="graphics-using-r-graphics-without-packages"><span class="header-section-number">1.6</span> Graphics using R Graphics (without packages)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col =</span> <span class="st">"blue"</span>) <span class="co"># Scatterplot for two numeric variables by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
+<section id="reclassification-and-final-cost-calculation" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="reclassification-and-final-cost-calculation"><span class="header-section-number">3.4</span> 4. Reclassification and Final Cost Calculation</h3>
+<ul>
+<li>Reclassify the total cost surface to focus on areas below $25,000.</li>
+<li>Multiply the reclassified raster by the total cost surface to isolate areas within budget.</li>
+</ul>
+</section>
+</section>
+<section id="results" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="results"><span class="header-section-number">4</span> Results</h2>
+<section id="combined-dem-hillshade" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="combined-dem-hillshade"><span class="header-section-number">4.1</span> Combined DEM Hillshade</h3>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Lab01_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="files/6381LabImages/6381Lab00009/raster map1.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Combined DEM Hillshade</figcaption>
 </figure>
 </div>
-</div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col =</span> <span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"this is the x-axis"</span>,<span class="at">ylab=</span><span class="st">"this is the y-axis"</span>,<span class="at">main=</span><span class="st">"Plot of X vs Y"</span>) <span class="co"># Add labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
+</section>
+<section id="filtered-shasta-dem-hillshade" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="filtered-shasta-dem-hillshade"><span class="header-section-number">4.2</span> Filtered Shasta DEM Hillshade</h3>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Lab01_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="files/6381LabImages/6381Lab00009/raster map2 new.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Filtered Shasta DEM Hillshade</figcaption>
 </figure>
 </div>
-</div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"Figure01.pdf"</span>) <span class="co"># Save as pdf, add a path or it will be stored on the project directory</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"forestgreen"</span>) <span class="co"># Try different colors?</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co"># Close the file using the dev.off function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>quartz_off_screen 
-                2 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>) <span class="co"># Same as x=c(1:10)</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">seq</span>(<span class="sc">-</span>pi,pi,<span class="at">length=</span><span class="dv">50</span>)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-
-
 </section>
+</section>
+<section id="conclusion" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5</span> Conclusion</h2>
+<p>This lab provided hands-on experience with advanced raster data processing techniques. The tasks included data resampling, DEM correction using filters, and cost surface generation. These techniques are crucial for spatial analysis in GIS, enabling more accurate modeling and decision-making based on geographic data.</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
