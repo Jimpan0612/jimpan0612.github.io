@@ -156,10 +156,21 @@ window.Quarto = {
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">About</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-about">    
+        <li>
+    <a class="dropdown-item" href="./about.html">
+ <span class="dropdown-text">About Me</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./files/Chunyen_Pan_CV_copy.pdf">
+ <span class="dropdown-text">CV</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Research</span></a>
@@ -229,6 +240,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#jims-website.-data-projects-are-hosted-here." id="toc-jims-website.-data-projects-are-hosted-here." class="nav-link active" data-scroll-target="#jims-website.-data-projects-are-hosted-here."><span class="header-section-number">0.1</span> Jim’s website. Data projects are hosted here.</a></li>
+  <li><a href="#this-is-the-page-for-me-to-test-functions." id="toc-this-is-the-page-for-me-to-test-functions." class="nav-link" data-scroll-target="#this-is-the-page-for-me-to-test-functions."><span class="header-section-number">0.2</span> This is the page for me to test functions.</a></li>
   </ul>
 </nav>
     </div>
@@ -256,6 +268,9 @@ window.Quarto = {
 
 <section id="jims-website.-data-projects-are-hosted-here." class="level3" data-number="0.1">
 <h3 data-number="0.1" class="anchored" data-anchor-id="jims-website.-data-projects-are-hosted-here."><span class="header-section-number">0.1</span> Jim’s website. Data projects are hosted here.</h3>
+</section>
+<section id="this-is-the-page-for-me-to-test-functions." class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="this-is-the-page-for-me-to-test-functions."><span class="header-section-number">0.2</span> This is the page for me to test functions.</h3>
 <p><span class="math inline">\(y = \alpha+\beta{x}^2\)</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"sans"</span>)</span>
@@ -269,6 +284,126 @@ window.Quarto = {
 </div>
 </div>
 <p><i class="fas fa-home"></i></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Titanic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+<div class="card-header">
+<p>Header</p>
+</div>
+<div class="card-body">
+<pre><code>&lt;h4 class="card-title"&gt;Is it working?&lt;/h4&gt;
+&lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+<div class="card-header">
+<p>Header</p>
+</div>
+<div class="card-body">
+<pre><code>&lt;h4 class="card-title"&gt;Secondary card title&lt;/h4&gt;
+&lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+<div class="card-header">
+<p>Header</p>
+</div>
+<div class="card-body">
+<pre><code>&lt;h4 class="card-title"&gt;Success card title&lt;/h4&gt;
+&lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+<div class="card-header">
+<p>Header</p>
+</div>
+<div class="card-body">
+<pre><code>&lt;h4 class="card-title"&gt;Danger card title&lt;/h4&gt;
+&lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+<div class="card-header">
+<p>Header</p>
+</div>
+<div class="card-body">
+<pre><code>&lt;h4 class="card-title"&gt;Warning card title&lt;/h4&gt;
+&lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+<div class="card-header">
+<p>Header</p>
+</div>
+<div class="card-body">
+<pre><code>&lt;h4 class="card-title"&gt;Info card title&lt;/h4&gt;
+&lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<div class="card bg-light mb-3" style="max-width: 20rem;">
+<div class="card-header">
+<p>Header</p>
+</div>
+<div class="card-body">
+<pre><code>&lt;h4 class="card-title"&gt;Light card title&lt;/h4&gt;
+&lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+<div class="card-header">
+<p>Header</p>
+</div>
+<div class="card-body">
+<pre><code>&lt;h4 class="card-title"&gt;Dark card title&lt;/h4&gt;
+&lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;</code></pre>
+</div>
+</div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<pre><code>&lt;h2 class="accordion-header" id="headingOne"&gt;
+  &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"&gt;
+    Accordion Item #1
+  &lt;/button&gt;
+&lt;/h2&gt;
+&lt;div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style=""&gt;
+  &lt;div class="accordion-body"&gt;
+    &lt;strong&gt;This is the first item's accordion body.&lt;/strong&gt; It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the &lt;code&gt;.accordion-body&lt;/code&gt;, though the transition does limit overflow.
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="accordion-item">
+<pre><code>&lt;h2 class="accordion-header" id="headingTwo"&gt;
+  &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"&gt;
+    Accordion Item #2
+  &lt;/button&gt;
+&lt;/h2&gt;
+&lt;div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style=""&gt;
+  &lt;div class="accordion-body"&gt;
+    &lt;strong&gt;This is the second item's accordion body.&lt;/strong&gt; It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the &lt;code&gt;.accordion-body&lt;/code&gt;, though the transition does limit overflow.
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="accordion-item">
+<pre><code>&lt;h2 class="accordion-header" id="headingThree"&gt;
+  &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"&gt;
+    Accordion Item #3
+  &lt;/button&gt;
+&lt;/h2&gt;
+&lt;div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample"&gt;
+  &lt;div class="accordion-body"&gt;
+    &lt;strong&gt;This is the third item's accordion body.&lt;/strong&gt; It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the &lt;code&gt;.accordion-body&lt;/code&gt;, though the transition does limit overflow.
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
 
 
 </section>
