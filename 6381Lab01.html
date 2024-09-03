@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jimpan’s Knowledge Hub - lab1</title>
+<title>Jimpan’s Knowledge Hub - Lab 01: Introduction to ArcGIS and Basic Map Operations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6381Lab01.html">lab1</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6381Lab01.html">Lab 01: Introduction to ArcGIS and Basic Map Operations</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -191,14 +191,38 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./6381Lab01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">lab1</span></a>
+ <span class="menu-text">Lab 01: Introduction to ArcGIS and Basic Map Operations</span></a>
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">6381Lab02.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6381Lab02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6381Lab02</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
  <span class="menu-text">6381Lab03.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">6381Lab04.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">6381Lab05.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">6381Lab06.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">6381Lab07.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">6381Lab08.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">6381Lab09.qmd</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">6381Lab10.qmd</span>
   </li>
     </ul>
     </div>
@@ -206,14 +230,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objective" id="toc-objective" class="nav-link active" data-scroll-target="#objective"><span class="header-section-number">1</span> Objective</a></li>
+  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure"><span class="header-section-number">2</span> Procedure</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
+  <ul class="collapse">
+  <li><a href="#cloquet-polygon-map" id="toc-cloquet-polygon-map" class="nav-link" data-scroll-target="#cloquet-polygon-map"><span class="header-section-number">3.1</span> Cloquet Polygon Map</a></li>
+  <li><a href="#cloquet-map" id="toc-cloquet-map" class="nav-link" data-scroll-target="#cloquet-map"><span class="header-section-number">3.2</span> Cloquet Map</a></li>
+  <li><a href="#hugomap" id="toc-hugomap" class="nav-link" data-scroll-target="#hugomap"><span class="header-section-number">3.3</span> Hugomap</a></li>
+  <li><a href="#wetlands-map" id="toc-wetlands-map" class="nav-link" data-scroll-target="#wetlands-map"><span class="header-section-number">3.4</span> Wetlands Map</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4</span> Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">lab1</h1>
+<h1 class="title">Lab 01: Introduction to ArcGIS and Basic Map Operations</h1>
 </div>
 
 
@@ -230,9 +269,65 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<section id="objective" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="objective"><span class="header-section-number">1</span> Objective</h2>
+<p>This lab introduces ArcGIS software and covers basic map operations, including working with shapefiles, creating new layers, and exporting maps.</p>
+</section>
+<section id="procedure" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="procedure"><span class="header-section-number">2</span> Procedure</h2>
+<ol type="1">
+<li><strong>Introduction to ArcGIS</strong>: Familiarized with the ArcGIS interface and explored essential tools and functions.</li>
+<li><strong>Working with Shapefiles</strong>: Imported and managed shapefiles, with a focus on understanding attribute tables and layer properties.</li>
+<li><strong>Creating New Layers</strong>: Developed new layers by extracting specific features and attributes.</li>
+<li><strong>Exporting Maps</strong>: Exported maps in PDF format for documentation and presentation purposes.</li>
+</ol>
+</section>
+<section id="results" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="results"><span class="header-section-number">3</span> Results</h2>
+<p>Below are the results generated during the lab:</p>
+<section id="cloquet-polygon-map" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="cloquet-polygon-map"><span class="header-section-number">3.1</span> Cloquet Polygon Map</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/6381LabImages/6381Lab00001/Cloquet polygon.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Cloquet Polygon Map</figcaption>
+</figure>
+</div>
+</section>
+<section id="cloquet-map" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="cloquet-map"><span class="header-section-number">3.2</span> Cloquet Map</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/6381LabImages/6381Lab00001/Cloquet.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Cloquet Map</figcaption>
+</figure>
+</div>
+</section>
+<section id="hugomap" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="hugomap"><span class="header-section-number">3.3</span> Hugomap</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/6381LabImages/6381Lab00001/hugomap.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Hugomap</figcaption>
+</figure>
+</div>
+</section>
+<section id="wetlands-map" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="wetlands-map"><span class="header-section-number">3.4</span> Wetlands Map</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/6381LabImages/6381Lab00001/wetlands.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Wetlands Map</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4</span> Conclusion</h2>
+<p>This lab provided an essential introduction to ArcGIS, offering practical experience in handling shapefiles and generating exportable map products. The skills developed in this lab are foundational for more advanced GIS operations.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
