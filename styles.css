@@ -1,1 +1,98 @@
-/* css styles */
+/* 自定义全局样式 */
+
+/* 全局字体和背景设置 */
+body {
+  background-color: #fdf5e6;  /* 米色背景 */
+  color: #333;  /* 全局文本颜色 */
+}
+
+/* 顶部导航栏样式 */
+.navbar {
+  background-color: #d2b48c;  /* 卡其色背景 */
+  border-bottom: 2px solid #8b4513;  /* 深棕色边框 */
+}
+
+.navbar a {
+  color: #333;  /* 导航栏链接颜色为深灰色 */
+  transition: color 0.3s ease;  /* 添加過渡效果，滑鼠懸停時顏色平滑變化 */
+}
+
+.navbar a:hover {
+  color: #ff8c00;  /* 鼠标悬停时的链接颜色为亮橙色 */
+}
+
+/* 確保導航欄圖標的顯示 */
+.navbar .fa-github, .navbar .fa-linkedin {
+  font-size: 1.3em;  /* 調整圖標大小 */
+  color: #333;  /* 確保圖標顏色與其他鏈接一致 */
+  margin-left: 5px;  /* 給圖標與其他鏈接留出間距 */
+  transition: color 0.5s ease;  /* 添加過渡效果，滑鼠懸停時顏色平滑變化 */
+}
+
+/* 滑鼠懸停時的圖標變色效果 */
+.navbar .fa-github:hover, .navbar .fa-linkedin:hover {
+  color: #ff8c00;  /* 滑鼠懸停時的顏色變為亮橙色 */
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  color: #8b4513;  /* 深棕色标题，符合卡其色调 */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);  /* 轻微的阴影效果，使标题更具立体感 */
+}
+
+/* 链接样式 */
+a {
+  color: #8b4513;  /* 使用深棕色，符合整体配色 */
+  text-decoration: underline;  /* 保持链接的可见性 */
+}
+
+a:hover {
+  color: #d2691e;  /* 鼠标悬停时的颜色变为巧克力色，提供对比 */
+}
+
+/* 按钮样式 */
+.btn {
+  background-color: #d2b48c;  /* 使用卡其色按钮背景 */
+  border: 2px solid #8b4513;  /* 深棕色按钮边框 */
+  color: #333;  /* 按钮文字颜色 */
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #8b4513;  /* 鼠标悬停时按钮颜色变深 */
+  border-color: #d2b48c;  /* 鼠标悬停时边框颜色变浅 */
+  color: #fff;  /* 鼠标悬停时按钮文字颜色变为白色 */
+}
+
+/* 代码块样式 */
+pre, code {
+  background-color: #f5f5f5;  /* 保持代码块的背景颜色一致 */
+  border: 1px dashed #ddd;  /* 使用虚线边框，符合 Sketchy 主题的手绘风格 */
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.95em;
+  color: #2c3e50;
+}
+
+/* 页脚样式 */
+.footer {
+  background-color: #8b4513;  /* 深棕色背景 */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 2px solid #d2b48c;  /* 使用卡其色作为边框 */
+}
+
+.footer a {
+  color: #d2b48c;  /* 使用卡其色作为链接颜色 */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #f5deb3;  /* 鼠标悬停时颜色变为小麦色 */
+}
+
