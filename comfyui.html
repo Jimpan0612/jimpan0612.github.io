@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jim Pan">
 
-<title>Jimpan’s Knowledge Hub - Lab 01: Introduction to ArcGIS and Basic Map Operations</title>
+<title>Jimpan’s Knowledge Hub - ComfyUI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,11 +145,11 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./arcgis.html" aria-current="page"> 
+    <a class="nav-link" href="./arcgis.html"> 
 <span class="menu-text">ArcGIS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./comfyui.html"> 
+    <a class="nav-link active" href="./comfyui.html" aria-current="page"> 
 <span class="menu-text">AI Art &amp; Animation</span></a>
   </li>  
 </ul>
@@ -175,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6381Lab01.html">Lab 01: Introduction to ArcGIS and Basic Map Operations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./comfyui.html">ComfyUI</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -189,70 +188,31 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./arcgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ArcGIS Labs Overview</span></a>
+  <a href="./comfyui.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">ComfyUI</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6381Lab01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lab 01: Introduction to ArcGIS and Basic Map Operations</span></a>
+  <a href="./tex2img.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Text-to-Image with Draw Things</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6381Lab02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 02: Projections in ArcGIS</span></a>
+  <a href="./img2vid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">img2vid</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 03: Data Entry and Digitizing</span></a>
-  </div>
-</li>
+ <span class="menu-text">vid2vid.qmd</span>
+  </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 04: Digitizing and Topology</span></a>
-  </div>
-</li>
+ <span class="menu-text">ipadapter.qmd</span>
+  </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 05: Digital Data and Table Operations</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 06: Tables in ArcGIS</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 07: Spatial Selection in ArcGIS</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 08: Spatial Analysis Buffering and Overlay</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 09: Raster Analysis</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 10: Remote Sensing Data Analysis</span></a>
-  </div>
-</li>
+ <span class="menu-text">controlnet.qmd</span>
+  </li>
     </ul>
     </div>
 </nav>
@@ -263,16 +223,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objective" id="toc-objective" class="nav-link active" data-scroll-target="#objective"><span class="header-section-number">1</span> Objective</a></li>
-  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure"><span class="header-section-number">2</span> Procedure</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
+  <li><a href="#comfyui-overview" id="toc-comfyui-overview" class="nav-link active" data-scroll-target="#comfyui-overview"><span class="header-section-number">1</span> ComfyUI Overview</a>
   <ul class="collapse">
-  <li><a href="#cloquet-polygon-map" id="toc-cloquet-polygon-map" class="nav-link" data-scroll-target="#cloquet-polygon-map"><span class="header-section-number">3.1</span> Cloquet Polygon Map</a></li>
-  <li><a href="#cloquet-map" id="toc-cloquet-map" class="nav-link" data-scroll-target="#cloquet-map"><span class="header-section-number">3.2</span> Cloquet Map</a></li>
-  <li><a href="#hugomap" id="toc-hugomap" class="nav-link" data-scroll-target="#hugomap"><span class="header-section-number">3.3</span> Hugomap</a></li>
-  <li><a href="#wetlands-map" id="toc-wetlands-map" class="nav-link" data-scroll-target="#wetlands-map"><span class="header-section-number">3.4</span> Wetlands Map</a></li>
+  <li><a href="#comfyui-workflow-sample" id="toc-comfyui-workflow-sample" class="nav-link" data-scroll-target="#comfyui-workflow-sample"><span class="header-section-number">1.0.1</span> ComfyUI Workflow Sample</a></li>
+  <li><a href="#comfyui-workflow-sample-2-form-author-akumetsu971" id="toc-comfyui-workflow-sample-2-form-author-akumetsu971" class="nav-link" data-scroll-target="#comfyui-workflow-sample-2-form-author-akumetsu971"><span class="header-section-number">1.0.2</span> ComfyUI Workflow Sample 2 form Author Akumetsu971</a></li>
+  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features"><span class="header-section-number">1.1</span> Key Features</a></li>
+  <li><a href="#why-use-comfyui" id="toc-why-use-comfyui" class="nav-link" data-scroll-target="#why-use-comfyui"><span class="header-section-number">1.2</span> Why Use ComfyUI?</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works"><span class="header-section-number">1.3</span> How It Works</a></li>
+  <li><a href="#official-github-repository" id="toc-official-github-repository" class="nav-link" data-scroll-target="#official-github-repository"><span class="header-section-number">1.4</span> Official GitHub Repository</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -281,19 +240,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 01: Introduction to ArcGIS and Basic Map Operations</h1>
+<h1 class="title">ComfyUI</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jim Pan </p>
-          </div>
-  </div>
     
   
     
@@ -304,64 +257,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="objective" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="objective"><span class="header-section-number">1</span> Objective</h2>
-<p>This lab introduces ArcGIS software and covers basic map operations, including working with shapefiles, creating new layers, and exporting maps.</p>
+<section id="comfyui-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> ComfyUI Overview</h1>
+<p><strong>ComfyUI</strong> is a modular, node-based interface for AI-powered image and animation generation. It allows users to have granular control over each step of the creative process, from model selection to image output. ComfyUI is designed to provide both flexibility and precision, making it a great tool for both beginners and advanced users.</p>
+<section id="comfyui-workflow-sample" class="level3" data-number="1.0.1">
+<h3 data-number="1.0.1" class="anchored" data-anchor-id="comfyui-workflow-sample"><span class="header-section-number">1.0.1</span> ComfyUI Workflow Sample</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/comfyui_screenshot.png" class="img-fluid figure-img"></p>
+<figcaption>Workflow Sample</figcaption>
+</figure>
+</div>
 </section>
-<section id="procedure" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="procedure"><span class="header-section-number">2</span> Procedure</h2>
+<section id="comfyui-workflow-sample-2-form-author-akumetsu971" class="level3" data-number="1.0.2">
+<h3 data-number="1.0.2" class="anchored" data-anchor-id="comfyui-workflow-sample-2-form-author-akumetsu971"><span class="header-section-number">1.0.2</span> ComfyUI Workflow Sample 2 form <a href="https://openart.ai/workflows/elephant_present_36/vid2vid_animatediff-hires-fix-face-detailer-hand-detailer-upscaler-mask-editor/LwT4AB8wEtKQilrjq2G8">Author Akumetsu971</a></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/comfyui_screenshot2.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Workflow Sample2</figcaption>
+</figure>
+</div>
+</section>
+<section id="key-features" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="key-features"><span class="header-section-number">1.1</span> Key Features</h2>
+<ul>
+<li><p><strong>Node-based Workflow</strong>: ComfyUI’s interface is built around connecting nodes, each representing a different function or action in the image generation process. This allows for customized workflows to suit specific project requirements.</p></li>
+<li><p><strong>AI Model Support</strong>: ComfyUI integrates with popular AI models, including Stable Diffusion and ControlNet, offering a broad range of image generation capabilities like text-to-image, image-to-image, and more.</p></li>
+<li><p><strong>Advanced Control</strong>: Users can modify and control various parameters such as sampling methods, resolutions, and image styles, providing detailed customization for output refinement.</p></li>
+</ul>
+</section>
+<section id="why-use-comfyui" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="why-use-comfyui"><span class="header-section-number">1.2</span> Why Use ComfyUI?</h2>
 <ol type="1">
-<li><strong>Introduction to ArcGIS</strong>: Familiarized with the ArcGIS interface and explored essential tools and functions.</li>
-<li><strong>Working with Shapefiles</strong>: Imported and managed shapefiles, with a focus on understanding attribute tables and layer properties.</li>
-<li><strong>Creating New Layers</strong>: Developed new layers by extracting specific features and attributes.</li>
-<li><strong>Exporting Maps</strong>: Exported maps in PDF format for documentation and presentation purposes.</li>
+<li><strong>Creative Flexibility</strong>: ComfyUI’s open-ended design encourages experimentation, letting users craft complex workflows tailored to their specific creative needs.</li>
+<li><strong>Detailed Customization</strong>: Adjust key aspects of the workflow to fine-tune the results, including models, prompts, and even the post-processing stages.</li>
+<li><strong>Integration with Other AI Tools</strong>: Seamless integration with models like ControlNet enables precise control over elements like poses, faces, and more within generated images.</li>
 </ol>
 </section>
-<section id="results" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="results"><span class="header-section-number">3</span> Results</h2>
-<p>Below are the results generated during the lab:</p>
-<section id="cloquet-polygon-map" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="cloquet-polygon-map"><span class="header-section-number">3.1</span> Cloquet Polygon Map</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/6381LabImages/6381Lab00001/Cloquet polygon.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Cloquet Polygon Map</figcaption>
-</figure>
-</div>
+<section id="how-it-works" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="how-it-works"><span class="header-section-number">1.3</span> How It Works</h2>
+<ol type="1">
+<li><strong>Text-to-Image</strong>: Input a prompt and generate images using models like Stable Diffusion. Modify the process using various nodes to get the exact style or detail you need.</li>
+<li><strong>Image Modification</strong>: Generate variations of existing images by using nodes that apply transformations or post-processing filters to enhance or change the image.</li>
+<li><strong>Animation Creation</strong>: By linking multiple image outputs and nodes, ComfyUI can be used to create dynamic animations with controlled transitions between frames.</li>
+</ol>
 </section>
-<section id="cloquet-map" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="cloquet-map"><span class="header-section-number">3.2</span> Cloquet Map</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/6381LabImages/6381Lab00001/Cloquet.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Cloquet Map</figcaption>
-</figure>
-</div>
-</section>
-<section id="hugomap" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="hugomap"><span class="header-section-number">3.3</span> Hugomap</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/6381LabImages/6381Lab00001/hugomap.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Hugomap</figcaption>
-</figure>
-</div>
-</section>
-<section id="wetlands-map" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="wetlands-map"><span class="header-section-number">3.4</span> Wetlands Map</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/6381LabImages/6381Lab00001/wetlands.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Wetlands Map</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="conclusion" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4</span> Conclusion</h2>
-<p>This lab provided an essential introduction to ArcGIS, offering practical experience in handling shapefiles and generating exportable map products. The skills developed in this lab are foundational for more advanced GIS operations.</p>
+<section id="official-github-repository" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="official-github-repository"><span class="header-section-number">1.4</span> Official GitHub Repository</h2>
+<p>For more information, updates, or to contribute to the project, you can visit the official <a href="https://github.com/comfyanonymous/ComfyUI">ComfyUI GitHub Repository</a>.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
