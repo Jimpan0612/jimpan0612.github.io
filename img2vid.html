@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jim Pan">
 
-<title>Jimpan’s Knowledge Hub - img2vid</title>
+<title>Jimpan’s Knowledge Hub - Mix Image to Video Creation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -174,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./img2vid.html">img2vid</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./img2vid.html">Mix Image to Video Creation</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -201,13 +202,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2imgbatch_img2vid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 Image Batch to Video Creation</span></a>
+ <span class="menu-text">Two Image Batch to Video Creation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./img2vid.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">img2vid</span></a>
+ <span class="menu-text">Mix Image to Video Creation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -225,20 +226,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#motion-scale-examples" id="toc-motion-scale-examples" class="nav-link" data-scroll-target="#motion-scale-examples"><span class="header-section-number">2</span> Motion Scale Examples</a></li>
+  <li><a href="#workflow-details" id="toc-workflow-details" class="nav-link" data-scroll-target="#workflow-details"><span class="header-section-number">3</span> Workflow Details</a>
+  <ul class="collapse">
+  <li><a href="#motion-scale-and-batch-size-configuration" id="toc-motion-scale-and-batch-size-configuration" class="nav-link" data-scroll-target="#motion-scale-and-batch-size-configuration"><span class="header-section-number">3.1</span> Motion Scale and Batch Size Configuration</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">img2vid</h1>
+<h1 class="title">Mix Image to Video Creation</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jim Pan </p>
+          </div>
+  </div>
     
   
     
@@ -249,8 +267,74 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>In this workflow, we combine three different images: a girl, rain, and blue flame, filter the content through a <strong>Mask</strong>, and use <strong>IPAdapter</strong> combined with <strong>AnimateDiff</strong> to create an animation of a dragon girl casting a spell in the rain. This workflow demonstrates how changing the motion scale affects the movement of different elements in the scene.</p>
+<p>For example, at a lower motion scale of 0.8, the rain and fire elements remain static, while at a higher scale of 1.4, the background becomes distorted, intensifying the animation.</p>
+<p>The complete workflow file can be found below for reference, and it can be imported into <strong>ComfyUI</strong> for further adjustments.</p>
+<p><a href="files/AI _Art&amp;Animation/miximg2vid/Miximg2vid.json">Download the workflow JSON file</a></p>
+<ul>
+<li><strong>Casting Spell Animation Output1</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/miximg2vid/example1.gif" class="img-fluid figure-img"></p>
+<figcaption>Example 1</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Casting Spell Animation Output2</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/miximg2vid/example2.gif" class="img-fluid figure-img"></p>
+<figcaption>Example 2</figcaption>
+</figure>
+</div>
+</section>
+<section id="motion-scale-examples" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="motion-scale-examples"><span class="header-section-number">2</span> Motion Scale Examples</h2>
+<p>The following examples show how different motion scales impact the animation:</p>
+<ul>
+<li><p><strong>Motion Scale 0.8</strong>: The rain and fire remain static. This scale is suitable for less dynamic movement scenes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="files/AI%20_Art&amp;Animation/miximg2vid/0.8.mp4" class="img-fluid" controls=""><a href="files/AI _Art&amp;Animation/miximg2vid/0.8.mp4">Video</a></video></p>
+<figcaption>Motion Scale 0.8</figcaption>
+</figure>
+</div></li>
+<li><p><strong>Motion Scale 1.4</strong>: This introduces background distortion, adding a more dynamic and intense movement.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="files/AI%20_Art&amp;Animation/miximg2vid/1.4.mp4" class="img-fluid" controls=""><a href="files/AI _Art&amp;Animation/miximg2vid/1.4.mp4">Video</a></video></p>
+<figcaption>Motion Scale 1.4</figcaption>
+</figure>
+</div></li>
+</ul>
+</section>
+<section id="workflow-details" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="workflow-details"><span class="header-section-number">3</span> Workflow Details</h2>
+<p>The workflow for this project is available as a JSON file that can be dragged into <strong>ComfyUI</strong>. This file includes configurations for <strong>AnimateDiff</strong>, motion scale, and other parameters.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/2imgbatch_img2vid/miximg2vid_workflow.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Workflow Overview</figcaption>
+</figure>
+</div>
+<p><a href="files/AI _Art&amp;Animation/2imgbatch_img2vid/Miximg2vid.json">Download the workflow JSON file</a></p>
+<section id="motion-scale-and-batch-size-configuration" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="motion-scale-and-batch-size-configuration"><span class="header-section-number">3.1</span> Motion Scale and Batch Size Configuration</h3>
+<p>Adjusting the <strong>motion scale</strong> and <strong>batch size</strong> parameters allows fine-tuning of the animation. Below is an example of how these settings were configured:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/2imgbatch_img2vid/motionscale_batchsize.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Motion Scale &amp; Batch Size</figcaption>
+</figure>
+</div>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
