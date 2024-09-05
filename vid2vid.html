@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jim Pan">
 
-<title>Jimpan’s Knowledge Hub - Mix Image to Video Creation</title>
+<title>Jimpan’s Knowledge Hub - v2v</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -175,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./img2vid.html">Mix Image to Video Creation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vid2vid.html">v2v</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -207,13 +206,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./img2vid.html" class="sidebar-item-text sidebar-link active">
+  <a href="./img2vid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mix Image to Video Creation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vid2vid.html" class="sidebar-item-text sidebar-link">
+  <a href="./vid2vid.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">v2v</span></a>
   </div>
 </li>
@@ -229,42 +228,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#motion-scale-examples" id="toc-motion-scale-examples" class="nav-link" data-scroll-target="#motion-scale-examples"><span class="header-section-number">2</span> Motion Scale Examples</a></li>
-  <li><a href="#workflow-overview" id="toc-workflow-overview" class="nav-link" data-scroll-target="#workflow-overview"><span class="header-section-number">3</span> Workflow Overview</a>
-  <ul class="collapse">
-  <li><a href="#step-1-image-selection" id="toc-step-1-image-selection" class="nav-link" data-scroll-target="#step-1-image-selection"><span class="header-section-number">3.1</span> Step 1: Image Selection</a></li>
-  <li><a href="#step-2-create-mask" id="toc-step-2-create-mask" class="nav-link" data-scroll-target="#step-2-create-mask"><span class="header-section-number">3.2</span> Step 2: Create Mask</a></li>
-  <li><a href="#step-3-ipadapter-and-animatediff-configuration" id="toc-step-3-ipadapter-and-animatediff-configuration" class="nav-link" data-scroll-target="#step-3-ipadapter-and-animatediff-configuration"><span class="header-section-number">3.3</span> Step 3: IPAdapter and AnimateDiff Configuration</a></li>
-  <li><a href="#step-4-motion-scale-and-batch-size-configuration" id="toc-step-4-motion-scale-and-batch-size-configuration" class="nav-link" data-scroll-target="#step-4-motion-scale-and-batch-size-configuration"><span class="header-section-number">3.4</span> Step 4: Motion Scale and Batch Size Configuration</a></li>
-  <li><a href="#step-5-upscaling-for-enhanced-quality" id="toc-step-5-upscaling-for-enhanced-quality" class="nav-link" data-scroll-target="#step-5-upscaling-for-enhanced-quality"><span class="header-section-number">3.5</span> Step 5: Upscaling for Enhanced Quality</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4</span> Conclusion</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mix Image to Video Creation</h1>
+<h1 class="title">v2v</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jim Pan </p>
-          </div>
-  </div>
     
   
     
@@ -275,103 +252,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>In this workflow, we combine three different images: a girl, rain, and blue flame, filter the content through a <strong>Mask</strong>, and use <strong>IPAdapter</strong> combined with <strong>AnimateDiff</strong> to create an animation of a dragon girl casting a spell in the rain. This workflow demonstrates how changing the motion scale affects the movement of different elements in the scene.</p>
-<p>For example, at a lower motion scale of <strong>0.8</strong>, the rain and fire elements remain static, while at a higher scale of <strong>1.4</strong>, the background becomes distorted, intensifying the animation.</p>
-<p>The complete workflow file can be found below for reference, and it can be imported into <strong>ComfyUI</strong> for further adjustments.</p>
-<p><a href="files/AI _Art&amp;Animation/miximg2vid/Miximg2vid.json">Download the workflow JSON file</a></p>
-<ul>
-<li><strong>Casting Spell Animation Output1</strong>:</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/AI _Art&amp;Animation/miximg2vid/example1.gif" class="img-fluid figure-img"></p>
-<figcaption>Example 1</figcaption>
-</figure>
-</div>
-<ul>
-<li><strong>Casting Spell Animation Output2</strong>:</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/AI _Art&amp;Animation/miximg2vid/example2.gif" class="img-fluid figure-img"></p>
-<figcaption>Example 2</figcaption>
-</figure>
-</div>
-</section>
-<section id="motion-scale-examples" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="motion-scale-examples"><span class="header-section-number">2</span> Motion Scale Examples</h2>
-<p>The following examples show how different motion scales impact the animation:</p>
-<ul>
-<li><p><strong>Motion Scale 0.8</strong>: The rain and fire remain static. This scale is suitable for less dynamic movement scenes.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="files/AI%20_Art&amp;Animation/miximg2vid/0.8.mp4" class="img-fluid" controls=""><a href="files/AI _Art&amp;Animation/miximg2vid/0.8.mp4">Video</a></video></p>
-<figcaption>Motion Scale 0.8</figcaption>
-</figure>
-</div></li>
-<li><p><strong>Motion Scale 1.4</strong>: This introduces background distortion, adding a more dynamic and intense movement.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="files/AI%20_Art&amp;Animation/miximg2vid/1.4.mp4" class="img-fluid" controls=""><a href="files/AI _Art&amp;Animation/miximg2vid/1.4.mp4">Video</a></video></p>
-<figcaption>Motion Scale 1.4</figcaption>
-</figure>
-</div></li>
-</ul>
-</section>
-<section id="workflow-overview" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="workflow-overview"><span class="header-section-number">3</span> Workflow Overview</h2>
-<ul>
-<li><strong>Workflow Setup</strong>: <img src="files/AI _Art&amp;Animation/miximg2vid/miximg2vid_workflow.jpeg" class="img-fluid" alt="Workflow Setup"></li>
-</ul>
-<section id="step-1-image-selection" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="step-1-image-selection"><span class="header-section-number">3.1</span> Step 1: Image Selection</h3>
-<p>Start by providing both positive and negative keywords that describe the video you wish to create. Select the three primary images: the girl, rain, and blue flame, that will be used in the animation.</p>
-<ul>
-<li><strong>Three primary images</strong>: <img src="files/AI _Art&amp;Animation/miximg2vid/miximg.jpeg" class="img-fluid" alt="Three primary images"></li>
-</ul>
-</section>
-<section id="step-2-create-mask" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="step-2-create-mask"><span class="header-section-number">3.2</span> Step 2: Create Mask</h3>
-<p>Apply a <strong>Mask</strong> to filter the necessary elements of each image for precise animation control. In this workflow, the mask is used to isolate and control different parts of the image, such as the background and the character, to allow for distinct animation effects.</p>
-<ul>
-<li><p><strong>Creating the Mask</strong>: After generating the initial image, the mask is created by removing or painting over the areas where the character is present. This involves erasing or blacking out the parts of the image where the character appears. By doing so, the remaining elements (such as the rain and fire) can be controlled separately in the animation, while the masked-out character remains unaffected. This mask ensures that only the intended elements are animated, adding precision to the final video.</p></li>
-<li><p><strong>Mask Example</strong>: <img src="files/AI _Art&amp;Animation/miximg2vid/mask.jpeg" class="img-fluid" alt="Mask images"></p></li>
-</ul>
-<p>This approach provides greater flexibility in fine-tuning the animation, allowing you to focus on specific elements while maintaining control over the overall scene.</p>
-</section>
-<section id="step-3-ipadapter-and-animatediff-configuration" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="step-3-ipadapter-and-animatediff-configuration"><span class="header-section-number">3.3</span> Step 3: IPAdapter and AnimateDiff Configuration</h3>
-<p>In the <strong>IPAdapter</strong> here, you can change the weight and weight type of each image, and set the time points when they appear in the animation. For example, in this workflow, the weight type of the images is set to <strong>ease in</strong>, which allows for a smooth transition at the beginning of the animation.</p>
-<p>At the same time, the appearance time of the flame is set between <strong>0.3</strong> and <strong>0.9</strong> of the overall animation duration, which makes the flame appear in the middle of the sequence, creating the effect of casting a fire spell. This configuration helps to synchronize the animation’s visual elements for a more dynamic and immersive result.</p>
-</section>
-<section id="step-4-motion-scale-and-batch-size-configuration" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="step-4-motion-scale-and-batch-size-configuration"><span class="header-section-number">3.4</span> Step 4: Motion Scale and Batch Size Configuration</h3>
-<p>Adjusting the <strong>motion scale</strong> and <strong>batch size</strong> parameters allows fine-tuning of the animation. The <strong>motion scale</strong> directly impacts how much movement or distortion is applied to the elements in the scene, while the <strong>batch size</strong> controls the number of frames rendered simultaneously.</p>
-<ul>
-<li><p><strong>Motion Scale</strong>: As the motion scale increases, the intensity of the animation also increases. For example, at a lower motion scale (e.g., 0.8), elements like rain and fire remain mostly static, adding subtle animation to the scene. As the motion scale increases (e.g., 1.4), these elements begin to move more dynamically, with greater intensity, and the background may become distorted, creating a more dramatic effect. This allows you to control the level of action or motion depending on your desired output.</p></li>
-<li><p><strong>Batch Size</strong>: The batch size parameter determines how many frames are rendered in each pass. In this workflow, it also dictates the total number of frames in the animation. A larger batch size results in more frames being generated at once, which can be helpful for smoother animation but may increase memory consumption. Conversely, a smaller batch size can reduce memory load but might produce a more segmented animation. In this example, a batch size of 16 was used to balance performance and smoothness.</p></li>
-<li><p><strong>Motion Scale &amp; Batch Size Example</strong>: <img src="files/AI _Art&amp;Animation/miximg2vid/motionscale_batchsize.jpeg" alt="Motion Scale &amp; Batch Size" width="300"></p></li>
-</ul>
-<p>By adjusting these parameters, you can fine-tune the movement and animation strength while managing performance and rendering time.</p>
-</section>
-<section id="step-5-upscaling-for-enhanced-quality" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="step-5-upscaling-for-enhanced-quality"><span class="header-section-number">3.5</span> Step 5: Upscaling for Enhanced Quality</h3>
-<p>Use the <strong>Upscale</strong> process to improve the resolution and visual quality of the final animation.</p>
-<ul>
-<li><strong>Before and After Upscale Comparison</strong>: <img src="files/AI _Art&amp;Animation/miximg2vid/compare_upscale.jpeg" class="img-fluid" alt="Comparison"></li>
-</ul>
-</section>
-</section>
-<section id="conclusion" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4</span> Conclusion</h2>
-<p>This workflow showcases the flexibility and power of combining <strong>IPAdapter</strong> with <strong>AnimateDiff</strong> to create dynamic animations by transitioning between multiple images with various motion scales and batch sizes. By fine-tuning parameters such as motion scale, batch size, and using masks, you can achieve precise control over different elements in the animation, such as the movement of rain and fire.</p>
-<p>The results demonstrate that subtle changes in the <strong>motion scale</strong> can significantly impact the animation intensity, from static background elements to more dynamic and dramatic effects. This workflow is ideal for creating captivating visuals, especially when integrating multiple visual components like characters and environmental effects.</p>
-<p>Experimenting with different configurations can help optimize both the visual output and performance, allowing you to create animations that align perfectly with your creative vision.</p>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
