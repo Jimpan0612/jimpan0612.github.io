@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jim Pan">
 
-<title>Jimpan’s Knowledge Hub - v2v</title>
+<title>Jimpan’s Knowledge Hub - Video to Video Animation Workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -183,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vid2vid.html">v2v</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vid2vid.html">Video to Video Animation Workflow</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -222,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vid2vid.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">v2v</span></a>
+ <span class="menu-text">Video to Video Animation Workflow</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -237,20 +238,42 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#workflow-overview" id="toc-workflow-overview" class="nav-link" data-scroll-target="#workflow-overview"><span class="header-section-number">2</span> Workflow Overview</a>
+  <ul class="collapse">
+  <li><a href="#step-1-input-video" id="toc-step-1-input-video" class="nav-link" data-scroll-target="#step-1-input-video"><span class="header-section-number">2.1</span> Step 1: Input Video</a></li>
+  <li><a href="#step-2-controlnet-configuration" id="toc-step-2-controlnet-configuration" class="nav-link" data-scroll-target="#step-2-controlnet-configuration"><span class="header-section-number">2.2</span> Step 2: ControlNet Configuration</a></li>
+  <li><a href="#step-3-mask-and-ipadapter-background" id="toc-step-3-mask-and-ipadapter-background" class="nav-link" data-scroll-target="#step-3-mask-and-ipadapter-background"><span class="header-section-number">2.3</span> Step 3: Mask and IPAdapter Background</a></li>
+  <li><a href="#step-4-animatediff-application" id="toc-step-4-animatediff-application" class="nav-link" data-scroll-target="#step-4-animatediff-application"><span class="header-section-number">2.4</span> Step 4: AnimateDiff Application</a></li>
+  <li><a href="#step-5-upscaling-and-face-detail" id="toc-step-5-upscaling-and-face-detail" class="nav-link" data-scroll-target="#step-5-upscaling-and-face-detail"><span class="header-section-number">2.5</span> Step 5: Upscaling and Face Detail</a></li>
+  <li><a href="#step-6-final-video-combination" id="toc-step-6-final-video-combination" class="nav-link" data-scroll-target="#step-6-final-video-combination"><span class="header-section-number">2.6</span> Step 6: Final Video Combination</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3</span> Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">v2v</h1>
+<h1 class="title">Video to Video Animation Workflow</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jim Pan </p>
+          </div>
+  </div>
     
   
     
@@ -261,8 +284,106 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>In this workflow, we transform an original video of a cheerleading girl <a href="files/AI _Art&amp;Animation/vid2vid/origin_video.mp4">Origin Video</a> into an anime-style animation of a medieval fantasy woman casting fire magic in a forest. We use <strong>ControlNet</strong>, <strong>Mask</strong>, <strong>IPAdapter</strong>, and <strong>AnimateDiff</strong> to achieve this transformation. The process involves taking a base video and applying frame-by-frame transformation techniques to enhance and modify the visual elements of the video.</p>
+<p>After the animation undergoes one round of upscaling, we utilize the <strong>Face Detailer</strong> block to refine the character’s facial details by reading the character’s skeleton from the upscaled animation. This allows us to generate a <strong>Mask Animation</strong>, where we repaint the masked facial areas to achieve a cleaner and more detailed animation.</p>
+<p>The complete workflow can be found below for reference and can be imported into <strong>ComfyUI</strong> for further adjustments.</p>
+<p><a href="files/AI _Art&amp;Animation/vid2vid/v2v.json">Download the workflow JSON file</a></p>
+<ul>
+<li><strong>Casting Spell Animation Output_Face Detailer</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/vid2vid/output_facedetail.gif" class="img-fluid figure-img"></p>
+<figcaption>Output_Face Detailer</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Comparison: Original vs.&nbsp;Output Video</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/vid2vid/compare_origin.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Compare</figcaption>
+</figure>
+</div>
+</section>
+<section id="workflow-overview" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="workflow-overview"><span class="header-section-number">2</span> Workflow Overview</h2>
+<p>This project is adapted from <a href="https://openart.ai/workflows/elephant_present_36/vid2vid_animatediff-hires-fix-face-detailer-hand-detailer-upscaler-mask-editor/LwT4AB8wEtKQilrjq2G8">Author Akumetsu971</a></p>
+<ul>
+<li><strong>Workflow Setup</strong>: <img src="files/AI _Art&amp;Animation/vid2vid/v2v_workflow.jpg" class="img-fluid" alt="Workflow Setup"></li>
+</ul>
+<section id="step-1-input-video" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="step-1-input-video"><span class="header-section-number">2.1</span> Step 1: Input Video</h3>
+<p>First, import the original video and set the positive and negative keywords describing the video you wish to create. In this step, you can also configure the total frame count and how many frames to skip between each one. Since most original videos have a high frame rate, processing this many frames can consume large amounts of memory and time. It’s important to first assess the quality, resolution, and specific areas that require attention to optimize the workload.</p>
+<ul>
+<li><strong>Load Video</strong>: <img src="files/AI _Art&amp;Animation/vid2vid/loadvideo.jpeg" class="img-fluid" alt="Load Video"></li>
+</ul>
+</section>
+<section id="step-2-controlnet-configuration" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="step-2-controlnet-configuration"><span class="header-section-number">2.2</span> Step 2: ControlNet Configuration</h3>
+<p>In this step, we configure <strong>ControlNet</strong> to manage multiple aspects of the animation, including depth, edge detection, line art, and pose estimation. Each ControlNet model is assigned to a specific task, such as detecting depth or extracting key facial points. By using a combination of models, we can fine-tune the details of the animation and ensure that each element of the video is correctly processed.</p>
+<p>When <strong>ControlNet</strong> is not applied, key details may be lost, leading to less precise and dynamic animations. Below is an example comparing the results of a video without <strong>ControlNet</strong> configurations.</p>
+<ul>
+<li><p><strong>ControlNet Workflow Setup</strong>: <img src="files/AI _Art&amp;Animation/vid2vid/controlNet.jpeg" class="img-fluid" alt="ControlNet"></p></li>
+<li><p><strong>Example video without ControlNet</strong>:<br>
+<video width="400" controls=""> <source src="files/AI _Art&amp;Animation/vid2vid/controlnet_unset_example.mp4" type="video/mp4"> Your browser does not support the video tag. </video></p></li>
+</ul>
+</section>
+<section id="step-3-mask-and-ipadapter-background" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="step-3-mask-and-ipadapter-background"><span class="header-section-number">2.3</span> Step 3: Mask and IPAdapter Background</h3>
+<p>In this step, we apply the mask concept mentioned in the previous section, filtering elements that are essential for the animation. Simultaneously, we use IPAdapter to define the foreground and background of the scene. In this example, the foreground is a medieval fantasy-style woman, and the background is a forest environment. The Mask allows us to isolate and control these elements more effectively, making it possible to modify only the foreground character or the background independently. By adjusting the weight and timing of these elements through IPAdapter, we create a balanced and dynamic animation where the character interacts with the environment seamlessly.</p>
+<ul>
+<li><strong>Mask and IPAdapter</strong>: <img src="files/AI _Art&amp;Animation/vid2vid/mask_ipadapter.jpeg" class="img-fluid" alt="Mask and IPAdapter"></li>
+</ul>
+</section>
+<section id="step-4-animatediff-application" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="step-4-animatediff-application"><span class="header-section-number">2.4</span> Step 4: AnimateDiff Application</h3>
+<p>In this step, we apply <strong>AnimateDiff</strong> to transform the video frames into a consistent animation style. <strong>AnimateDiff</strong> is responsible for blending the different elements together, such as the masked foreground and background images, while maintaining smooth transitions between frames. By adjusting the strength of the <strong>AnimateDiff</strong> model, we can control the overall look of the animation, such as the degree of stylization and the level of detail retained from the original video.</p>
+<ul>
+<li><strong>AnimateDiff</strong>: <img src="files/AI _Art&amp;Animation/vid2vid/animatediff.jpeg" class="img-fluid" alt="AnimateDiff"></li>
+</ul>
+</section>
+<section id="step-5-upscaling-and-face-detail" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="step-5-upscaling-and-face-detail"><span class="header-section-number">2.5</span> Step 5: Upscaling and Face Detail</h3>
+<p>After the initial animation has been generated, we apply <strong>Upscaling</strong> to improve the overall resolution and quality of the animation. Upscaling allows us to increase the clarity and definition of the details, making the final animation look sharper and more refined.</p>
+<p>Once the animation has been upscaled, we use the <strong>Face Detailer</strong> module to focus specifically on the character’s facial features. This step is crucial to ensure that the face is not blurred or distorted during the upscaling process. The <strong>Face Detailer</strong> reads the character’s skeleton and key facial points, using them to generate a mask that isolates the face for more detailed rendering. This mask is then used to repaint the facial area with enhanced detail, ensuring a clear and accurate depiction of facial expressions in each frame.</p>
+<p>By refining the face and ensuring high-quality results, this step elevates the overall aesthetic of the animation, making the character’s appearance more lifelike and visually appealing.</p>
+<ul>
+<li><strong>Face Detail</strong>: <img src="files/AI _Art&amp;Animation/vid2vid/facedetail_mask.jpeg" class="img-fluid" alt="Face Detail"></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/vid2vid/output_upscale.gif" class="img-fluid figure-img"></p>
+<figcaption>Output_Up Scale</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/AI _Art&amp;Animation/vid2vid/output_facedetail.gif" class="img-fluid figure-img"></p>
+<figcaption>Output_Face Detailer</figcaption>
+</figure>
+</div>
+</section>
+<section id="step-6-final-video-combination" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="step-6-final-video-combination"><span class="header-section-number">2.6</span> Step 6: Final Video Combination</h3>
+<p>Finally, after completing all the previous steps of generating frames, upscaling, and refining facial details, we use the <strong>Video Combine</strong> node(KSampler) to merge all the frames into a single cohesive video file.</p>
+<p>This step ensures that all elements — such as the refined face, detailed background, and overall animation — are synchronized and seamlessly combined into the final animation video.</p>
+<ul>
+<li><strong>Compare result</strong>: <img src="files/AI _Art&amp;Animation/vid2vid/compare.jpeg" class="img-fluid" alt="Compare"></li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3</span> Conclusion</h2>
+<p>In this workflow, we successfully transformed a cheerleading video into an anime-style animation of a character casting fire magic, using advanced techniques with <strong>ControlNet</strong>, <strong>IPAdapter</strong>, <strong>AnimateDiff</strong>, and <strong>Face Detailer</strong>. By leveraging these powerful tools, we were able to fine-tune the animation and enhance key elements like the character’s face, background, and overall animation flow.</p>
+<p>The ability to combine masks, adjust motion scales, and use <strong>Face Detailer</strong> for finer facial features allowed for an impressive level of detail in the final output. Each step, from creating masks to applying the final upscaling, contributed to a smooth and polished result.</p>
+<p>With this workflow, users can explore different styles and approaches to video-to-video transformations, experimenting with various control nodes and configurations to fit their unique creative needs.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
