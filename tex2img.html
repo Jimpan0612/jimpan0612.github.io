@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jim Pan">
 
-<title>Jimpan’s Knowledge Hub - Text-to-Image with Draw Things</title>
+<title>Jimpan’s Knowledge Hub - 1. Text-to-Image with Draw Things</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -141,16 +141,16 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-coursesassignments">    
         <li>
-    <a class="dropdown-item" href="./Lab01.html">
- <span class="dropdown-text">Lab 01</span></a>
+    <a class="dropdown-item" href="./6302Lab01.html">
+ <span class="dropdown-text">6302Lab01</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Lab02.html">
- <span class="dropdown-text">Lab 02</span></a>
+    <a class="dropdown-item" href="./6323Lab02.html">
+ <span class="dropdown-text">6323Lab02</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Lab03.html">
- <span class="dropdown-text">Lab 03</span></a>
+    <a class="dropdown-item" href="./6323Lab03.html">
+ <span class="dropdown-text">6323Lab03</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./assign01.html">
@@ -184,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tex2img.html">Text-to-Image with Draw Things</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tex2img.html">1. Text-to-Image with Draw Things</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -205,33 +205,39 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tex2img.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Text-to-Image with Draw Things</span></a>
+ <span class="menu-text">1. Text-to-Image with Draw Things</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2imgbatch_img2vid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Two Image Batch to Video Creation</span></a>
+ <span class="menu-text">2. Two Image Batch to Video Creation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./img2vid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mix Image to Video Creation</span></a>
+ <span class="menu-text">3. Mix Image to Video Creation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vid2vid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video to Video Animation Workflow</span></a>
+ <span class="menu-text">4. Video to Video Animation Workflow</span></a>
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">ipadapter.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./Product_Rendering_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Product Rendering with AI</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
- <span class="menu-text">controlnet.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./Poster_Generation_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Poster Generation with AI</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -263,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Text-to-Image with Draw Things</h1>
+<h1 class="title">1. Text-to-Image with Draw Things</h1>
 </div>
 
 
@@ -288,8 +294,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>Draw Things is a locally run AI image generation app designed for macOS, making it ideal for users who want to create AI-generated artwork on their Mac. When doing lightweight AI drawing, using Draw Things is simpler and more convenient than using ComfyUI.</p>
-<p>This section demonstrates the Text-to-Image generation feature of Draw Things, where images are generated by providing positive and negative keywords with respective weights. The resulting images can have vastly different styles due to the selected checkpoint models, along with the additional use of Lora for fine-tuning certain attributes.</p>
+<p><strong>Draw Things</strong> is a locally run AI image generation app designed for macOS, making it ideal for users who want to create AI-generated artwork on their Mac. When doing lightweight AI drawing, using Draw Things is simpler and more convenient than using ComfyUI.</p>
+<p><a href="https://drawthings.ai">Download Draw Things</a></p>
+<p>This section demonstrates the <strong>Text-to-Image generation</strong> feature of Draw Things, where images are generated by providing positive and negative keywords with respective weights. The app allows users to adjust these parameters to influence the final output’s appearance, enabling control over attributes such as lighting, pose, style, and more.</p>
+<p>A key factor in the results is the <strong>checkpoint model</strong> used. Different checkpoint models can drastically affect the style of the generated image, whether it’s more realistic, anime-inspired, or stylized in a particular way. For example, using a more realistic checkpoint model can produce images with detailed skin textures and lifelike lighting, while an anime-style checkpoint model might create more vibrant, colorful, and exaggerated images.</p>
+<p>Additionally, by incorporating <strong>Lora (Low-Rank Adaptation) models</strong>, you can fine-tune specific attributes in the images, such as facial expressions or clothing details.</p>
 <section id="draw-things-layout-sample" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="draw-things-layout-sample"><span class="header-section-number">1.1</span> Draw Things Layout Sample</h3>
 <div class="quarto-figure quarto-figure-center">
