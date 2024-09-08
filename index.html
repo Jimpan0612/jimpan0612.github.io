@@ -266,6 +266,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#how-to-navigate" id="toc-how-to-navigate" class="nav-link" data-scroll-target="#how-to-navigate"><span class="header-section-number">2.1</span> How to navigate:</a></li>
   </ul></li>
+  <li><a href="#five-steps-of-data-analysis" id="toc-five-steps-of-data-analysis" class="nav-link" data-scroll-target="#five-steps-of-data-analysis"><span class="header-section-number">3</span> Five Steps of Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#資料分析五個步驟" id="toc-資料分析五個步驟" class="nav-link" data-scroll-target="#資料分析五個步驟"><span class="header-section-number">3.1</span> 資料分析五個步驟</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -359,6 +363,28 @@ window.Quarto = {
 <h3 data-number="2.1" class="anchored" data-anchor-id="how-to-navigate"><span class="header-section-number">2.1</span> How to navigate:</h3>
 <p>Use the <strong>navigation bar at the top</strong> to explore different sections of the site, including my learning records and projects. The navigation bar will guide you through various topics, allowing easy access to key areas.</p>
 <p>Feel free to browse around and check out my ongoing experiments and learning outcomes!</p>
+</section>
+</section>
+<section id="five-steps-of-data-analysis" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="five-steps-of-data-analysis"><span class="header-section-number">3</span> Five Steps of Data Analysis</h2>
+<ol type="1">
+<li><p><strong>Define the Topic</strong>: First, discuss with <strong>stakeholders</strong> to confirm their business needs and analysis objectives. Ensure that the data you aim to collect is directly related to these goals, and gain access to the database. At this stage, also consider data privacy and compliance to ensure that the subsequent analysis is lawful.</p></li>
+<li><p><strong>Data Collection</strong>: Based on the analysis needs, use appropriate tools (such as SQL, APIs, or web scraping) to collect data and download it locally for processing. During collection, pay attention to data integrity and accuracy to avoid collecting excessive irrelevant data or missing key information.</p></li>
+<li><p><strong>Data Cleaning</strong>: Use Python’s <code>pandas</code>, <code>numpy</code>, or R’s <code>dplyr</code>, <code>tidyverse</code> tools to clean the data. This step includes filling in missing values, removing outliers, handling duplicate data, and standardizing data formats to ensure the quality of the data meets analysis standards.</p></li>
+<li><p><strong>Data Analysis</strong>: Based on the analysis objectives, use Python or R to perform the data analysis. Common methods include classification, regression, clustering, time series analysis, etc. Depending on the need, choose suitable statistical or machine learning models, and use visualization tools such as <code>matplotlib</code>, <code>seaborn</code> (Python), or <code>ggplot2</code> (R) to visualize the data and discover key trends and patterns.</p></li>
+<li><p><strong>Presentation of Results</strong>: Present the analysis results in a clear and understandable way to <strong>stakeholders</strong>. You can use tools like Tableau or Power BI to create interactive dashboards or generate charts using Python and R visualization tools such as <code>ggplot2</code> and <code>plotly</code>. Additionally, write reports summarizing the results, clearly explaining the business or research implications, ensuring that <strong>stakeholders</strong> can understand and take appropriate action.</p></li>
+</ol>
+<hr>
+<section id="資料分析五個步驟" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="資料分析五個步驟"><span class="header-section-number">3.1</span> 資料分析五個步驟</h3>
+<ol type="1">
+<li><p><strong>明確主題</strong>：首先與<strong>stakeholder</strong>進行討論，確認他們的業務需求和分析目標。確保你所要抓取的資料與這些目標具有直接的關聯性，並獲得資料庫的存取權限。在這個階段，也需要考慮資料的隱私和合規性，以保證後續分析合法合規。</p></li>
+<li><p><strong>資料收集</strong>：根據分析需求，使用合適的工具（例如SQL、API或網頁爬蟲等）來抓取資料，並下載到本地進行處理。在收集過程中，注意確保資料的完整性和準確性，避免收集到過多無關資料或遺漏關鍵資料。</p></li>
+<li><p><strong>資料清理</strong>：使用Python的<code>pandas</code>、<code>numpy</code>，或R的<code>dplyr</code>、<code>tidyverse</code>等工具來清理資料。這一步包括填補缺失值、去除異常值、處理重複資料、統一資料格式等，確保資料質量達到分析的標準。</p></li>
+<li><p><strong>資料分析</strong>：根據分析目標，使用Python或R進行資料分析，常見的分析方法包括分類（classification）、回歸（regression）、聚類（clustering）、時間序列分析等。根據需求，選擇適合的統計或機器學習模型進行分析，並使用圖表工具如<code>matplotlib</code>、<code>seaborn</code>（Python），或<code>ggplot2</code>（R）來進行資料視覺化，幫助發現資料中的關鍵趨勢和模式。</p></li>
+<li><p><strong>結果呈現</strong>：將分析結果以易於理解的方式呈現給<strong>stakeholder</strong>。可以使用Tableau、Power BI等工具製作交互式儀表板，或者使用Python、R中的資料視覺化工具（如<code>ggplot2</code>、<code>plotly</code>）生成圖表。此外，撰寫報告總結分析結果，並清晰地解釋這些結果對業務或研究的影響，確保<strong>stakeholder</strong>能夠理解並採取相應的行動。</p></li>
+</ol>
+<hr>
 <p><span class="math inline">\(y = \alpha+\beta{x}^2\)</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"sans"</span>)</span>
