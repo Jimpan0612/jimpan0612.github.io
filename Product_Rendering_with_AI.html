@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jim Pan">
 
 <title>5. Product Rendering with AI – Jimpan’s Knowledge Hub</title>
 <style>
@@ -242,8 +243,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#workflow-overview" id="toc-workflow-overview" class="nav-link" data-scroll-target="#workflow-overview"><span class="header-section-number">2</span> Workflow Overview</a>
+  <ul class="collapse">
+  <li><a href="#step-1-line-art-creation-with-controlnet" id="toc-step-1-line-art-creation-with-controlnet" class="nav-link" data-scroll-target="#step-1-line-art-creation-with-controlnet"><span class="header-section-number">2.1</span> Step 1: Line Art Creation with ControlNet</a></li>
+  <li><a href="#step-2-strengthening-line-edges-with-soft-edge-line" id="toc-step-2-strengthening-line-edges-with-soft-edge-line" class="nav-link" data-scroll-target="#step-2-strengthening-line-edges-with-soft-edge-line"><span class="header-section-number">2.2</span> Step 2: Strengthening Line Edges with Soft Edge Line</a></li>
+  <li><a href="#step-3-texture-modification-with-positive-conditions" id="toc-step-3-texture-modification-with-positive-conditions" class="nav-link" data-scroll-target="#step-3-texture-modification-with-positive-conditions"><span class="header-section-number">2.3</span> Step 3: Texture Modification with Positive Conditions</a></li>
+  <li><a href="#step-4-advanced-material-changes-with-rgb-mask-and-ipadapter" id="toc-step-4-advanced-material-changes-with-rgb-mask-and-ipadapter" class="nav-link" data-scroll-target="#step-4-advanced-material-changes-with-rgb-mask-and-ipadapter"><span class="header-section-number">2.4</span> Step 4: Advanced Material Changes with RGB Mask and IPAdapter</a></li>
+  <li><a href="#step-5-final-render-and-material-comparison" id="toc-step-5-final-render-and-material-comparison" class="nav-link" data-scroll-target="#step-5-final-render-and-material-comparison"><span class="header-section-number">2.5</span> Step 5: Final Render and Material Comparison</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3</span> Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -257,6 +273,12 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jim Pan </p>
+          </div>
+  </div>
     
   
     
@@ -267,8 +289,118 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>This workflow is inspired by the tutorial from <a href="https://youtu.be/xtyW71GmmWc?si=pNNm4lLCAkQGDi-_">惫懒の欧阳川</a>. We’ll demonstrate how to use <strong>ComfyUI</strong>, <strong>ControlNet</strong>, and <strong>IPAdapter</strong> to create high-quality product renders. AI-driven product rendering allows you to generate realistic product images with minimal manual input, making it ideal for e-commerce, advertising, and product design.</p>
+<p>Before diving into the workflow, we’d like to introduce <a href="https://www.shakker.ai/">Shakker</a>, a platform offering a wide range of commercially usable models and assets. Models purchased from Shakker are licensed for commercial use, making it a valuable resource for product designers and 3D artists looking to integrate professional models into their projects.</p>
+<p>In this tutorial, we’ll focus on enhancing a backpack’s line art using <strong>ControlNet</strong>. The process starts by using <strong>LineArt ControlNet</strong> to define the structure, followed by applying <strong>Soft Edge Line</strong> to refine and strengthen the edges. Once the line art is complete, we’ll demonstrate a simple texture modification using <strong>positive condition</strong> keywords. Finally, we’ll apply a more advanced material change using an <strong>RGB mask</strong>, where <strong>IPAdapter</strong> selectively modifies the texture of the red areas in the design, allowing for precise control over specific elements of the product’s appearance.</p>
+<p>The complete workflow is available below, and you can import the JSON file into <strong>ComfyUI</strong> by dragging it into the interface.</p>
+<p><a href="./files/AI _Art&amp;Animation/Product_Rendering_with_AI/product_render_workflow.json">Download the workflow JSON file</a></p>
+<ul>
+<li><strong>Rendered Product Example</strong>:</li>
+</ul>
+<p><img src="./files/AI _Art&amp;Animation/Product_Rendering_with_AI/render_crocodile_skin_weight0.3.jpeg" alt="Rendered Product Example" width="400"></p>
+</section>
+<section id="workflow-overview" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="workflow-overview"><span class="header-section-number">2</span> Workflow Overview</h2>
+<ul>
+<li><strong>Workflow Setup</strong>: <img src="./files/AI _Art&amp;Animation/Product_Rendering_with_AI/product_render_workflow.jpeg" class="img-fluid" alt="Workflow Setup"></li>
+</ul>
+<p>Before diving into the more complex product rendering process, it’s essential to first set up a basic <strong>ComfyUI</strong> workflow using <strong>positive</strong> and <strong>negative keywords</strong>. This step helps create a foundational product render by providing clear descriptions of what the product should look like and eliminating any unwanted elements.</p>
+<ul>
+<li><strong>Positive Keywords</strong>:</li>
+</ul>
+<pre class="plaintext"><code>(masterpiece, best quality, highres:1.0), Exquisite gifts, product design, zipper, backpack, simple background, booth_No no_human, Simple decoration</code></pre>
+<ul>
+<li><strong>Negative Keywords</strong>:</li>
+</ul>
+<pre><code>embedding: EasyNavigate, (blur, Low Res:1.2), gold, </code></pre>
+<p>This basic workflow will generate an initial render of the product based on your keywords.</p>
+<ul>
+<li><strong>Basic Workflow</strong>: <img src="./files/AI _Art&amp;Animation/Product_Rendering_with_AI/basic_workflow.jpeg" class="img-fluid" alt="Basic Workflow"></li>
+</ul>
+<section id="step-1-line-art-creation-with-controlnet" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="step-1-line-art-creation-with-controlnet"><span class="header-section-number">2.1</span> Step 1: Line Art Creation with ControlNet</h3>
+<p>Begin by preparing the line art of the backpack using <strong>ControlNet</strong>. The <strong>LineArt ControlNet</strong> model is used to define the backpack’s structure, ensuring that the important design elements are captured accurately. This step serves as the foundation for further modifications.</p>
+<ul>
+<li><strong>Bag Sample</strong>:</li>
+</ul>
+<p><img src="./files/AI _Art&amp;Animation/Product_Rendering_with_AI/bag.jpeg" alt="Rendered Product Example" width="300"></p>
+<ul>
+<li><strong>LineArt ControlNet Example</strong>: <img src="./files/AI _Art&amp;Animation/Product_Rendering_with_AI/loadimage_controlnet.jpeg" class="img-fluid" alt="LineArt ControlNet"></li>
+</ul>
+</section>
+<section id="step-2-strengthening-line-edges-with-soft-edge-line" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="step-2-strengthening-line-edges-with-soft-edge-line"><span class="header-section-number">2.2</span> Step 2: Strengthening Line Edges with Soft Edge Line</h3>
+<p>After generating the line art, the <strong>Soft Edge Line</strong> technique is applied to deepen and refine the line edges, giving the image a more defined and professional look. This step enhances the overall clarity of the design, making the details stand out.</p>
+<ul>
+<li><p><strong>Soft Edge Line Example</strong>:<br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/softedgeline.jpeg" class="img-fluid" alt="Soft Edge Line"></p></li>
+<li><p><strong>Soft Edge Line Workflow</strong>:<br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/loadimage_controlnet_workflow.jpeg" class="img-fluid" alt="Soft Edge Line Workflow"></p></li>
+<li><p><strong>Multiple ControlNet and Soft Edge Line Workflow</strong>:<br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/softedgeline_workflow.jpeg" class="img-fluid" alt="Multiple ControlNet Workflow"></p></li>
+</ul>
+</section>
+<section id="step-3-texture-modification-with-positive-conditions" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="step-3-texture-modification-with-positive-conditions"><span class="header-section-number">2.3</span> Step 3: Texture Modification with Positive Conditions</h3>
+<p>Once the line art is complete, we demonstrate a simple texture modification using <strong>positive condition</strong> keywords. These keywords describe the material or texture you wish to apply to the backpack. For example, “leather” or “canvas” can be used to generate different textures.</p>
+<ul>
+<li><p><strong>Leather Texture Example</strong>:<br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/positive_leather.jpeg" alt="Leather Texture" width="400"></p></li>
+<li><p><strong>Canvas Texture Example</strong>:<br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/positive_canvas.jpeg" alt="Canvas Texture" width="400"></p></li>
+</ul>
+</section>
+<section id="step-4-advanced-material-changes-with-rgb-mask-and-ipadapter" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="step-4-advanced-material-changes-with-rgb-mask-and-ipadapter"><span class="header-section-number">2.4</span> Step 4: Advanced Material Changes with RGB Mask and IPAdapter</h3>
+<p>In this step, the <strong>RGB mask</strong> is created using <strong>Photoshop</strong> to isolate different parts of the product for specific material alterations. The line art is converted into an RGB image, where different sections (like straps, pockets, and body) are assigned distinct colors (red, green, blue). This allows precise control over which parts of the product will receive material changes.</p>
+<p>Before applying textures, it is recommended to use a <strong>color tool</strong> to inspect the color range and ensure accurate targeting of the channels (red, green, blue). This helps avoid misalignment when applying textures to specific parts of the product.</p>
+<ul>
+<li><strong>RGB Mask Example</strong>:<br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/bagRGB.jpeg" alt="RGB Mask Example" width="400"></li>
+</ul>
+<p>Once the RGB mask is created, the <strong>red channel</strong> is isolated and used to apply a new texture to the selected area of the backpack using <strong>IPAdapter</strong>.</p>
+<ul>
+<li><strong>Mask Preview</strong>:<br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/mask_preview.jpeg" class="img-fluid" alt="Mask Preview"></li>
+</ul>
+<p>Finally, the <strong>IPAdapter</strong> is applied to modify the texture of the red area, giving the backpack a crocodile skin effect, while leaving the green and blue areas unchanged.</p>
+<ul>
+<li><strong>Material Applied to Mask</strong>:<br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/mask_addmaterial.jpeg" class="img-fluid" alt="Material Applied to Mask"></li>
+</ul>
+</section>
+<section id="step-5-final-render-and-material-comparison" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="step-5-final-render-and-material-comparison"><span class="header-section-number">2.5</span> Step 5: Final Render and Material Comparison</h3>
+<p>In this step, we show the final product render using different materials and demonstrate how adjusting the weight of each material influences the final outcome. Below, you’ll see the original material images followed by the renders that incorporate these materials. This comparison allows you to better understand the impact of texture and weight in product rendering.</p>
+<ul>
+<li><p><strong>Material 1: Crocodile Skin</strong><br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/material_crocodile_skin.jpeg" class="img-fluid" width="150" alt="Crocodile Skin Material"></p></li>
+<li><p><strong>Final Render with Crocodile Skin (Weight 0.3)</strong><br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/render_crocodile_skin_weight0.3.jpeg" class="img-fluid" width="400" alt="Render with Crocodile Skin - Weight 0.3"></p></li>
+<li><p><strong>Final Render with Crocodile Skin (Weight 0.5)</strong><br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/render_crocodile_skin_weight0.5.jpeg" class="img-fluid" width="400" alt="Render with Crocodile Skin - Weight 0.5"></p></li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>Material 2: Distressed Fabric</strong><br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/material_distressed_fabric.jpg" class="img-fluid" width="150" alt="Distressed Fabric Material"></p></li>
+<li><p><strong>Final Render with Distressed Fabric (Weight 0.6)</strong><br>
+<img src="files/AI _Art&amp;Animation/Product_Rendering_with_AI/render_distressed_fabric_weight0.6.jpeg" class="img-fluid" width="400" alt="Render with Distressed Fabric - Weight 0.6"></p></li>
+</ul>
+<p>By adjusting the weight of each material, we can achieve varying levels of influence on the product’s texture, allowing for precise control over the final appearance.</p>
+</section>
+</section>
+<section id="conclusion" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3</span> Conclusion</h2>
+<p>In this workflow, we’ve demonstrated how to leverage <strong>ComfyUI</strong>, <strong>ControlNet</strong>, and <strong>IPAdapter</strong> to create high-quality product renders. By combining multiple steps, such as enhancing line art, applying texture modifications through positive condition keywords, and using advanced techniques like <strong>RGB masking</strong>, we’ve shown how AI-driven tools can give you precise control over specific design elements.</p>
+<p>This process is highly versatile, making it ideal for industries like e-commerce, advertising, and product design where high-quality visuals are essential. By adjusting weights and materials, you can further refine your product’s final appearance, ensuring that each render meets your aesthetic goals.</p>
+<p>While this workflow focused on using the <strong>red channel</strong> to modify textures, in practice, multiple channels can be utilized to apply different materials to various parts of a product. This technique allows for more precise control and customization, enabling designers to apply specific textures to different regions, creating a more intricate and detailed final render.</p>
+<p>Experimenting with different textures and weights allows for a wide variety of outcomes, demonstrating the power of AI in creating customizable and professional product renders with minimal manual input.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
