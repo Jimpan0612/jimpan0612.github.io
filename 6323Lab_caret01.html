@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jim Pan">
 
-<title>Lab 06: Tables in ArcGIS – Jimpan’s Knowledge Hub</title>
+<title>Lab: caret Random Forest – Jimpan’s Knowledge Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -124,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./arcgis.html" aria-current="page"> 
+    <a class="nav-link" href="./arcgis.html"> 
 <span class="menu-text">ArcGIS</span></a>
   </li>  
   <li class="nav-item">
@@ -188,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6381Lab06.html">Lab 06: Tables in ArcGIS</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6323Lab_caret01.html">Lab: caret Random Forest</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -202,68 +235,38 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./arcgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ArcGIS Labs Overview</span></a>
+  <a href="./6302Lab01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EPPS 6302: Lab01</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6381Lab01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 01: Introduction to ArcGIS and Basic Map Operations</span></a>
+  <a href="./6323Lab02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EPPS 6323: Lab02</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6381Lab02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 02: Projections in ArcGIS</span></a>
+  <a href="./6323Lab03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EPPS 6323: Lab03</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6381Lab03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 03: Data Entry and Digitizing</span></a>
+  <a href="./6323Lab_caret01.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab: caret Random Forest</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6381Lab04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 04: Digitizing and Topology</span></a>
+  <a href="./assign01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">assign01.html</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6381Lab05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 05: Digital Data and Table Operations</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab06.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lab 06: Tables in ArcGIS</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 07: Spatial Selection in ArcGIS</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 08: Spatial Analysis Buffering and Overlay</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 09: Raster Analysis</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6381Lab10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 10: Remote Sensing Data Analysis</span></a>
+  <a href="./assign02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">assign02.html</span></a>
   </div>
 </li>
     </ul>
@@ -276,20 +279,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives"><span class="header-section-number">2</span> Objectives</a></li>
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><span class="header-section-number">3</span> Tasks</a>
+  <li><a href="#knowledge-mining-caretrandom-forest" id="toc-knowledge-mining-caretrandom-forest" class="nav-link active" data-scroll-target="#knowledge-mining-caretrandom-forest"><span class="header-section-number">1</span> Knowledge Mining: caret/Random Forest</a>
   <ul class="collapse">
-  <li><a href="#selecting-by-attribute" id="toc-selecting-by-attribute" class="nav-link" data-scroll-target="#selecting-by-attribute"><span class="header-section-number">3.1</span> 1. Selecting by Attribute</a></li>
-  <li><a href="#creating-and-joining-tables" id="toc-creating-and-joining-tables" class="nav-link" data-scroll-target="#creating-and-joining-tables"><span class="header-section-number">3.2</span> 2. Creating and Joining Tables</a></li>
+  <li><a href="#load-required-libraries" id="toc-load-required-libraries" class="nav-link" data-scroll-target="#load-required-libraries"><span class="header-section-number">1.1</span> Load Required Libraries</a></li>
   </ul></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4</span> Results</a>
+  <li><a href="#example-1-random-forest-classification-with-the-iris-dataset" id="toc-example-1-random-forest-classification-with-the-iris-dataset" class="nav-link" data-scroll-target="#example-1-random-forest-classification-with-the-iris-dataset"><span class="header-section-number">2</span> Example 1: Random Forest Classification with the Iris Dataset</a>
   <ul class="collapse">
-  <li><a href="#high-population-counties-with-high-oldyoung-ratios" id="toc-high-population-counties-with-high-oldyoung-ratios" class="nav-link" data-scroll-target="#high-population-counties-with-high-oldyoung-ratios"><span class="header-section-number">4.1</span> High Population Counties with High Old/Young Ratios</a></li>
-  <li><a href="#macon-country-north-carolina-soil-fertility" id="toc-macon-country-north-carolina-soil-fertility" class="nav-link" data-scroll-target="#macon-country-north-carolina-soil-fertility"><span class="header-section-number">4.2</span> Macon Country North Carolina Soil Fertility</a></li>
-  <li><a href="#us-counties-cow-density-per-square-mile" id="toc-us-counties-cow-density-per-square-mile" class="nav-link" data-scroll-target="#us-counties-cow-density-per-square-mile"><span class="header-section-number">4.3</span> US Counties Cow Density per Square Mile</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation"><span class="header-section-number">2.1</span> Data Preparation</a></li>
+  <li><a href="#traintest-split" id="toc-traintest-split" class="nav-link" data-scroll-target="#traintest-split"><span class="header-section-number">2.2</span> Train/Test Split</a></li>
+  <li><a href="#train-the-random-forest-model" id="toc-train-the-random-forest-model" class="nav-link" data-scroll-target="#train-the-random-forest-model"><span class="header-section-number">2.3</span> Train the Random Forest Model</a></li>
+  <li><a href="#evaluate-the-model" id="toc-evaluate-the-model" class="nav-link" data-scroll-target="#evaluate-the-model"><span class="header-section-number">2.4</span> Evaluate the Model</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+  <li><a href="#example-2-random-forest-regression-with-the-mtcars-dataset" id="toc-example-2-random-forest-regression-with-the-mtcars-dataset" class="nav-link" data-scroll-target="#example-2-random-forest-regression-with-the-mtcars-dataset"><span class="header-section-number">3</span> Example 2: Random Forest Regression with the mtcars Dataset</a>
+  <ul class="collapse">
+  <li><a href="#data-preparation-1" id="toc-data-preparation-1" class="nav-link" data-scroll-target="#data-preparation-1"><span class="header-section-number">3.1</span> Data Preparation</a></li>
+  <li><a href="#train-the-random-forest-model-1" id="toc-train-the-random-forest-model-1" class="nav-link" data-scroll-target="#train-the-random-forest-model-1"><span class="header-section-number">3.2</span> Train the Random Forest Model</a></li>
+  <li><a href="#evaluate-the-model-1" id="toc-evaluate-the-model-1" class="nav-link" data-scroll-target="#evaluate-the-model-1"><span class="header-section-number">3.3</span> Evaluate the Model</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4</span> Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -298,19 +306,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 06: Tables in ArcGIS</h1>
+<h1 class="title">Lab: caret Random Forest</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jim Pan </p>
-          </div>
-  </div>
     
   
     
@@ -321,61 +323,234 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>This lab focuses on tabular data management in ArcGIS. It involves viewing, selecting, reordering, and updating tabular data. The lab uses the USCounties.shp data layer and the soils.shp data set for various tasks.</p>
+<section id="knowledge-mining-caretrandom-forest" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Knowledge Mining: caret/Random Forest</h1>
+<p>In this lab, we will explore the <strong>caret</strong> package and its use for building Random Forest models. This includes both classification and regression problems, using the <code>iris</code> and <code>mtcars</code> datasets as examples.</p>
+<p>We reference the works of Kuhn et al.&nbsp;(2008) and the caret documentation (2020) for additional insight into building predictive models.</p>
+<section id="load-required-libraries" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="load-required-libraries"><span class="header-section-number">1.1</span> Load Required Libraries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("caret", "dplyr", "ggplot2", "tidyr"))</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="objectives" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="objectives"><span class="header-section-number">2</span> Objectives</h2>
+</section>
+<section id="example-1-random-forest-classification-with-the-iris-dataset" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Example 1: Random Forest Classification with the Iris Dataset</h1>
+<p>We will use the iris dataset to demonstrate the implementation of a classification model using Random Forests.</p>
+<section id="data-preparation" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">2.1</span> Data Preparation</h2>
+<p>First, load the iris dataset and visualize the relationship between Sepal length, width, and species.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the iris dataset</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the dataset</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data visualization</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6323Lab_caret01_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="traintest-split" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="traintest-split"><span class="header-section-number">2.2</span> Train/Test Split</h2>
+<p>Next, split the data into a training set (70%) and a testing set (30%).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets (70% train, 30% test)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>train_index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(iris), <span class="fl">0.7</span> <span class="sc">*</span> <span class="fu">nrow</span>(iris))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> iris[train_index, ]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> iris[<span class="sc">-</span>train_index, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="train-the-random-forest-model" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="train-the-random-forest-model"><span class="header-section-number">2.3</span> Train the Random Forest Model</h2>
+<p>We set up 10-fold cross-validation and train the model using the train() function from the caret package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the training control</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>train_control <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"cv"</span>, <span class="at">number =</span> <span class="dv">10</span>) <span class="co"># 10-fold Cross-Validation</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> caret<span class="sc">::</span><span class="fu">train</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> train_data,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">method =</span> <span class="st">"rf"</span>, <span class="co"># Random Forest</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">trControl =</span> train_control,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">tuneLength =</span> <span class="dv">3</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"scale"</span>))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model details</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Random Forest 
+
+105 samples
+  4 predictor
+  3 classes: 'setosa', 'versicolor', 'virginica' 
+
+Pre-processing: centered (4), scaled (4) 
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 95, 95, 95, 95, 93, 95, ... 
+Resampling results across tuning parameters:
+
+  mtry  Accuracy   Kappa    
+  2     0.9518182  0.9274934
+  3     0.9518182  0.9274934
+  4     0.9518182  0.9274934
+
+Accuracy was used to select the optimal model using the largest value.
+The final value used for the model was mtry = 2.</code></pre>
+</div>
+</div>
+</section>
+<section id="evaluate-the-model" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="evaluate-the-model"><span class="header-section-number">2.4</span> Evaluate the Model</h2>
+<p>Finally, predict the species for the test data and calculate the accuracy of the model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test_data)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the accuracy of the model</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(predictions <span class="sc">==</span> test_data<span class="sc">$</span>Species)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Accuracy:"</span>, accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.9777778</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="example-2-random-forest-regression-with-the-mtcars-dataset" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Example 2: Random Forest Regression with the mtcars Dataset</h1>
+<p>Now, we will demonstrate regression using the mtcars dataset.</p>
+<section id="data-preparation-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="data-preparation-1"><span class="header-section-number">3.1</span> Data Preparation</h2>
+<p>Load the dataset and split it similarly to the previous example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the mtcars dataset</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the dataset</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets (70% train, 30% test)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>train_index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mtcars), <span class="fl">0.7</span> <span class="sc">*</span> <span class="fu">nrow</span>(mtcars))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> mtcars[train_index, ]</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> mtcars[<span class="sc">-</span>train_index, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="train-the-random-forest-model-1" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="train-the-random-forest-model-1"><span class="header-section-number">3.2</span> Train the Random Forest Model</h2>
+<p>We now train a random forest regression model to predict the mpg variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the training control</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>train_control <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"cv"</span>, <span class="at">number =</span> <span class="dv">10</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the regression model</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(mpg <span class="sc">~</span> ., <span class="at">data =</span> train_data,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">method =</span> <span class="st">"rf"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">trControl =</span> train_control,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">tuneLength =</span> <span class="dv">3</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"scale"</span>))</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model details</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Random Forest 
+
+22 samples
+10 predictors
+
+Pre-processing: centered (10), scaled (10) 
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 19, 20, 20, 20, 20, 20, ... 
+Resampling results across tuning parameters:
+
+  mtry  RMSE      Rsquared   MAE     
+   2    2.796874  0.9759378  2.437864
+   6    2.636784  0.9765995  2.276657
+  10    2.627549  0.9745273  2.270757
+
+RMSE was used to select the optimal model using the smallest value.
+The final value used for the model was mtry = 10.</code></pre>
+</div>
+</div>
+</section>
+<section id="evaluate-the-model-1" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="evaluate-the-model-1"><span class="header-section-number">3.3</span> Evaluate the Model</h2>
+<p>Evaluate the model’s performance using the Root Mean Squared Error (RMSE) on the test data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test data</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test_data)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the RMSE (Root Mean Squared Error) of the model</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>RMSE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((predictions <span class="sc">-</span> test_data<span class="sc">$</span>mpg)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"RMSE:"</span>, RMSE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>RMSE: 2.003634</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Conclusion</h1>
+<p>In this lab, we demonstrated how to use the caret package to train and evaluate Random Forest models for both classification and regression tasks. By splitting the data, setting up cross-validation, and using caret’s train() function, we efficiently built models for both the iris and mtcars datasets. The results demonstrate the utility of Random Forests for predictive tasks.</p>
+</section>
+<section id="references" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
 <ul>
-<li>Practice tabular data management in ArcGIS.</li>
-<li>Learn how to create and join tables.</li>
+<li>Kuhn, Max. 2008. “Building predictive models in R using the caret package.” Journal of Statistical Software 28: 1-26.</li>
+<li>Kuhn, Max, et al.&nbsp;“Package ‘caret’.” The R Journal 223, no. 7 (2020).</li>
+<li>[caret Documentation](https://cran.radicaldevelop.com/web/packages/caret/caret.pdf (2023)</li>
 </ul>
-</section>
-<section id="tasks" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="tasks"><span class="header-section-number">3</span> Tasks</h2>
-<section id="selecting-by-attribute" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="selecting-by-attribute"><span class="header-section-number">3.1</span> 1. Selecting by Attribute</h3>
-<p>Explore and select features using the Select by Attributes tool in ArcGIS. For example, create a map displaying burglary rates for each county and normalize these rates by the population.</p>
-</section>
-<section id="creating-and-joining-tables" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="creating-and-joining-tables"><span class="header-section-number">3.2</span> 2. Creating and Joining Tables</h3>
-<p>Create a new table containing soil properties, then join this table with the soils data layer. The joined table will be used to create a layout showing soils by fertility class.</p>
-</section>
-</section>
-<section id="results" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="results"><span class="header-section-number">4</span> Results</h2>
-<section id="high-population-counties-with-high-oldyoung-ratios" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="high-population-counties-with-high-oldyoung-ratios"><span class="header-section-number">4.1</span> High Population Counties with High Old/Young Ratios</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/6381LabImages/6381Lab00006/OldRatioCountries.jpeg" class="img-fluid figure-img"></p>
-<figcaption>High Population Counties with High Old/Young Ratios</figcaption>
-</figure>
-</div>
-</section>
-<section id="macon-country-north-carolina-soil-fertility" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="macon-country-north-carolina-soil-fertility"><span class="header-section-number">4.2</span> Macon Country North Carolina Soil Fertility</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/6381LabImages/6381Lab00006/SoilFert.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Macon Country North Carolina Soil Fertility</figcaption>
-</figure>
-</div>
-</section>
-<section id="us-counties-cow-density-per-square-mile" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="us-counties-cow-density-per-square-mile"><span class="header-section-number">4.3</span> US Counties Cow Density per Square Mile</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="files/6381LabImages/6381Lab00006/CowDensity.jpeg" class="img-fluid figure-img"></p>
-<figcaption>US Counties Cow Density per Square Mile</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="conclusion" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5</span> Conclusion</h2>
-<p>This lab provided hands-on experience with selecting attributes, managing tables, and joining data in ArcGIS. The ability to manipulate and display tabular data is crucial for effective GIS analysis.</p>
 
 
 </section>
