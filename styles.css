@@ -80,21 +80,21 @@ pre, code {
 
 /* 更新日志部分样式 */
 .update-log {
-  background-color: #e6f4e6; /* 淡绿色背景 */
-  border-left: 5px solid #769C70; /* 深抹茶色左边框 */
+  background-color: #8F9779; /* 抹茶色背景 */
+  border-left: 5px solid #4B3621; /* 深棕色边框 */
   padding: 10px 20px;
   margin: 20px 0;
   border-radius: 5px;
 }
 
 .update-log h3 {
-  color: #769C70; /* 深抹茶色标题 */
+  color: #F5F5F5; /* 米白色标题 */
   margin-top: 0;
 }
 
 .update-log ul {
   list-style-type: square; /* 方块样式的列表符号 */
-  color: #4a7745; /* 更深的茶绿色，增强可读性 */
+  color: #333333; /* 深灰色，专业感增强 */
 }
 
 .update-log ul li {
