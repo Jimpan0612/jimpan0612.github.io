@@ -1,0 +1,132 @@
+/* 自定義全局樣式 */
+
+/* 全局字體和背景設置 */
+body {
+  background-color: #fdf5e6;  /* 米色背景 */
+  color: #333;  /* 全局文本顏色 */
+}
+
+/* 調整主內容區域的最大寬度 */
+.main-content {
+  max-width: 1200px;  /* 設置較大的最大寬度 */
+  margin: 0 auto;     /* 自動置中，保持兩側對稱 */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 當 sidebar 不存在時，內容自動填充更多空間 */
+@media (min-width: 992px) {
+  .main-content.no-sidebar {
+    max-width: 1400px; /* 增加最大寬度 */
+  }
+}
+
+/* 設置不同裝置的文本寬度和間距 */
+@media (max-width: 768px) {
+  .main-content {
+    max-width: 100%;  /* 手機裝置時，寬度自適應 */
+    padding: 15px;
+  }
+}
+
+/* 主內容文本左移或填充更多空白 */
+.main-content {
+  text-align: left;
+  padding-left: 0;  /* 移除左側的額外空白 */
+  padding-right: 0; /* 移除右側的額外空白 */
+}
+
+/* 頂部導航欄樣式 */
+.navbar {
+  background-color: #d2b48c;  /* 卡其色背景 */
+  border-bottom: 2px solid #8b4513;  /* 深棕色邊框 */
+}
+
+/* 確保導航欄鏈接的顏色應用 */
+.navbar a {
+  color: #333;  /* 導航欄鏈接顏色為深灰色，使用 !important 確保顏色應用 */
+  transition: color 0.3s ease;  /* 添加過渡效果，鼠標懸停時顏色平滑變化 */
+}
+
+.navbar a:hover {
+  color: #ff8c00 !important;  /* 鼠標懸停時的鏈接顏色為亮橙色 */
+}
+
+/* 確保導航欄圖標的顯示 */
+.navbar .fa-github, .navbar .fa-linkedin {
+  font-size: 1.3em;  /* 調整圖標大小 */
+  color: #333 !important;  /* 確保圖標顏色與其他鏈接一致 */
+  margin-left: 5px;  /* 給圖標與其他鏈接留出間距 */
+  transition: color 0.5s ease;  /* 添加過渡效果，鼠標懸停時顏色平滑變化 */
+}
+
+/* 鼠標懸停時的圖標變色效果 */
+.navbar .fa-github:hover, .navbar .fa-linkedin:hover {
+  color: #ff8c00 !important;  /* 鼠標懸停時的顏色變為亮橙色 */
+}
+
+/* 標題樣式 */
+h1, h2, h3, h4, h5, h6 {
+  color: #8b4513;  /* 深棕色標題，符合卡其色調 */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);  /* 輕微的陰影效果，使標題更具立體感 */
+}
+
+/* 鏈接樣式 */
+a {
+  color: #8b4513;  /* 使用深棕色，符合整體配色 */
+  text-decoration: underline;  /* 保持鏈接的可見性 */
+}
+
+a:hover {
+  color: #d2691e;  /* 鼠標懸停時的顏色變為巧克力色，提供對比 */
+}
+
+/* 按鈕樣式 */
+.btn {
+  background-color: #d2b48c;  /* 使用卡其色按鈕背景 */
+  border: 2px solid #8b4513;  /* 深棕色按鈕邊框 */
+  color: #333;  /* 按鈕文字顏色 */
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #8b4513;  /* 鼠標懸停時按鈕顏色變深 */
+  border-color: #d2b48c;  /* 鼠標懸停時邊框顏色變淺 */
+  color: #fff;  /* 鼠標懸停時按鈕文字顏色變為白色 */
+}
+
+/* 代碼塊樣式 */
+pre, code {
+  background-color: #f5f5f5;  /* 保持代碼塊的背景顏色一致 */
+  border: 1px dashed #ddd;  /* 使用虛線邊框，符合 Sketchy 主題的手繪風格 */
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.95em;
+  color: #2c3e50;
+}
+
+/* 更新日誌部分樣式 */
+.update-log {
+  background-color: #8F9779; /* 抹茶色背景 */
+  border-left: 5px solid #4B3621; /* 深棕色邊框 */
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.update-log h3 {
+  color: #F5F5F5; /* 米白色標題 */
+  margin-top: 0;
+}
+
+.update-log ul {
+  list-style-type: square; /* 方塊樣式的列表符號 */
+  color: #333333; /* 深灰色，專業感增強 */
+}
+
+.update-log ul li {
+  margin-bottom: 5px; /* 列表項之間的間距 */
+}
