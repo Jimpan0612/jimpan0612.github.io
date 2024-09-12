@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jim">
+<meta name="dcterms.date" content="2024-09-12">
 
 <title>6302_6356 Labs – Jimpan’s Knowledge Hub</title>
 <style>
@@ -150,14 +152,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./6323Lab_index.html">
  <span class="dropdown-text">6323Labs</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./assign01.html">
- <span class="dropdown-text">Assignment 1</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./assign02.html">
- <span class="dropdown-text">Assignment 2</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -182,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">6302_6356 Labs</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6302_6356Lab_index.html">6302_6356 Labs</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -194,6 +188,12 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6302_6356Lab_index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">6302_6356 Labs</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./6302Lab01.html" class="sidebar-item-text sidebar-link">
@@ -234,32 +234,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#labs" id="toc-labs" class="nav-link active" data-scroll-target="#labs"><span class="header-section-number">1</span> 6302_6356 Labs</a>
+  <li><a href="#lab01-basic-commands-and-matrix-operations-in-r" id="toc-lab01-basic-commands-and-matrix-operations-in-r" class="nav-link active" data-scroll-target="#lab01-basic-commands-and-matrix-operations-in-r"><span class="header-section-number">1</span> Lab01: Basic Commands and Matrix Operations in R</a>
   <ul class="collapse">
-  <li><a href="#lab01-basic-commands-and-matrix-operations-in-r" id="toc-lab01-basic-commands-and-matrix-operations-in-r" class="nav-link" data-scroll-target="#lab01-basic-commands-and-matrix-operations-in-r"><span class="header-section-number">1.1</span> Lab01: Basic Commands and Matrix Operations in R</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives" id="toc-key-learning-objectives" class="nav-link" data-scroll-target="#key-learning-objectives"><span class="header-section-number">1.1.1</span> Key Learning Objectives:</a></li>
+  <li><a href="#key-learning-objectives" id="toc-key-learning-objectives" class="nav-link" data-scroll-target="#key-learning-objectives"><span class="header-section-number">1.1</span> Key Learning Objectives:</a></li>
   </ul></li>
-  <li><a href="#lab02-text-mining-with-r-wordcloud-creation" id="toc-lab02-text-mining-with-r-wordcloud-creation" class="nav-link" data-scroll-target="#lab02-text-mining-with-r-wordcloud-creation"><span class="header-section-number">1.2</span> Lab02: Text Mining with R – Wordcloud Creation</a>
+  <li><a href="#lab02-text-mining-with-r-wordcloud-creation" id="toc-lab02-text-mining-with-r-wordcloud-creation" class="nav-link" data-scroll-target="#lab02-text-mining-with-r-wordcloud-creation"><span class="header-section-number">2</span> Lab02: Text Mining with R – Wordcloud Creation</a>
   <ul class="collapse">
-  <li><a href="#key-learning-objectives-1" id="toc-key-learning-objectives-1" class="nav-link" data-scroll-target="#key-learning-objectives-1"><span class="header-section-number">1.2.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">1.2.2</span> Tools:</a></li>
+  <li><a href="#key-learning-objectives-1" id="toc-key-learning-objectives-1" class="nav-link" data-scroll-target="#key-learning-objectives-1"><span class="header-section-number">2.1</span> Key Learning Objectives:</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">2.2</span> Tools:</a></li>
   </ul></li>
-  <li><a href="#lab03-quanteda-text-analysis" id="toc-lab03-quanteda-text-analysis" class="nav-link" data-scroll-target="#lab03-quanteda-text-analysis"><span class="header-section-number">1.3</span> Lab03: Quanteda Text Analysis</a>
+  <li><a href="#lab03-quanteda-text-analysis" id="toc-lab03-quanteda-text-analysis" class="nav-link" data-scroll-target="#lab03-quanteda-text-analysis"><span class="header-section-number">3</span> Lab03: Quanteda Text Analysis</a>
   <ul class="collapse">
-  <li><a href="#key-learning-objectives-2" id="toc-key-learning-objectives-2" class="nav-link" data-scroll-target="#key-learning-objectives-2"><span class="header-section-number">1.3.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-1" id="toc-tools-1" class="nav-link" data-scroll-target="#tools-1"><span class="header-section-number">1.3.2</span> Tools:</a></li>
+  <li><a href="#key-learning-objectives-2" id="toc-key-learning-objectives-2" class="nav-link" data-scroll-target="#key-learning-objectives-2"><span class="header-section-number">3.1</span> Key Learning Objectives:</a></li>
+  <li><a href="#tools-1" id="toc-tools-1" class="nav-link" data-scroll-target="#tools-1"><span class="header-section-number">3.2</span> Tools:</a></li>
   </ul></li>
-  <li><a href="#lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps" id="toc-lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps" class="nav-link" data-scroll-target="#lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps"><span class="header-section-number">1.4</span> Lab04: Collecting and Mapping Census Data Using API – State Data and Maps</a>
+  <li><a href="#lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps" id="toc-lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps" class="nav-link" data-scroll-target="#lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps"><span class="header-section-number">4</span> Lab04: Collecting and Mapping Census Data Using API – State Data and Maps</a>
   <ul class="collapse">
-  <li><a href="#key-learning-objectives-3" id="toc-key-learning-objectives-3" class="nav-link" data-scroll-target="#key-learning-objectives-3"><span class="header-section-number">1.4.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-2" id="toc-tools-2" class="nav-link" data-scroll-target="#tools-2"><span class="header-section-number">1.4.2</span> Tools:</a></li>
+  <li><a href="#key-learning-objectives-3" id="toc-key-learning-objectives-3" class="nav-link" data-scroll-target="#key-learning-objectives-3"><span class="header-section-number">4.1</span> Key Learning Objectives:</a></li>
+  <li><a href="#tools-2" id="toc-tools-2" class="nav-link" data-scroll-target="#tools-2"><span class="header-section-number">4.2</span> Tools:</a></li>
   </ul></li>
-  <li><a href="#lab05-visualizing-federal-housing-price-trends-using-shiny" id="toc-lab05-visualizing-federal-housing-price-trends-using-shiny" class="nav-link" data-scroll-target="#lab05-visualizing-federal-housing-price-trends-using-shiny"><span class="header-section-number">1.5</span> Lab05: Visualizing Federal Housing Price Trends Using Shiny</a>
+  <li><a href="#lab05-visualizing-federal-housing-price-trends-using-shiny" id="toc-lab05-visualizing-federal-housing-price-trends-using-shiny" class="nav-link" data-scroll-target="#lab05-visualizing-federal-housing-price-trends-using-shiny"><span class="header-section-number">5</span> Lab05: Visualizing Federal Housing Price Trends Using Shiny</a>
   <ul class="collapse">
-  <li><a href="#key-learning-objectives-4" id="toc-key-learning-objectives-4" class="nav-link" data-scroll-target="#key-learning-objectives-4"><span class="header-section-number">1.5.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-3" id="toc-tools-3" class="nav-link" data-scroll-target="#tools-3"><span class="header-section-number">1.5.2</span> Tools:</a></li>
-  </ul></li>
+  <li><a href="#key-learning-objectives-4" id="toc-key-learning-objectives-4" class="nav-link" data-scroll-target="#key-learning-objectives-4"><span class="header-section-number">5.1</span> Key Learning Objectives:</a></li>
+  <li><a href="#tools-3" id="toc-tools-3" class="nav-link" data-scroll-target="#tools-3"><span class="header-section-number">5.2</span> Tools:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -276,7 +273,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jim </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 12, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -286,15 +295,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="labs" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 6302_6356 Labs</h1>
 <p>Welcome to the homepage for the 6302_6356 Labs! This course focuses on <strong>data collection methods</strong> and <strong>data visualization techniques</strong>. Below, you will find links to each lab assignment, along with a brief description of what each lab covers.</p>
 <hr>
-<section id="lab01-basic-commands-and-matrix-operations-in-r" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="lab01-basic-commands-and-matrix-operations-in-r"><span class="header-section-number">1.1</span> Lab01: Basic Commands and Matrix Operations in R</h2>
+<section id="lab01-basic-commands-and-matrix-operations-in-r" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="lab01-basic-commands-and-matrix-operations-in-r"><span class="header-section-number">1</span> Lab01: Basic Commands and Matrix Operations in R</h2>
 <p>In this lab, you will get hands-on experience with <strong>basic commands and operations in R</strong>. You will learn how to create objects using the assignment operator, explore matrix operations, and perform simple descriptive statistics. Additionally, you will get introduced to R’s base graphics system to create simple plots.</p>
-<section id="key-learning-objectives" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="key-learning-objectives"><span class="header-section-number">1.1.1</span> Key Learning Objectives:</h3>
+<section id="key-learning-objectives" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="key-learning-objectives"><span class="header-section-number">1.1</span> Key Learning Objectives:</h3>
 <ul>
 <li>Using R functions to perform basic operations on vectors and matrices.</li>
 <li>Performing simple mathematical operations like addition, subtraction, and matrix manipulation.</li>
@@ -305,11 +312,11 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="lab02-text-mining-with-r-wordcloud-creation" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="lab02-text-mining-with-r-wordcloud-creation"><span class="header-section-number">1.2</span> Lab02: Text Mining with R – Wordcloud Creation</h2>
+<section id="lab02-text-mining-with-r-wordcloud-creation" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="lab02-text-mining-with-r-wordcloud-creation"><span class="header-section-number">2</span> Lab02: Text Mining with R – Wordcloud Creation</h2>
 <p>In this lab, you will learn how to perform <strong>text mining</strong> by downloading text data from the web, preprocessing the text, and visualizing the most frequent words using a word cloud in R. You will use various R packages for <strong>natural language processing (NLP)</strong>, including <strong>tm</strong>, <strong>wordcloud</strong>, and <strong>quanteda</strong>. By the end of this lab, you will have the skills to create word clouds to represent text data visually.</p>
-<section id="key-learning-objectives-1" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="key-learning-objectives-1"><span class="header-section-number">1.2.1</span> Key Learning Objectives:</h3>
+<section id="key-learning-objectives-1" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="key-learning-objectives-1"><span class="header-section-number">2.1</span> Key Learning Objectives:</h3>
 <ul>
 <li><strong>Downloading text data</strong> from websites and converting it into a usable format for analysis.</li>
 <li><strong>Preprocessing text data</strong> by converting it to lowercase, removing punctuations, numbers, and stopwords.</li>
@@ -317,8 +324,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Generating word clouds</strong> to visualize the most frequent words, and customizing the appearance of the word cloud.</li>
 </ul>
 </section>
-<section id="tools" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">1.2.2</span> Tools:</h3>
+<section id="tools" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">2.2</span> Tools:</h3>
 <ul>
 <li><strong>R packages</strong>: <code>tm</code>, <code>wordcloud</code>, <code>RColorBrewer</code>, <code>NLP</code>, <code>quanteda</code>.</li>
 <li><strong>Data Source</strong>: You’ll be working with famous speeches, such as Martin Luther King’s “I Have a Dream” and Winston Churchill’s “Finest Hour”.</li>
@@ -327,11 +334,11 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="lab03-quanteda-text-analysis" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="lab03-quanteda-text-analysis"><span class="header-section-number">1.3</span> Lab03: Quanteda Text Analysis</h2>
+<section id="lab03-quanteda-text-analysis" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="lab03-quanteda-text-analysis"><span class="header-section-number">3</span> Lab03: Quanteda Text Analysis</h2>
 <p>In this lab, you will learn how to perform <strong>text modeling</strong> and <strong>analysis</strong> using the <code>quanteda</code> package in R. This lab focuses on working with textual data from multiple sources, including <strong>US presidential inaugural addresses</strong> and <strong>tweets</strong> from the Biden-Xi summit. You will explore advanced text mining techniques like <strong>Latent Semantic Analysis (LSA)</strong>, <strong>hashtag analysis</strong>, and <strong>keyness analysis</strong>, allowing you to extract meaningful insights from text data.</p>
-<section id="key-learning-objectives-2" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="key-learning-objectives-2"><span class="header-section-number">1.3.1</span> Key Learning Objectives:</h3>
+<section id="key-learning-objectives-2" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="key-learning-objectives-2"><span class="header-section-number">3.1</span> Key Learning Objectives:</h3>
 <ul>
 <li><strong>Text Mining</strong>: Learn how to tokenize and preprocess text data using the <code>quanteda</code> package.</li>
 <li><strong>Latent Semantic Analysis (LSA)</strong>: Reduce the dimensionality of your text data to reveal hidden patterns and topics.</li>
@@ -341,8 +348,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Wordscores Model</strong>: Estimate word positions and document scores based on pre-determined reference texts.</li>
 </ul>
 </section>
-<section id="tools-1" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="tools-1"><span class="header-section-number">1.3.2</span> Tools:</h3>
+<section id="tools-1" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="tools-1"><span class="header-section-number">3.2</span> Tools:</h3>
 <ul>
 <li><strong>R packages</strong>: <code>quanteda</code>, <code>quanteda.textmodels</code>, <code>quanteda.textplots</code>, <code>ggplot2</code>.</li>
 <li><strong>Data Sources</strong>: US presidential inaugural addresses and tweets from the Biden-Xi summit.</li>
@@ -351,11 +358,11 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps"><span class="header-section-number">1.4</span> Lab04: Collecting and Mapping Census Data Using API – State Data and Maps</h2>
+<section id="lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="lab04-collecting-and-mapping-census-data-using-api-state-data-and-maps"><span class="header-section-number">4</span> Lab04: Collecting and Mapping Census Data Using API – State Data and Maps</h2>
 <p>In this lab, you will learn how to use <strong>APIs to collect census data</strong> and <strong>visualize it on maps</strong>. You will fetch census data, such as income levels, and map it at the state and county levels using R packages like <strong>tidycensus</strong>, <strong>tmap</strong>, and <strong>mapview</strong>. You’ll also explore interactive maps, allowing for dynamic visualization of census data.</p>
-<section id="key-learning-objectives-3" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="key-learning-objectives-3"><span class="header-section-number">1.4.1</span> Key Learning Objectives:</h3>
+<section id="key-learning-objectives-3" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="key-learning-objectives-3"><span class="header-section-number">4.1</span> Key Learning Objectives:</h3>
 <ul>
 <li><strong>Using APIs for Data Collection</strong>: Learn how to collect census data programmatically using the <strong>tidycensus</strong> package.</li>
 <li><strong>Geospatial Visualization</strong>: Map census data geographically at the <strong>state</strong> and <strong>county</strong> levels using <strong>ggplot2</strong>, <strong>tmap</strong>, and <strong>mapview</strong>.</li>
@@ -363,8 +370,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Real-world Application</strong>: Apply these techniques to <strong>Texas</strong> and <strong>Dallas county</strong> income data, visualizing the distribution of income levels by census tract.</li>
 </ul>
 </section>
-<section id="tools-2" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="tools-2"><span class="header-section-number">1.4.2</span> Tools:</h3>
+<section id="tools-2" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="tools-2"><span class="header-section-number">4.2</span> Tools:</h3>
 <ul>
 <li><strong>R packages</strong>: <code>tidycensus</code>, <code>tmap</code>, <code>mapview</code>, <code>ggplot2</code>.</li>
 <li><strong>Data Sources</strong>: US Census Bureau’s API for census income data.</li>
@@ -373,11 +380,11 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="lab05-visualizing-federal-housing-price-trends-using-shiny" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="lab05-visualizing-federal-housing-price-trends-using-shiny"><span class="header-section-number">1.5</span> Lab05: Visualizing Federal Housing Price Trends Using Shiny</h2>
+<section id="lab05-visualizing-federal-housing-price-trends-using-shiny" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="lab05-visualizing-federal-housing-price-trends-using-shiny"><span class="header-section-number">5</span> Lab05: Visualizing Federal Housing Price Trends Using Shiny</h2>
 <p>In this lab, you will build an interactive <strong>Shiny app</strong> to visualize <strong>housing price trends</strong> across different regions in the US using data from the <strong>Federal Housing Finance Agency (FHFA)</strong>. The FHFA Housing Price Index (HPI) is a weighted measure of house price changes in repeat sales or refinancings on single-family homes. This lab will guide you through the process of <strong>data wrangling</strong>, creating <strong>static and interactive plots</strong>, and building a fully functional Shiny app to explore housing price trends over time.</p>
-<section id="key-learning-objectives-4" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="key-learning-objectives-4"><span class="header-section-number">1.5.1</span> Key Learning Objectives:</h3>
+<section id="key-learning-objectives-4" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="key-learning-objectives-4"><span class="header-section-number">5.1</span> Key Learning Objectives:</h3>
 <ul>
 <li><strong>Data Collection and Wrangling</strong>: Fetch and preprocess the <strong>Federal Housing Finance Agency Housing Price Index (FHFA HPI)</strong> data using R.</li>
 <li><strong>Static and Dynamic Visualizations</strong>: Create line plots, polar plots, and other visualizations to explore HPI trends across different regions and time periods.</li>
@@ -385,8 +392,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>User Input and Visualization</strong>: Use <strong>radio buttons</strong>, <strong>sliders</strong>, and <strong>conditional panels</strong> to control the output of the Shiny app based on user selections.</li>
 </ul>
 </section>
-<section id="tools-3" class="level3" data-number="1.5.2">
-<h3 data-number="1.5.2" class="anchored" data-anchor-id="tools-3"><span class="header-section-number">1.5.2</span> Tools:</h3>
+<section id="tools-3" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="tools-3"><span class="header-section-number">5.2</span> Tools:</h3>
 <ul>
 <li><strong>R packages</strong>: <code>shiny</code>, <code>ggplot2</code>, <code>reshape2</code>, <code>openxlsx</code>.</li>
 <li><strong>Data Source</strong>: FHFA HPI data, available through an Excel file hosted on GitHub.</li>
@@ -396,7 +403,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Each of these labs will help you develop essential skills in data science, focusing on data collection and visualization. Click the links to access detailed instructions and resources for each lab.</p>
 
 
-</section>
 </section>
 </section>
 
