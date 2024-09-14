@@ -1,10 +1,12 @@
-.card {
-  float: left;
-  margin-right: 15px; /* 調整名片和文字之間的間距 */
-}
+@media (min-width: 768px) {
+  .card {
+    float: left;
+    margin-right: 15px; /* 調整名片和文字之間的間距 */
+  }
 
-p {
-  overflow: hidden; /* 確保段落能夠正確處理浮動的元素 */
+  p {
+    overflow: hidden; /* 確保段落能夠正確處理浮動的元素 */
+  }
 }
 
 .clear-both {
