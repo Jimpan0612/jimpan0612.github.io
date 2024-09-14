@@ -4,6 +4,8 @@
 body {
   background-color: #fdf5e6;  /* 米色背景 */
   color: #333;  /* 全局文本顏色 */
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; /* 更專業的字體 */
+  font-weight: 400;  /* 標準字重 */
 }
 
 /* 調整主內容區域的最大寬度 */
@@ -69,6 +71,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: #8b4513;  /* 深棕色標題，符合卡其色調 */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);  /* 輕微的陰影效果，使標題更具立體感 */
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;  /* 標題應用相同字體 */
+}
+
+/* 粗體字樣式（保持與全局文字顏色一致） */
+strong, b {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;  /* 粗體字使用相同字體 */
+  color: inherit;  /* 保持與其他文本一致的顏色 */
+  font-weight: 900; /* 確保字體加粗 */
 }
 
 /* 鏈接樣式 */
@@ -78,7 +88,7 @@ a {
 }
 
 a:hover {
-  color: #d2691e;  /* 鼠標懸停時的顏色變為巧克力色，提供對比 */
+  color: #ff8c00;  /* 鼠標懸停時的顏色變為亮橙色，提供對比 */
 }
 
 /* 按鈕樣式 */
@@ -90,6 +100,7 @@ a:hover {
   padding: 10px 20px;
   font-weight: bold;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;  /* 按鈕應用相同字體 */
 }
 
 .btn:hover {
@@ -106,6 +117,7 @@ pre, code {
   border-radius: 5px;
   font-size: 0.95em;
   color: #2c3e50;
+  font-family: 'Courier New', Courier, monospace; /* 保持代碼塊專用字體 */
 }
 
 /* 更新日誌部分樣式 */
@@ -120,6 +132,7 @@ pre, code {
 .update-log h3 {
   color: #F5F5F5; /* 米白色標題 */
   margin-top: 0;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;  /* 應用字體 */
 }
 
 .update-log ul {
