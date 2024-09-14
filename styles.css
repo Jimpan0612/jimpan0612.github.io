@@ -117,7 +117,6 @@ pre, code {
   border-radius: 5px;
   font-size: 0.95em;
   color: #2c3e50;
-  font-family: 'Courier New', Courier, monospace; /* 保持代碼塊專用字體 */
 }
 
 /* 更新日誌部分樣式 */
@@ -143,3 +142,4 @@ pre, code {
 .update-log ul li {
   margin-bottom: 5px; /* 列表項之間的間距 */
 }
+
