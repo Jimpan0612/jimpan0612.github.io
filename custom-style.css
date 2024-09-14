@@ -1,11 +1,24 @@
+/* 只在大於等於 768px 的螢幕上套用平行卡片排版 */
 @media (min-width: 768px) {
   .card {
     float: left;
-    margin-right: 15px; /* 調整名片和文字之間的間距 */
+    margin-right: 15px; /* 調整卡片和文字之間的間距 */
   }
 
   p {
     overflow: hidden; /* 確保段落能夠正確處理浮動的元素 */
+  }
+}
+
+/* 小於 768px 時，清除浮動，讓卡片和文字堆疊顯示 */
+@media (max-width: 767px) {
+  .card {
+    float: none; /* 移除卡片的浮動效果 */
+    margin-right: 0; /* 清除間距 */
+  }
+
+  p {
+    overflow: visible; /* 恢復段落默認行為 */
   }
 }
 
