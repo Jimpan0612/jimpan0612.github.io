@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab: caret Random Forest – Jimpan’s Knowledge Hub</title>
+<title>Lab08 caret Random Forest, KNN, GLMNet – Jimpan’s Knowledge Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -209,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6323Lab_caret01.html">Lab: caret Random Forest</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6323Lab_caret01.html">Lab08 caret Random Forest, KNN, GLMNet</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -228,27 +228,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">6323Lab01.qmd</span>
-  </li>
-        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./6323Lab02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EPPS 6323: Lab02</span></a>
+ <span class="menu-text">Lab02 Basic Commands</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./6323Lab03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EPPS 6323: Lab03</span></a>
+ <span class="menu-text">Lab03 Exploratory Data Analysis(EDA)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">6323Lab04.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./6323Lab_LDA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab04 Linear Discriminant Analysis Lab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6323Lab_Linear_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab05 Linear Regression Lab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6323Lab_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab06 Logistic Regression Lab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6323Lab_Model_Selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab07 Model Selection Lab</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./6323Lab_caret01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lab: caret Random Forest</span></a>
+ <span class="menu-text">Lab08 caret Random Forest, KNN, GLMNet</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6323Lab_IML.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab09 Interpretable Machine Learning Lab</span></a>
   </div>
 </li>
     </ul>
@@ -261,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#knowledge-mining-caretrandom-forest" id="toc-knowledge-mining-caretrandom-forest" class="nav-link active" data-scroll-target="#knowledge-mining-caretrandom-forest"><span class="header-section-number">1</span> Knowledge Mining: caret/Random Forest</a>
+  <li><a href="#knowledge-mining-caret---random-forest-knn-glmnet" id="toc-knowledge-mining-caret---random-forest-knn-glmnet" class="nav-link active" data-scroll-target="#knowledge-mining-caret---random-forest-knn-glmnet"><span class="header-section-number">1</span> Knowledge Mining: caret - Random Forest, KNN, GLMNet</a>
   <ul class="collapse">
   <li><a href="#load-required-libraries" id="toc-load-required-libraries" class="nav-link" data-scroll-target="#load-required-libraries"><span class="header-section-number">1.1</span> Load Required Libraries</a></li>
   </ul></li>
@@ -288,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab: caret Random Forest</h1>
+<h1 class="title">Lab08 caret Random Forest, KNN, GLMNet</h1>
 </div>
 
 
@@ -305,9 +329,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="knowledge-mining-caretrandom-forest" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Knowledge Mining: caret/Random Forest</h1>
-<p>In this lab, we will explore the <strong>caret</strong> package and its use for building Random Forest models. This includes both classification and regression problems, using the <code>iris</code> and <code>mtcars</code> datasets as examples.</p>
+<section id="knowledge-mining-caret---random-forest-knn-glmnet" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Knowledge Mining: caret - Random Forest, KNN, GLMNet</h1>
+<p>In this lab, we will focus on the <strong>caret</strong> package and its use for building Random Forest models. Random Forest is an ensemble learning method that constructs multiple decision trees and averages their results to provide accurate and generalized predictions. While the code in this lab demonstrates Random Forest, similar approaches can be applied using other models like K-Nearest Neighbors (KNN) and GLMNet.</p>
+<p>KNN is a simple, instance-based learning algorithm that works well for smaller datasets but can struggle with larger ones, whereas GLMNet applies regularization techniques to handle high-dimensional data effectively. These methods offer different advantages depending on the problem and dataset at hand.</p>
 <p>We reference the works of Kuhn et al.&nbsp;(2008) and the caret documentation (2020) for additional insight into building predictive models.</p>
 <section id="load-required-libraries" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="load-required-libraries"><span class="header-section-number">1.1</span> Load Required Libraries</h2>
@@ -504,7 +529,8 @@ The final value used for the model was mtry = 10.</code></pre>
 </section>
 <section id="conclusion" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Conclusion</h1>
-<p>In this lab, we demonstrated how to use the caret package to train and evaluate Random Forest models for both classification and regression tasks. By splitting the data, setting up cross-validation, and using caret’s train() function, we efficiently built models for both the iris and mtcars datasets. The results demonstrate the utility of Random Forests for predictive tasks.</p>
+<p>In this lab, we demonstrated how to use the <strong>caret</strong> package to train and evaluate Random Forest models for both classification and regression tasks. By splitting the data, setting up cross-validation, and using caret’s train() function, we efficiently built models for both the iris and mtcars datasets. The results demonstrate the utility of Random Forests for predictive tasks.</p>
+<p>While Random Forest is ideal for handling complex data and preventing overfitting, alternative methods like KNN and GLMNet offer their own benefits. KNN is intuitive and works well for small datasets, and GLMNet applies regularization to manage high-dimensional data. By understanding these models, we can choose the best approach based on the problem’s requirements and the dataset’s structure.</p>
 </section>
 <section id="references" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> References</h1>

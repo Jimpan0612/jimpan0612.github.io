@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jimpan0612.github.io/Poster_Generation_with_AI.html</loc>
-    <lastmod>2024-09-08T07:35:48.265Z</lastmod>
+    <loc>https://jimpan0612.github.io/6323Lab_Model_Selection.html</loc>
+    <lastmod>2024-09-15T22:58:23.975Z</lastmod>
   </url>
   <url>
-    <loc>https://jimpan0612.github.io/6302_6356Lab_index.html</loc>
-    <lastmod>2024-09-13T00:14:54.663Z</lastmod>
+    <loc>https://jimpan0612.github.io/6302Lab01.html</loc>
+    <lastmod>2024-09-12T23:01:55.082Z</lastmod>
   </url>
   <url>
-    <loc>https://jimpan0612.github.io/6356assign07.html</loc>
-    <lastmod>2024-09-12T23:54:22.488Z</lastmod>
+    <loc>https://jimpan0612.github.io/tex2img.html</loc>
+    <lastmod>2024-09-07T17:07:52.518Z</lastmod>
   </url>
   <url>
-    <loc>https://jimpan0612.github.io/6323Lab_index.html</loc>
-    <lastmod>2024-09-13T00:03:47.831Z</lastmod>
+    <loc>https://jimpan0612.github.io/6356spatialdata.html</loc>
+    <lastmod>2024-09-13T00:56:22.945Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6323Lab_Logistic_Regression.html</loc>
+    <lastmod>2024-09-15T22:58:13.227Z</lastmod>
   </url>
   <url>
     <loc>https://jimpan0612.github.io/2imgbatch_img2vid.html</loc>
@@ -33,72 +37,84 @@
     <lastmod>2024-09-03T22:36:00.509Z</lastmod>
   </url>
   <url>
-    <loc>https://jimpan0612.github.io/Product_Rendering_with_AI.html</loc>
-    <lastmod>2024-09-09T23:47:25.842Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/vid2vid.html</loc>
-    <lastmod>2024-09-07T17:00:46.917Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/6381Lab03.html</loc>
-    <lastmod>2024-09-03T22:36:56.661Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/index.html</loc>
-    <lastmod>2024-09-14T11:13:32.421Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/6381Lab08.html</loc>
-    <lastmod>2024-09-03T23:09:42.252Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/6381Lab09.html</loc>
-    <lastmod>2024-09-03T22:47:06.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/6323Lab02.html</loc>
-    <lastmod>2024-09-03T19:22:30.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/research.html</loc>
-    <lastmod>2024-09-07T17:22:14.780Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/comfyui.html</loc>
-    <lastmod>2024-09-09T02:26:30.067Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/6323Lab03.html</loc>
-    <lastmod>2024-09-10T21:54:55.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/6356textanalytics.html</loc>
-    <lastmod>2024-09-12T23:15:10.108Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/arcgis.html</loc>
-    <lastmod>2024-09-08T06:35:08.204Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/img2vid.html</loc>
-    <lastmod>2024-09-07T17:00:46.943Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jimpan0612.github.io/about.html</loc>
-    <lastmod>2024-09-14T10:03:32.421Z</lastmod>
+    <loc>https://jimpan0612.github.io/6381Lab01.html</loc>
+    <lastmod>2024-09-03T22:12:04.665Z</lastmod>
   </url>
   <url>
     <loc>https://jimpan0612.github.io/6381Lab02.html</loc>
     <lastmod>2024-09-03T22:22:11.911Z</lastmod>
   </url>
   <url>
-    <loc>https://jimpan0612.github.io/6381Lab01.html</loc>
-    <lastmod>2024-09-03T22:12:04.665Z</lastmod>
+    <loc>https://jimpan0612.github.io/about.html</loc>
+    <lastmod>2024-09-14T10:03:32.421Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/img2vid.html</loc>
+    <lastmod>2024-09-07T17:00:46.943Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/arcgis.html</loc>
+    <lastmod>2024-09-08T06:35:08.204Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6356textanalytics.html</loc>
+    <lastmod>2024-09-12T23:15:10.108Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6323Lab03.html</loc>
+    <lastmod>2024-09-15T23:06:29.511Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/comfyui.html</loc>
+    <lastmod>2024-09-09T02:26:30.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6323Lab_IML.html</loc>
+    <lastmod>2024-09-15T23:21:58.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/research.html</loc>
+    <lastmod>2024-09-07T17:22:14.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6323Lab_LDA.html</loc>
+    <lastmod>2024-09-15T22:57:44.934Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6323Lab02.html</loc>
+    <lastmod>2024-09-15T22:56:23.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6381Lab09.html</loc>
+    <lastmod>2024-09-03T22:47:06.177Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6381Lab08.html</loc>
+    <lastmod>2024-09-03T23:09:42.252Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/index.html</loc>
+    <lastmod>2024-09-15T23:29:08.667Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6381Lab03.html</loc>
+    <lastmod>2024-09-03T22:36:56.661Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/vid2vid.html</loc>
+    <lastmod>2024-09-07T17:00:46.917Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/Product_Rendering_with_AI.html</loc>
+    <lastmod>2024-09-09T23:47:25.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/6323Lab_Linear_Regression.html</loc>
+    <lastmod>2024-09-15T22:58:01.261Z</lastmod>
   </url>
   <url>
     <loc>https://jimpan0612.github.io/6323Lab_caret01.html</loc>
-    <lastmod>2024-09-09T23:02:56.500Z</lastmod>
+    <lastmod>2024-09-15T23:21:52.389Z</lastmod>
   </url>
   <url>
     <loc>https://jimpan0612.github.io/6381Lab04.html</loc>
@@ -113,15 +129,19 @@
     <lastmod>2024-09-03T22:43:22.701Z</lastmod>
   </url>
   <url>
-    <loc>https://jimpan0612.github.io/6356spatialdata.html</loc>
-    <lastmod>2024-09-13T00:56:22.945Z</lastmod>
+    <loc>https://jimpan0612.github.io/6323Lab_index.html</loc>
+    <lastmod>2024-09-15T23:25:24.329Z</lastmod>
   </url>
   <url>
-    <loc>https://jimpan0612.github.io/tex2img.html</loc>
-    <lastmod>2024-09-07T17:07:52.518Z</lastmod>
+    <loc>https://jimpan0612.github.io/6356assign07.html</loc>
+    <lastmod>2024-09-12T23:54:22.488Z</lastmod>
   </url>
   <url>
-    <loc>https://jimpan0612.github.io/6302Lab01.html</loc>
-    <lastmod>2024-09-12T23:01:55.082Z</lastmod>
+    <loc>https://jimpan0612.github.io/6302_6356Lab_index.html</loc>
+    <lastmod>2024-09-15T23:00:45.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jimpan0612.github.io/Poster_Generation_with_AI.html</loc>
+    <lastmod>2024-09-08T07:35:48.265Z</lastmod>
   </url>
 </urlset>

@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jim">
-<meta name="dcterms.date" content="2024-09-02">
 
-<title>6323 Labs – Jimpan’s Knowledge Hub</title>
+<title>Lab05 Linear Regression Lab – Jimpan’s Knowledge Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -177,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6323Lab_index.html">6323 Labs</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6323Lab_Linear_Regression.html">Lab05 Linear Regression Lab</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -191,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6323Lab_index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./6323Lab_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6323 Labs</span></a>
   </div>
 </li>
@@ -215,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6323Lab_Linear_Regression.html" class="sidebar-item-text sidebar-link">
+  <a href="./6323Lab_Linear_Regression.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab05 Linear Regression Lab</span></a>
   </div>
 </li>
@@ -253,46 +286,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#knowledge-mining" id="toc-knowledge-mining" class="nav-link active" data-scroll-target="#knowledge-mining"><span class="header-section-number">1</span> 6323 Knowledge Mining</a></li>
-  <li><a href="#lab02-basic-commands-and-matrix-operations-in-r" id="toc-lab02-basic-commands-and-matrix-operations-in-r" class="nav-link" data-scroll-target="#lab02-basic-commands-and-matrix-operations-in-r"><span class="header-section-number">2</span> Lab02: Basic Commands and Matrix Operations in R</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives" id="toc-key-learning-objectives" class="nav-link" data-scroll-target="#key-learning-objectives"><span class="header-section-number">2.1</span> Key Learning Objectives:</a></li>
-  </ul></li>
-  <li><a href="#lab03-exploratory-data-analysis-eda" id="toc-lab03-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#lab03-exploratory-data-analysis-eda"><span class="header-section-number">3</span> Lab03: Exploratory Data Analysis (EDA)</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-1" id="toc-key-learning-objectives-1" class="nav-link" data-scroll-target="#key-learning-objectives-1"><span class="header-section-number">3.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">3.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab04-linear-discriminant-analysis-lab" id="toc-lab04-linear-discriminant-analysis-lab" class="nav-link" data-scroll-target="#lab04-linear-discriminant-analysis-lab"><span class="header-section-number">4</span> Lab04: Linear Discriminant Analysis Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-2" id="toc-key-learning-objectives-2" class="nav-link" data-scroll-target="#key-learning-objectives-2"><span class="header-section-number">4.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-1" id="toc-tools-1" class="nav-link" data-scroll-target="#tools-1"><span class="header-section-number">4.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab05-linear-regression-lab" id="toc-lab05-linear-regression-lab" class="nav-link" data-scroll-target="#lab05-linear-regression-lab"><span class="header-section-number">5</span> Lab05: Linear Regression Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-3" id="toc-key-learning-objectives-3" class="nav-link" data-scroll-target="#key-learning-objectives-3"><span class="header-section-number">5.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-2" id="toc-tools-2" class="nav-link" data-scroll-target="#tools-2"><span class="header-section-number">5.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab06-logistic-regression-lab" id="toc-lab06-logistic-regression-lab" class="nav-link" data-scroll-target="#lab06-logistic-regression-lab"><span class="header-section-number">6</span> Lab06: Logistic Regression Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-4" id="toc-key-learning-objectives-4" class="nav-link" data-scroll-target="#key-learning-objectives-4"><span class="header-section-number">6.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-3" id="toc-tools-3" class="nav-link" data-scroll-target="#tools-3"><span class="header-section-number">6.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab07-model-selection-lab" id="toc-lab07-model-selection-lab" class="nav-link" data-scroll-target="#lab07-model-selection-lab"><span class="header-section-number">7</span> Lab07: Model Selection Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-5" id="toc-key-learning-objectives-5" class="nav-link" data-scroll-target="#key-learning-objectives-5"><span class="header-section-number">7.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-4" id="toc-tools-4" class="nav-link" data-scroll-target="#tools-4"><span class="header-section-number">7.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab08-caret---random-forest-knn-glmnet" id="toc-lab08-caret---random-forest-knn-glmnet" class="nav-link" data-scroll-target="#lab08-caret---random-forest-knn-glmnet"><span class="header-section-number">8</span> Lab08: caret - Random Forest, KNN, GLMNet</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-6" id="toc-key-learning-objectives-6" class="nav-link" data-scroll-target="#key-learning-objectives-6"><span class="header-section-number">8.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-5" id="toc-tools-5" class="nav-link" data-scroll-target="#tools-5"><span class="header-section-number">8.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab09-interpretable-machine-learning-lab" id="toc-lab09-interpretable-machine-learning-lab" class="nav-link" data-scroll-target="#lab09-interpretable-machine-learning-lab"><span class="header-section-number">9</span> Lab09: Interpretable Machine Learning Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-7" id="toc-key-learning-objectives-7" class="nav-link" data-scroll-target="#key-learning-objectives-7"><span class="header-section-number">9.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-6" id="toc-tools-6" class="nav-link" data-scroll-target="#tools-6"><span class="header-section-number">9.2</span> Tools:</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">2</span> Setup</a></li>
+  <li><a href="#load-the-dataset" id="toc-load-the-dataset" class="nav-link" data-scroll-target="#load-the-dataset"><span class="header-section-number">3</span> Load the Dataset</a></li>
+  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link" data-scroll-target="#simple-linear-regression"><span class="header-section-number">4</span> Simple Linear Regression</a></li>
+  <li><a href="#confidence-and-prediction-intervals" id="toc-confidence-and-prediction-intervals" class="nav-link" data-scroll-target="#confidence-and-prediction-intervals"><span class="header-section-number">5</span> Confidence and Prediction Intervals</a></li>
+  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="header-section-number">6</span> Multiple Linear Regression</a></li>
+  <li><a href="#model-comparison-and-coefficient-plot" id="toc-model-comparison-and-coefficient-plot" class="nav-link" data-scroll-target="#model-comparison-and-coefficient-plot"><span class="header-section-number">7</span> Model Comparison and Coefficient Plot</a></li>
+  <li><a href="#nonlinear-terms-and-interaction-effects" id="toc-nonlinear-terms-and-interaction-effects" class="nav-link" data-scroll-target="#nonlinear-terms-and-interaction-effects"><span class="header-section-number">8</span> Nonlinear Terms and Interaction Effects</a></li>
+  <li><a href="#qualitative-predictors-and-interaction-terms" id="toc-qualitative-predictors-and-interaction-terms" class="nav-link" data-scroll-target="#qualitative-predictors-and-interaction-terms"><span class="header-section-number">9</span> Qualitative Predictors and Interaction Terms</a></li>
+  <li><a href="#custom-regression-plot-function" id="toc-custom-regression-plot-function" class="nav-link" data-scroll-target="#custom-regression-plot-function"><span class="header-section-number">10</span> Custom Regression Plot Function</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">11</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -301,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">6323 Labs</h1>
+<h1 class="title">Lab05 Linear Regression Lab</h1>
 </div>
 
 
@@ -315,12 +319,6 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 2, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -330,182 +328,376 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="knowledge-mining" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="knowledge-mining"><span class="header-section-number">1</span> 6323 Knowledge Mining</h2>
-<p>Welcome to the homepage for the 6323 Labs! This course focuses on <strong>data mining and machine learning methods</strong>, core aspects of data science. Throughout the labs, you will explore a range of <strong>statistical modeling techniques</strong> and <strong>data analysis methods</strong>, including regression analysis, classification, decision trees, neural networks, and support vector machines. These labs will also introduce you to new developments in learning, such as deep learning and interpretable machine learning.</p>
-<p>Below, you will find links to each lab assignment, along with a brief description of what each lab covers.</p>
-<hr>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>This document demonstrates various linear regression techniques using the <strong>Boston</strong> and <strong>Carseats</strong> datasets. We will explore simple linear regression, multiple linear regression, interaction terms, and nonlinear terms. The tutorial will also cover plotting regression results and interpreting qualitative predictors.</p>
 </section>
-<section id="lab02-basic-commands-and-matrix-operations-in-r" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="lab02-basic-commands-and-matrix-operations-in-r"><span class="header-section-number">2</span> Lab02: Basic Commands and Matrix Operations in R</h2>
-<p>In this lab, you will practice <strong>basic commands and matrix operations in R</strong>, including how to load data, index matrices, and perform basic descriptive statistics. The lab also covers graphical summaries and introduces linear regression models in R.</p>
-<section id="key-learning-objectives" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="key-learning-objectives"><span class="header-section-number">2.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Indexing matrices and performing matrix operations in R.</li>
-<li>Loading data from external sources (GitHub, websites) into R.</li>
-<li>Creating graphical summaries such as scatterplots, histograms, and pairwise plots.</li>
-<li>Fitting simple linear regression models and interpreting the results.</li>
-<li>Understanding how to work with multiple regression models, non-linear transformations, and qualitative predictors.</li>
-</ul>
-<p><a href="./6323Lab02.html">Click here to view Lab02</a></p>
-<hr>
+<section id="setup" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="setup"><span class="header-section-number">2</span> Setup</h2>
+<p>First, we need to install and load the required packages and datasets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup CRAN Mirror</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cran.rstudio.com/"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"easypackages"</span>, <span class="st">"MASS"</span>, <span class="st">"ISLR"</span>, <span class="st">"arm"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The downloaded binary packages are in
+    /var/folders/m3/k788kw6103zdvc0bwpc1lzd00000gn/T//Rtmp4MVan6/downloaded_packages</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easypackages)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">libraries</span>(<span class="st">"arm"</span>, <span class="st">"MASS"</span>, <span class="st">"ISLR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
+<section id="load-the-dataset" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="load-the-dataset"><span class="header-section-number">3</span> Load the Dataset</h2>
+<p>We start by attaching the <strong>Boston</strong> dataset, which contains housing data used to predict median home values (<code>medv</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="lab03-exploratory-data-analysis-eda" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="lab03-exploratory-data-analysis-eda"><span class="header-section-number">3</span> Lab03: Exploratory Data Analysis (EDA)</h2>
-<p>In this lab, you will explore <strong>Exploratory Data Analysis (EDA)</strong> in R using the <code>iris</code> dataset. The lab focuses on creating <strong>interactive 3D visualizations</strong> using the <strong>Plotly</strong> package and performing <strong>multiple linear regression</strong> to understand relationships between variables.</p>
-<section id="key-learning-objectives-1" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="key-learning-objectives-1"><span class="header-section-number">3.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Visualizing relationships between quantitative variables using 3D scatterplots with <code>Plotly</code>.</li>
-<li>Fitting multiple linear regression models to predict <code>Petal.Length</code> using <code>Sepal.Length</code> and <code>Sepal.Width</code>.</li>
-<li>Understanding how to generate regression surfaces and enhance visualizations with interactive elements.</li>
-<li>Using the <code>reshape2</code> package to prepare data for 3D plotting.</li>
-</ul>
+<section id="simple-linear-regression" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="simple-linear-regression"><span class="header-section-number">4</span> Simple Linear Regression</h2>
+<p>We will fit a simple linear regression model to predict <code>medv</code> using <code>lstat</code> (the percentage of lower-income population).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(medv <span class="sc">~</span> lstat, Boston, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">=</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat, <span class="at">data =</span> Boston)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat, data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.168  -3.990  -1.318   2.034  24.500 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 34.55384    0.56263   61.41   &lt;2e-16 ***
+lstat       -0.95005    0.03873  -24.53   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.216 on 504 degrees of freedom
+Multiple R-squared:  0.5441,    Adjusted R-squared:  0.5432 
+F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(fit1, <span class="at">col =</span> <span class="st">"firebrick"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6323Lab_Linear_Regression_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="tools" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">3.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>Plotly</code>, <code>reshape2</code>, <code>datasets</code>.</li>
-<li><strong>Data Source</strong>: The <code>iris</code> dataset, which contains measurements of sepal and petal dimensions for three species of iris flowers.</li>
-</ul>
-<p><a href="./6323Lab03.html">Click here to view Lab03</a></p>
-<hr>
+<section id="confidence-and-prediction-intervals" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="confidence-and-prediction-intervals"><span class="header-section-number">5</span> Confidence and Prediction Intervals</h2>
+<p>We can predict values for different <code>lstat</code> levels and compute confidence and prediction intervals.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(fit1, <span class="fu">data.frame</span>(<span class="at">lstat =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)), <span class="at">interval =</span> <span class="st">"confidence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit      lwr      upr
+1 34.55384 33.44846 35.65922
+2 29.80359 29.00741 30.59978
+3 25.05335 24.47413 25.63256
+4 20.30310 19.73159 20.87461</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(fit1, <span class="fu">data.frame</span>(<span class="at">lstat =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)), <span class="at">interval =</span> <span class="st">"prediction"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit       lwr      upr
+1 34.55384 22.291923 46.81576
+2 29.80359 17.565675 42.04151
+3 25.05335 12.827626 37.27907
+4 20.30310  8.077742 32.52846</code></pre>
+</div>
+</div>
 </section>
+<section id="multiple-linear-regression" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="multiple-linear-regression"><span class="header-section-number">6</span> Multiple Linear Regression</h2>
+<p>Next, we explore multiple linear regression by adding more predictors, such as <code>age</code> (the age of the house).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">=</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">+</span> age, <span class="at">data =</span> Boston)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat + age, data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.981  -3.978  -1.283   1.968  23.158 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 33.22276    0.73085  45.458  &lt; 2e-16 ***
+lstat       -1.03207    0.04819 -21.416  &lt; 2e-16 ***
+age          0.03454    0.01223   2.826  0.00491 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.173 on 503 degrees of freedom
+Multiple R-squared:  0.5513,    Adjusted R-squared:  0.5495 
+F-statistic:   309 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">=</span> <span class="fu">lm</span>(medv <span class="sc">~</span> ., <span class="at">data =</span> Boston)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ ., data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.595  -2.730  -0.518   1.777  26.199 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.646e+01  5.103e+00   7.144 3.28e-12 ***
+crim        -1.080e-01  3.286e-02  -3.287 0.001087 ** 
+zn           4.642e-02  1.373e-02   3.382 0.000778 ***
+indus        2.056e-02  6.150e-02   0.334 0.738288    
+chas         2.687e+00  8.616e-01   3.118 0.001925 ** 
+nox         -1.777e+01  3.820e+00  -4.651 4.25e-06 ***
+rm           3.810e+00  4.179e-01   9.116  &lt; 2e-16 ***
+age          6.922e-04  1.321e-02   0.052 0.958229    
+dis         -1.476e+00  1.995e-01  -7.398 6.01e-13 ***
+rad          3.060e-01  6.635e-02   4.613 5.07e-06 ***
+tax         -1.233e-02  3.760e-03  -3.280 0.001112 ** 
+ptratio     -9.527e-01  1.308e-01  -7.283 1.31e-12 ***
+black        9.312e-03  2.686e-03   3.467 0.000573 ***
+lstat       -5.248e-01  5.072e-02 -10.347  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.745 on 492 degrees of freedom
+Multiple R-squared:  0.7406,    Adjusted R-squared:  0.7338 
+F-statistic: 108.1 on 13 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
 </section>
-<section id="lab04-linear-discriminant-analysis-lab" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="lab04-linear-discriminant-analysis-lab"><span class="header-section-number">4</span> Lab04: Linear Discriminant Analysis Lab</h2>
-<p>This lab introduces <strong>Linear Discriminant Analysis (LDA)</strong>, a classification method applied to predict stock market directions using the <code>Smarket</code> dataset from the <code>ISLR</code> package. You will learn how to implement LDA in R and evaluate model performance based on prediction accuracy.</p>
-<section id="key-learning-objectives-2" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="key-learning-objectives-2"><span class="header-section-number">4.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Understanding the theory behind LDA and its application in financial market prediction.</li>
-<li>Implementing LDA in R using the <code>MASS</code> package.</li>
-<li>Visualizing LDA decision boundaries and interpreting confusion matrices.</li>
-<li>Evaluating classification accuracy by comparing predicted vs.&nbsp;actual market directions.</li>
-</ul>
+<section id="model-comparison-and-coefficient-plot" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="model-comparison-and-coefficient-plot"><span class="header-section-number">7</span> Model Comparison and Coefficient Plot</h2>
+<p>We can update the model by removing certain variables and visualize the coefficients.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fit4 <span class="ot">=</span> <span class="fu">update</span>(fit3, <span class="sc">~</span> . <span class="sc">-</span> age <span class="sc">-</span> indus)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ crim + zn + chas + nox + rm + dis + rad + 
+    tax + ptratio + black + lstat, data = Boston)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.5984  -2.7386  -0.5046   1.7273  26.2373 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  36.341145   5.067492   7.171 2.73e-12 ***
+crim         -0.108413   0.032779  -3.307 0.001010 ** 
+zn            0.045845   0.013523   3.390 0.000754 ***
+chas          2.718716   0.854240   3.183 0.001551 ** 
+nox         -17.376023   3.535243  -4.915 1.21e-06 ***
+rm            3.801579   0.406316   9.356  &lt; 2e-16 ***
+dis          -1.492711   0.185731  -8.037 6.84e-15 ***
+rad           0.299608   0.063402   4.726 3.00e-06 ***
+tax          -0.011778   0.003372  -3.493 0.000521 ***
+ptratio      -0.946525   0.129066  -7.334 9.24e-13 ***
+black         0.009291   0.002674   3.475 0.000557 ***
+lstat        -0.522553   0.047424 -11.019  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.736 on 494 degrees of freedom
+Multiple R-squared:  0.7406,    Adjusted R-squared:  0.7348 
+F-statistic: 128.2 on 11 and 494 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>arm<span class="sc">::</span><span class="fu">coefplot</span>(fit4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6323Lab_Linear_Regression_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="tools-1" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="tools-1"><span class="header-section-number">4.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>MASS</code>, <code>ISLR</code>, <code>descr</code>.</li>
-<li><strong>Data Source</strong>: The <code>Smarket</code> dataset, which includes stock market data from 2001 to 2005, will be used to predict market direction (Up/Down).</li>
-</ul>
-<p><a href="./6323Lab_LDA.html">Click here to view Lab04</a></p>
-<hr>
+<section id="nonlinear-terms-and-interaction-effects" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="nonlinear-terms-and-interaction-effects"><span class="header-section-number">8</span> Nonlinear Terms and Interaction Effects</h2>
+<p>We explore interaction terms and nonlinear relationships by adding interaction between <code>lstat</code> and <code>age</code>, and a squared term for <code>lstat</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fit5 <span class="ot">=</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">*</span> age, <span class="at">data =</span> Boston)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat * age, data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.806  -4.045  -1.333   2.085  27.552 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 36.0885359  1.4698355  24.553  &lt; 2e-16 ***
+lstat       -1.3921168  0.1674555  -8.313 8.78e-16 ***
+age         -0.0007209  0.0198792  -0.036   0.9711    
+lstat:age    0.0041560  0.0018518   2.244   0.0252 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.149 on 502 degrees of freedom
+Multiple R-squared:  0.5557,    Adjusted R-squared:  0.5531 
+F-statistic: 209.3 on 3 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fit6 <span class="ot">=</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">+</span> <span class="fu">I</span>(lstat<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> Boston)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat + I(lstat^2), data = Boston)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.2834  -3.8313  -0.5295   2.3095  25.4148 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 42.862007   0.872084   49.15   &lt;2e-16 ***
+lstat       -2.332821   0.123803  -18.84   &lt;2e-16 ***
+I(lstat^2)   0.043547   0.003745   11.63   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5.524 on 503 degrees of freedom
+Multiple R-squared:  0.6407,    Adjusted R-squared:  0.6393 
+F-statistic: 448.5 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(medv <span class="sc">~</span> lstat, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">"forestgreen"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(lstat, <span class="fu">fitted</span>(fit6), <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">pch =</span> <span class="dv">20</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>fit7 <span class="ot">=</span> <span class="fu">lm</span>(medv <span class="sc">~</span> <span class="fu">poly</span>(lstat, <span class="dv">4</span>), <span class="at">data =</span> Boston)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(lstat, <span class="fu">fitted</span>(fit7), <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">pch =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6323Lab_Linear_Regression_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
+<section id="qualitative-predictors-and-interaction-terms" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="qualitative-predictors-and-interaction-terms"><span class="header-section-number">9</span> Qualitative Predictors and Interaction Terms</h2>
+<p>For qualitative predictors, we use the <strong>Carseats</strong> dataset and explore how different factors affect sales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Qualitative Predictors and Interaction Terms</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Carseats dataset</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Carseats)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Carseats)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Proceed with the rest of the analysis</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Carseats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Sales"       "CompPrice"   "Income"      "Advertising" "Population" 
+ [6] "Price"       "ShelveLoc"   "Age"         "Education"   "Urban"      
+[11] "US"         </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Carseats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Sales          CompPrice       Income        Advertising    
+ Min.   : 0.000   Min.   : 77   Min.   : 21.00   Min.   : 0.000  
+ 1st Qu.: 5.390   1st Qu.:115   1st Qu.: 42.75   1st Qu.: 0.000  
+ Median : 7.490   Median :125   Median : 69.00   Median : 5.000  
+ Mean   : 7.496   Mean   :125   Mean   : 68.66   Mean   : 6.635  
+ 3rd Qu.: 9.320   3rd Qu.:135   3rd Qu.: 91.00   3rd Qu.:12.000  
+ Max.   :16.270   Max.   :175   Max.   :120.00   Max.   :29.000  
+   Population        Price        ShelveLoc        Age          Education   
+ Min.   : 10.0   Min.   : 24.0   Bad   : 96   Min.   :25.00   Min.   :10.0  
+ 1st Qu.:139.0   1st Qu.:100.0   Good  : 85   1st Qu.:39.75   1st Qu.:12.0  
+ Median :272.0   Median :117.0   Medium:219   Median :54.50   Median :14.0  
+ Mean   :264.8   Mean   :115.8                Mean   :53.32   Mean   :13.9  
+ 3rd Qu.:398.5   3rd Qu.:131.0                3rd Qu.:66.00   3rd Qu.:16.0  
+ Max.   :509.0   Max.   :191.0                Max.   :80.00   Max.   :18.0  
+ Urban       US     
+ No :118   No :142  
+ Yes:282   Yes:258  
+                    
+                    
+                    
+                    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">=</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> . <span class="sc">+</span> Income<span class="sc">:</span>Advertising <span class="sc">+</span> Age<span class="sc">:</span>Price, <span class="at">data =</span> Carseats)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Sales ~ . + Income:Advertising + Age:Price, data = Carseats)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.9208 -0.7503  0.0177  0.6754  3.3413 
+
+Coefficients:
+                     Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         6.5755654  1.0087470   6.519 2.22e-10 ***
+CompPrice           0.0929371  0.0041183  22.567  &lt; 2e-16 ***
+Income              0.0108940  0.0026044   4.183 3.57e-05 ***
+Advertising         0.0702462  0.0226091   3.107 0.002030 ** 
+Population          0.0001592  0.0003679   0.433 0.665330    
+Price              -0.1008064  0.0074399 -13.549  &lt; 2e-16 ***
+ShelveLocGood       4.8486762  0.1528378  31.724  &lt; 2e-16 ***
+ShelveLocMedium     1.9532620  0.1257682  15.531  &lt; 2e-16 ***
+Age                -0.0579466  0.0159506  -3.633 0.000318 ***
+Education          -0.0208525  0.0196131  -1.063 0.288361    
+UrbanYes            0.1401597  0.1124019   1.247 0.213171    
+USYes              -0.1575571  0.1489234  -1.058 0.290729    
+Income:Advertising  0.0007510  0.0002784   2.698 0.007290 ** 
+Price:Age           0.0001068  0.0001333   0.801 0.423812    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.011 on 386 degrees of freedom
+Multiple R-squared:  0.8761,    Adjusted R-squared:  0.8719 
+F-statistic:   210 on 13 and 386 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(Carseats<span class="sc">$</span>ShelveLoc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Good Medium
+Bad       0      0
+Good      1      0
+Medium    0      1</code></pre>
+</div>
+</div>
 </section>
-<section id="lab05-linear-regression-lab" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="lab05-linear-regression-lab"><span class="header-section-number">5</span> Lab05: Linear Regression Lab</h2>
-<p>This lab explores various <strong>Linear Regression</strong> techniques in R, using the <code>Boston</code> and <code>Carseats</code> datasets. You will learn how to implement simple and multiple linear regression, and how to interpret the results. The lab also covers interaction terms, nonlinear terms, and working with qualitative predictors.</p>
-<section id="key-learning-objectives-3" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="key-learning-objectives-3"><span class="header-section-number">5.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Fitting simple and multiple linear regression models in R.</li>
-<li>Interpreting regression coefficients, R-squared values, and prediction intervals.</li>
-<li>Exploring interaction terms, nonlinear relationships, and qualitative predictors.</li>
-<li>Visualizing regression results using custom plotting functions.</li>
-</ul>
+<section id="custom-regression-plot-function" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="custom-regression-plot-function"><span class="header-section-number">10</span> Custom Regression Plot Function</h2>
+<p>Finally, we create a custom function to simplify plotting regression models.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>regplot <span class="ot">=</span> <span class="cf">function</span>(x, y, ...){</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  fit <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x, y, ...)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit, <span class="at">col =</span> <span class="st">"firebrick"</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="fu">regplot</span>(Price, Sales, <span class="at">xlab =</span> <span class="st">"Price"</span>, <span class="at">ylab =</span> <span class="st">"Sales"</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">pch =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6323Lab_Linear_Regression_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="tools-2" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="tools-2"><span class="header-section-number">5.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>MASS</code>, <code>ISLR</code>, <code>arm</code>.</li>
-<li><strong>Data Sources</strong>: The <code>Boston</code> dataset for housing price predictions and the <code>Carseats</code> dataset for sales analysis.</li>
-</ul>
-<p><a href="./6323Lab_Linear_Regression.html">Click here to view Lab05</a></p>
-<hr>
-</section>
-</section>
-<section id="lab06-logistic-regression-lab" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="lab06-logistic-regression-lab"><span class="header-section-number">6</span> Lab06: Logistic Regression Lab</h2>
-<p>In this lab, you will explore <strong>Logistic Regression</strong> by predicting stock market directions using the <code>Smarket</code> dataset from the <code>ISLR</code> package. You will fit logistic regression models to binary outcomes and evaluate the model’s performance through prediction accuracy.</p>
-<section id="key-learning-objectives-4" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="key-learning-objectives-4"><span class="header-section-number">6.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Fitting logistic regression models in R using the <code>Smarket</code> dataset.</li>
-<li>Interpreting coefficients and odds ratios from logistic regression models.</li>
-<li>Evaluating model performance using confusion matrices and calculating classification accuracy.</li>
-</ul>
-</section>
-<section id="tools-3" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="tools-3"><span class="header-section-number">6.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>ISLR</code>, <code>MASS</code>.</li>
-<li><strong>Data Source</strong>: The <code>Smarket</code> dataset, which contains stock market data from 2001 to 2005, including variables such as lag values and volume.</li>
-</ul>
-<p><a href="./6323Lab_Logistic_Regression.html">Click here to view Lab06</a></p>
-<hr>
-</section>
-</section>
-<section id="lab07-model-selection-lab" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="lab07-model-selection-lab"><span class="header-section-number">7</span> Lab07: Model Selection Lab</h2>
-<p>In this lab, you will explore <strong>Model Selection</strong> techniques, including Best Subset Selection, Forward Selection, and Backward Selection. These methods will help you determine the best model based on different criteria, such as Cp, BIC, and Adjusted R².</p>
-<section id="key-learning-objectives-5" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="key-learning-objectives-5"><span class="header-section-number">7.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Implementing Best Subset, Forward, and Backward Selection in R.</li>
-<li>Comparing models using Cp, BIC, and Adjusted R².</li>
-<li>Visualizing model performance using selection criteria plots.</li>
-<li>Extracting model coefficients and interpreting model fit.</li>
-</ul>
-</section>
-<section id="tools-4" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="tools-4"><span class="header-section-number">7.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>leaps</code>, <code>datasets</code>.</li>
-<li><strong>Data Source</strong>: Synthetic data generated by a cubic polynomial of <code>X</code> with added noise, used to test model selection techniques.</li>
-</ul>
-<p><a href="./6323Lab_Model_Selection.html">Click here to view Lab07</a></p>
-<hr>
-</section>
-</section>
-<section id="lab08-caret---random-forest-knn-glmnet" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="lab08-caret---random-forest-knn-glmnet"><span class="header-section-number">8</span> Lab08: caret - Random Forest, KNN, GLMNet</h2>
-<p>This lab explores <strong>Random Forest, KNN, and GLMNet</strong> using the <code>caret</code> package in R. You will learn how to build Random Forest models for both classification and regression tasks, and explore alternative models like K-Nearest Neighbors (KNN) and GLMNet for different types of data.</p>
-<section id="key-learning-objectives-6" class="level3" data-number="8.1">
-<h3 data-number="8.1" class="anchored" data-anchor-id="key-learning-objectives-6"><span class="header-section-number">8.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Implementing Random Forest classification and regression models using the <code>caret</code> package.</li>
-<li>Training and evaluating models with cross-validation techniques.</li>
-<li>Exploring alternative models like KNN and GLMNet for various predictive tasks.</li>
-<li>Interpreting model performance using accuracy for classification and RMSE for regression tasks.</li>
-</ul>
-</section>
-<section id="tools-5" class="level3" data-number="8.2">
-<h3 data-number="8.2" class="anchored" data-anchor-id="tools-5"><span class="header-section-number">8.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>caret</code>, <code>randomForest</code>, <code>dplyr</code>, <code>ggplot2</code>, <code>tidyr</code>.</li>
-<li><strong>Data Sources</strong>: The <code>iris</code> dataset for classification tasks and the <code>mtcars</code> dataset for regression tasks.</li>
-</ul>
-<p><a href="./6323Lab_caret01.html">Click here to view Lab09</a></p>
-<hr>
-</section>
-</section>
-<section id="lab09-interpretable-machine-learning-lab" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="lab09-interpretable-machine-learning-lab"><span class="header-section-number">9</span> Lab09: Interpretable Machine Learning Lab</h2>
-<p>This lab focuses on <strong>Interpretable Machine Learning</strong> techniques using R: LIME, Partial Dependence Plots (PDP), and SHAP values. You will work with the <code>iris</code> dataset and train models using different algorithms to demonstrate how these techniques help in interpreting machine learning models.</p>
-<section id="key-learning-objectives-7" class="level3" data-number="9.1">
-<h3 data-number="9.1" class="anchored" data-anchor-id="key-learning-objectives-7"><span class="header-section-number">9.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Understanding and applying LIME for local explanations of model predictions.</li>
-<li>Generating Partial Dependence Plots (PDP) to explore feature effects on predictions.</li>
-<li>Calculating SHAP values to understand the contribution of individual features to model predictions.</li>
-</ul>
-</section>
-<section id="tools-6" class="level3" data-number="9.2">
-<h3 data-number="9.2" class="anchored" data-anchor-id="tools-6"><span class="header-section-number">9.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>caret</code>, <code>randomForest</code>, <code>lime</code>, <code>pdp</code>, <code>xgboost</code>.</li>
-<li><strong>Data Source</strong>: The <code>iris</code> dataset, which contains measurements of sepal and petal dimensions for three species of iris flowers.</li>
-</ul>
-<p><a href="./6323Lab_IML.html">Click here to view Lab08</a></p>
-<hr>
-<p>Each of these labs will help you develop essential skills in statistical modeling and data analysis. Click the links to access detailed instructions and resources for each lab.</p>
+<section id="conclusion" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">11</span> Conclusion</h2>
+<p>In this lab, we have covered the basics of linear regression, including simple and multiple regression models, interaction terms, and nonlinear relationships. We also explored working with qualitative predictors and developed a custom plotting function for regression analysis.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

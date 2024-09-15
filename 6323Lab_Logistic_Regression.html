@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jim">
-<meta name="dcterms.date" content="2024-09-02">
 
-<title>6323 Labs – Jimpan’s Knowledge Hub</title>
+<title>Lab06 Logistic Regression Lab – Jimpan’s Knowledge Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -177,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6323Lab_index.html">6323 Labs</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6323Lab_Logistic_Regression.html">Lab06 Logistic Regression Lab</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -191,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6323Lab_index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./6323Lab_index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6323 Labs</span></a>
   </div>
 </li>
@@ -221,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6323Lab_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+  <a href="./6323Lab_Logistic_Regression.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab06 Logistic Regression Lab</span></a>
   </div>
 </li>
@@ -253,46 +286,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#knowledge-mining" id="toc-knowledge-mining" class="nav-link active" data-scroll-target="#knowledge-mining"><span class="header-section-number">1</span> 6323 Knowledge Mining</a></li>
-  <li><a href="#lab02-basic-commands-and-matrix-operations-in-r" id="toc-lab02-basic-commands-and-matrix-operations-in-r" class="nav-link" data-scroll-target="#lab02-basic-commands-and-matrix-operations-in-r"><span class="header-section-number">2</span> Lab02: Basic Commands and Matrix Operations in R</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives" id="toc-key-learning-objectives" class="nav-link" data-scroll-target="#key-learning-objectives"><span class="header-section-number">2.1</span> Key Learning Objectives:</a></li>
-  </ul></li>
-  <li><a href="#lab03-exploratory-data-analysis-eda" id="toc-lab03-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#lab03-exploratory-data-analysis-eda"><span class="header-section-number">3</span> Lab03: Exploratory Data Analysis (EDA)</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-1" id="toc-key-learning-objectives-1" class="nav-link" data-scroll-target="#key-learning-objectives-1"><span class="header-section-number">3.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">3.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab04-linear-discriminant-analysis-lab" id="toc-lab04-linear-discriminant-analysis-lab" class="nav-link" data-scroll-target="#lab04-linear-discriminant-analysis-lab"><span class="header-section-number">4</span> Lab04: Linear Discriminant Analysis Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-2" id="toc-key-learning-objectives-2" class="nav-link" data-scroll-target="#key-learning-objectives-2"><span class="header-section-number">4.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-1" id="toc-tools-1" class="nav-link" data-scroll-target="#tools-1"><span class="header-section-number">4.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab05-linear-regression-lab" id="toc-lab05-linear-regression-lab" class="nav-link" data-scroll-target="#lab05-linear-regression-lab"><span class="header-section-number">5</span> Lab05: Linear Regression Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-3" id="toc-key-learning-objectives-3" class="nav-link" data-scroll-target="#key-learning-objectives-3"><span class="header-section-number">5.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-2" id="toc-tools-2" class="nav-link" data-scroll-target="#tools-2"><span class="header-section-number">5.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab06-logistic-regression-lab" id="toc-lab06-logistic-regression-lab" class="nav-link" data-scroll-target="#lab06-logistic-regression-lab"><span class="header-section-number">6</span> Lab06: Logistic Regression Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-4" id="toc-key-learning-objectives-4" class="nav-link" data-scroll-target="#key-learning-objectives-4"><span class="header-section-number">6.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-3" id="toc-tools-3" class="nav-link" data-scroll-target="#tools-3"><span class="header-section-number">6.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab07-model-selection-lab" id="toc-lab07-model-selection-lab" class="nav-link" data-scroll-target="#lab07-model-selection-lab"><span class="header-section-number">7</span> Lab07: Model Selection Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-5" id="toc-key-learning-objectives-5" class="nav-link" data-scroll-target="#key-learning-objectives-5"><span class="header-section-number">7.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-4" id="toc-tools-4" class="nav-link" data-scroll-target="#tools-4"><span class="header-section-number">7.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab08-caret---random-forest-knn-glmnet" id="toc-lab08-caret---random-forest-knn-glmnet" class="nav-link" data-scroll-target="#lab08-caret---random-forest-knn-glmnet"><span class="header-section-number">8</span> Lab08: caret - Random Forest, KNN, GLMNet</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-6" id="toc-key-learning-objectives-6" class="nav-link" data-scroll-target="#key-learning-objectives-6"><span class="header-section-number">8.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-5" id="toc-tools-5" class="nav-link" data-scroll-target="#tools-5"><span class="header-section-number">8.2</span> Tools:</a></li>
-  </ul></li>
-  <li><a href="#lab09-interpretable-machine-learning-lab" id="toc-lab09-interpretable-machine-learning-lab" class="nav-link" data-scroll-target="#lab09-interpretable-machine-learning-lab"><span class="header-section-number">9</span> Lab09: Interpretable Machine Learning Lab</a>
-  <ul class="collapse">
-  <li><a href="#key-learning-objectives-7" id="toc-key-learning-objectives-7" class="nav-link" data-scroll-target="#key-learning-objectives-7"><span class="header-section-number">9.1</span> Key Learning Objectives:</a></li>
-  <li><a href="#tools-6" id="toc-tools-6" class="nav-link" data-scroll-target="#tools-6"><span class="header-section-number">9.2</span> Tools:</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">2</span> Setup</a></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration"><span class="header-section-number">3</span> Data Exploration</a></li>
+  <li><a href="#logistic-regression-model" id="toc-logistic-regression-model" class="nav-link" data-scroll-target="#logistic-regression-model"><span class="header-section-number">4</span> Logistic Regression Model</a></li>
+  <li><a href="#generating-predictions" id="toc-generating-predictions" class="nav-link" data-scroll-target="#generating-predictions"><span class="header-section-number">5</span> Generating Predictions</a></li>
+  <li><a href="#training-and-test-sets" id="toc-training-and-test-sets" class="nav-link" data-scroll-target="#training-and-test-sets"><span class="header-section-number">6</span> Training and Test Sets</a></li>
+  <li><a href="#fitting-a-smaller-model" id="toc-fitting-a-smaller-model" class="nav-link" data-scroll-target="#fitting-a-smaller-model"><span class="header-section-number">7</span> Fitting a Smaller Model</a></li>
+  <li><a href="#model-accuracy" id="toc-model-accuracy" class="nav-link" data-scroll-target="#model-accuracy"><span class="header-section-number">8</span> Model Accuracy</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">9</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -301,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">6323 Labs</h1>
+<h1 class="title">Lab06 Logistic Regression Lab</h1>
 </div>
 
 
@@ -315,12 +317,6 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 2, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -330,182 +326,211 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="knowledge-mining" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="knowledge-mining"><span class="header-section-number">1</span> 6323 Knowledge Mining</h2>
-<p>Welcome to the homepage for the 6323 Labs! This course focuses on <strong>data mining and machine learning methods</strong>, core aspects of data science. Throughout the labs, you will explore a range of <strong>statistical modeling techniques</strong> and <strong>data analysis methods</strong>, including regression analysis, classification, decision trees, neural networks, and support vector machines. These labs will also introduce you to new developments in learning, such as deep learning and interpretable machine learning.</p>
-<p>Below, you will find links to each lab assignment, along with a brief description of what each lab covers.</p>
-<hr>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>This document demonstrates how to apply <strong>Logistic Regression</strong> using the <code>Smarket</code> dataset from the <strong>ISLR</strong> package. We will explore model fitting, prediction, and performance evaluation using training and test sets.</p>
 </section>
-<section id="lab02-basic-commands-and-matrix-operations-in-r" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="lab02-basic-commands-and-matrix-operations-in-r"><span class="header-section-number">2</span> Lab02: Basic Commands and Matrix Operations in R</h2>
-<p>In this lab, you will practice <strong>basic commands and matrix operations in R</strong>, including how to load data, index matrices, and perform basic descriptive statistics. The lab also covers graphical summaries and introduces linear regression models in R.</p>
-<section id="key-learning-objectives" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="key-learning-objectives"><span class="header-section-number">2.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Indexing matrices and performing matrix operations in R.</li>
-<li>Loading data from external sources (GitHub, websites) into R.</li>
-<li>Creating graphical summaries such as scatterplots, histograms, and pairwise plots.</li>
-<li>Fitting simple linear regression models and interpreting the results.</li>
-<li>Understanding how to work with multiple regression models, non-linear transformations, and qualitative predictors.</li>
-</ul>
-<p><a href="./6323Lab02.html">Click here to view Lab02</a></p>
-<hr>
+<section id="setup" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="setup"><span class="header-section-number">2</span> Setup</h2>
+<p>First, we need to load the required package and dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup CRAN Mirror</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cran.rstudio.com/"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load ISLR package</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ISLR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
+<section id="data-exploration" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">3</span> Data Exploration</h2>
+<p>We will begin by exploring the structure and summary statistics of the <code>Smarket</code> dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check dataset structure</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>?Smarket</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(Smarket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Year"      "Lag1"      "Lag2"      "Lag3"      "Lag4"      "Lag5"     
+[7] "Volume"    "Today"     "Direction"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Smarket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year           Lag1                Lag2                Lag3          
+ Min.   :2001   Min.   :-4.922000   Min.   :-4.922000   Min.   :-4.922000  
+ 1st Qu.:2002   1st Qu.:-0.639500   1st Qu.:-0.639500   1st Qu.:-0.640000  
+ Median :2003   Median : 0.039000   Median : 0.039000   Median : 0.038500  
+ Mean   :2003   Mean   : 0.003834   Mean   : 0.003919   Mean   : 0.001716  
+ 3rd Qu.:2004   3rd Qu.: 0.596750   3rd Qu.: 0.596750   3rd Qu.: 0.596750  
+ Max.   :2005   Max.   : 5.733000   Max.   : 5.733000   Max.   : 5.733000  
+      Lag4                Lag5              Volume           Today          
+ Min.   :-4.922000   Min.   :-4.92200   Min.   :0.3561   Min.   :-4.922000  
+ 1st Qu.:-0.640000   1st Qu.:-0.64000   1st Qu.:1.2574   1st Qu.:-0.639500  
+ Median : 0.038500   Median : 0.03850   Median :1.4229   Median : 0.038500  
+ Mean   : 0.001636   Mean   : 0.00561   Mean   :1.4783   Mean   : 0.003138  
+ 3rd Qu.: 0.596750   3rd Qu.: 0.59700   3rd Qu.:1.6417   3rd Qu.: 0.596750  
+ Max.   : 5.733000   Max.   : 5.73300   Max.   :3.1525   Max.   : 5.733000  
+ Direction 
+ Down:602  
+ Up  :648  
+           
+           
+           
+           </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataframe for data browsing</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sm <span class="ot">=</span> Smarket</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bivariate Plot of inter-lag correlations</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Smarket, <span class="at">col =</span> Smarket<span class="sc">$</span>Direction, <span class="at">cex =</span> .<span class="dv">5</span>, <span class="at">pch =</span> <span class="dv">20</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"Inter-lag Correlations"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="6323Lab_Logistic_Regression_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="lab03-exploratory-data-analysis-eda" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="lab03-exploratory-data-analysis-eda"><span class="header-section-number">3</span> Lab03: Exploratory Data Analysis (EDA)</h2>
-<p>In this lab, you will explore <strong>Exploratory Data Analysis (EDA)</strong> in R using the <code>iris</code> dataset. The lab focuses on creating <strong>interactive 3D visualizations</strong> using the <strong>Plotly</strong> package and performing <strong>multiple linear regression</strong> to understand relationships between variables.</p>
-<section id="key-learning-objectives-1" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="key-learning-objectives-1"><span class="header-section-number">3.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Visualizing relationships between quantitative variables using 3D scatterplots with <code>Plotly</code>.</li>
-<li>Fitting multiple linear regression models to predict <code>Petal.Length</code> using <code>Sepal.Length</code> and <code>Sepal.Width</code>.</li>
-<li>Understanding how to generate regression surfaces and enhance visualizations with interactive elements.</li>
-<li>Using the <code>reshape2</code> package to prepare data for 3D plotting.</li>
-</ul>
+<section id="logistic-regression-model" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="logistic-regression-model"><span class="header-section-number">4</span> Logistic Regression Model</h2>
+<p>We will fit a logistic regression model to predict the <code>Direction</code> variable (Up/Down) using the lag variables (<code>Lag1</code>, <code>Lag2</code>, <code>Lag3</code>, <code>Lag4</code>, <code>Lag5</code>) and <code>Volume</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the logistic regression model</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>glm.fit <span class="ot">=</span> <span class="fu">glm</span>(Direction <span class="sc">~</span> Lag1 <span class="sc">+</span> Lag2 <span class="sc">+</span> Lag3 <span class="sc">+</span> Lag4 <span class="sc">+</span> Lag5 <span class="sc">+</span> Volume, <span class="at">data =</span> Smarket, <span class="at">family =</span> binomial)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display model summary</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 + 
+    Volume, family = binomial, data = Smarket)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept) -0.126000   0.240736  -0.523    0.601
+Lag1        -0.073074   0.050167  -1.457    0.145
+Lag2        -0.042301   0.050086  -0.845    0.398
+Lag3         0.011085   0.049939   0.222    0.824
+Lag4         0.009359   0.049974   0.187    0.851
+Lag5         0.010313   0.049511   0.208    0.835
+Volume       0.135441   0.158360   0.855    0.392
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1731.2  on 1249  degrees of freedom
+Residual deviance: 1727.6  on 1243  degrees of freedom
+AIC: 1741.6
+
+Number of Fisher Scoring iterations: 3</code></pre>
+</div>
+</div>
 </section>
-<section id="tools" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">3.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>Plotly</code>, <code>reshape2</code>, <code>datasets</code>.</li>
-<li><strong>Data Source</strong>: The <code>iris</code> dataset, which contains measurements of sepal and petal dimensions for three species of iris flowers.</li>
-</ul>
-<p><a href="./6323Lab03.html">Click here to view Lab03</a></p>
-<hr>
+<section id="generating-predictions" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="generating-predictions"><span class="header-section-number">5</span> Generating Predictions</h2>
+<p>We can generate predictions from the model and compare the predicted values to the actual market direction.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict probabilities</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>glm.probs <span class="ot">=</span> <span class="fu">predict</span>(glm.fit, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display first 5 predictions</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>glm.probs[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1         2         3         4         5 
+0.5070841 0.4814679 0.4811388 0.5152224 0.5107812 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert probabilities to class labels</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>glm.pred <span class="ot">=</span> <span class="fu">ifelse</span>(glm.probs <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"Up"</span>, <span class="st">"Down"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create confusion matrix to compare predictions with actual values</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Smarket)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred, Direction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Direction
+glm.pred Down  Up
+    Down  145 141
+    Up    457 507</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate accuracy</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(glm.pred <span class="sc">==</span> Direction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5216</code></pre>
+</div>
+</div>
 </section>
+<section id="training-and-test-sets" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="training-and-test-sets"><span class="header-section-number">6</span> Training and Test Sets</h2>
+<p>To evaluate the model on unseen data, we split the dataset into training (before 2005) and test sets (2005 data).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define training set (before 2005)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>train <span class="ot">=</span> Year <span class="sc">&lt;</span> <span class="dv">2005</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit model using training set</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>glm.fit <span class="ot">=</span> <span class="fu">glm</span>(Direction <span class="sc">~</span> Lag1 <span class="sc">+</span> Lag2 <span class="sc">+</span> Lag3 <span class="sc">+</span> Lag4 <span class="sc">+</span> Lag5 <span class="sc">+</span> Volume, <span class="at">data =</span> Smarket, <span class="at">family =</span> binomial, <span class="at">subset =</span> train)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test set (2005 data)</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>glm.probs <span class="ot">=</span> <span class="fu">predict</span>(glm.fit, <span class="at">newdata =</span> Smarket[<span class="sc">!</span>train, ], <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>glm.pred <span class="ot">=</span> <span class="fu">ifelse</span>(glm.probs <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"Up"</span>, <span class="st">"Down"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare predictions with actual 2005 data</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>Direction<span class="fl">.2005</span> <span class="ot">=</span> Smarket<span class="sc">$</span>Direction[<span class="sc">!</span>train]</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred, Direction<span class="fl">.2005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Direction.2005
+glm.pred Down Up
+    Down   77 97
+    Up     34 44</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate accuracy on test set</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(glm.pred <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4801587</code></pre>
+</div>
+</div>
 </section>
-<section id="lab04-linear-discriminant-analysis-lab" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="lab04-linear-discriminant-analysis-lab"><span class="header-section-number">4</span> Lab04: Linear Discriminant Analysis Lab</h2>
-<p>This lab introduces <strong>Linear Discriminant Analysis (LDA)</strong>, a classification method applied to predict stock market directions using the <code>Smarket</code> dataset from the <code>ISLR</code> package. You will learn how to implement LDA in R and evaluate model performance based on prediction accuracy.</p>
-<section id="key-learning-objectives-2" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="key-learning-objectives-2"><span class="header-section-number">4.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Understanding the theory behind LDA and its application in financial market prediction.</li>
-<li>Implementing LDA in R using the <code>MASS</code> package.</li>
-<li>Visualizing LDA decision boundaries and interpreting confusion matrices.</li>
-<li>Evaluating classification accuracy by comparing predicted vs.&nbsp;actual market directions.</li>
-</ul>
+<section id="fitting-a-smaller-model" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="fitting-a-smaller-model"><span class="header-section-number">7</span> Fitting a Smaller Model</h2>
+<p>To simplify the model, we can fit a logistic regression with fewer predictors (<code>Lag1</code> and <code>Lag2</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a smaller logistic regression model</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>glm.fit <span class="ot">=</span> <span class="fu">glm</span>(Direction <span class="sc">~</span> Lag1 <span class="sc">+</span> Lag2, <span class="at">data =</span> Smarket, <span class="at">family =</span> binomial, <span class="at">subset =</span> train)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test set (2005 data)</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>glm.probs <span class="ot">=</span> <span class="fu">predict</span>(glm.fit, <span class="at">newdata =</span> Smarket[<span class="sc">!</span>train, ], <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>glm.pred <span class="ot">=</span> <span class="fu">ifelse</span>(glm.probs <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"Up"</span>, <span class="st">"Down"</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare predictions with actual 2005 data</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(glm.pred, Direction<span class="fl">.2005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Direction.2005
+glm.pred Down  Up
+    Down   35  35
+    Up     76 106</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate accuracy on test set</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(glm.pred <span class="sc">==</span> Direction<span class="fl">.2005</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5595238</code></pre>
+</div>
+</div>
 </section>
-<section id="tools-1" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="tools-1"><span class="header-section-number">4.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>MASS</code>, <code>ISLR</code>, <code>descr</code>.</li>
-<li><strong>Data Source</strong>: The <code>Smarket</code> dataset, which includes stock market data from 2001 to 2005, will be used to predict market direction (Up/Down).</li>
-</ul>
-<p><a href="./6323Lab_LDA.html">Click here to view Lab04</a></p>
-<hr>
+<section id="model-accuracy" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="model-accuracy"><span class="header-section-number">8</span> Model Accuracy</h2>
+<p>Finally, we calculate the accuracy of the model on the test set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate accuracy of the smaller model</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">=</span> <span class="dv">106</span> <span class="sc">/</span> (<span class="dv">76</span> <span class="sc">+</span> <span class="dv">106</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5824176</code></pre>
+</div>
+</div>
 </section>
-</section>
-<section id="lab05-linear-regression-lab" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="lab05-linear-regression-lab"><span class="header-section-number">5</span> Lab05: Linear Regression Lab</h2>
-<p>This lab explores various <strong>Linear Regression</strong> techniques in R, using the <code>Boston</code> and <code>Carseats</code> datasets. You will learn how to implement simple and multiple linear regression, and how to interpret the results. The lab also covers interaction terms, nonlinear terms, and working with qualitative predictors.</p>
-<section id="key-learning-objectives-3" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="key-learning-objectives-3"><span class="header-section-number">5.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Fitting simple and multiple linear regression models in R.</li>
-<li>Interpreting regression coefficients, R-squared values, and prediction intervals.</li>
-<li>Exploring interaction terms, nonlinear relationships, and qualitative predictors.</li>
-<li>Visualizing regression results using custom plotting functions.</li>
-</ul>
-</section>
-<section id="tools-2" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="tools-2"><span class="header-section-number">5.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>MASS</code>, <code>ISLR</code>, <code>arm</code>.</li>
-<li><strong>Data Sources</strong>: The <code>Boston</code> dataset for housing price predictions and the <code>Carseats</code> dataset for sales analysis.</li>
-</ul>
-<p><a href="./6323Lab_Linear_Regression.html">Click here to view Lab05</a></p>
-<hr>
-</section>
-</section>
-<section id="lab06-logistic-regression-lab" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="lab06-logistic-regression-lab"><span class="header-section-number">6</span> Lab06: Logistic Regression Lab</h2>
-<p>In this lab, you will explore <strong>Logistic Regression</strong> by predicting stock market directions using the <code>Smarket</code> dataset from the <code>ISLR</code> package. You will fit logistic regression models to binary outcomes and evaluate the model’s performance through prediction accuracy.</p>
-<section id="key-learning-objectives-4" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="key-learning-objectives-4"><span class="header-section-number">6.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Fitting logistic regression models in R using the <code>Smarket</code> dataset.</li>
-<li>Interpreting coefficients and odds ratios from logistic regression models.</li>
-<li>Evaluating model performance using confusion matrices and calculating classification accuracy.</li>
-</ul>
-</section>
-<section id="tools-3" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="tools-3"><span class="header-section-number">6.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>ISLR</code>, <code>MASS</code>.</li>
-<li><strong>Data Source</strong>: The <code>Smarket</code> dataset, which contains stock market data from 2001 to 2005, including variables such as lag values and volume.</li>
-</ul>
-<p><a href="./6323Lab_Logistic_Regression.html">Click here to view Lab06</a></p>
-<hr>
-</section>
-</section>
-<section id="lab07-model-selection-lab" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="lab07-model-selection-lab"><span class="header-section-number">7</span> Lab07: Model Selection Lab</h2>
-<p>In this lab, you will explore <strong>Model Selection</strong> techniques, including Best Subset Selection, Forward Selection, and Backward Selection. These methods will help you determine the best model based on different criteria, such as Cp, BIC, and Adjusted R².</p>
-<section id="key-learning-objectives-5" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="key-learning-objectives-5"><span class="header-section-number">7.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Implementing Best Subset, Forward, and Backward Selection in R.</li>
-<li>Comparing models using Cp, BIC, and Adjusted R².</li>
-<li>Visualizing model performance using selection criteria plots.</li>
-<li>Extracting model coefficients and interpreting model fit.</li>
-</ul>
-</section>
-<section id="tools-4" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="tools-4"><span class="header-section-number">7.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>leaps</code>, <code>datasets</code>.</li>
-<li><strong>Data Source</strong>: Synthetic data generated by a cubic polynomial of <code>X</code> with added noise, used to test model selection techniques.</li>
-</ul>
-<p><a href="./6323Lab_Model_Selection.html">Click here to view Lab07</a></p>
-<hr>
-</section>
-</section>
-<section id="lab08-caret---random-forest-knn-glmnet" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="lab08-caret---random-forest-knn-glmnet"><span class="header-section-number">8</span> Lab08: caret - Random Forest, KNN, GLMNet</h2>
-<p>This lab explores <strong>Random Forest, KNN, and GLMNet</strong> using the <code>caret</code> package in R. You will learn how to build Random Forest models for both classification and regression tasks, and explore alternative models like K-Nearest Neighbors (KNN) and GLMNet for different types of data.</p>
-<section id="key-learning-objectives-6" class="level3" data-number="8.1">
-<h3 data-number="8.1" class="anchored" data-anchor-id="key-learning-objectives-6"><span class="header-section-number">8.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Implementing Random Forest classification and regression models using the <code>caret</code> package.</li>
-<li>Training and evaluating models with cross-validation techniques.</li>
-<li>Exploring alternative models like KNN and GLMNet for various predictive tasks.</li>
-<li>Interpreting model performance using accuracy for classification and RMSE for regression tasks.</li>
-</ul>
-</section>
-<section id="tools-5" class="level3" data-number="8.2">
-<h3 data-number="8.2" class="anchored" data-anchor-id="tools-5"><span class="header-section-number">8.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>caret</code>, <code>randomForest</code>, <code>dplyr</code>, <code>ggplot2</code>, <code>tidyr</code>.</li>
-<li><strong>Data Sources</strong>: The <code>iris</code> dataset for classification tasks and the <code>mtcars</code> dataset for regression tasks.</li>
-</ul>
-<p><a href="./6323Lab_caret01.html">Click here to view Lab09</a></p>
-<hr>
-</section>
-</section>
-<section id="lab09-interpretable-machine-learning-lab" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="lab09-interpretable-machine-learning-lab"><span class="header-section-number">9</span> Lab09: Interpretable Machine Learning Lab</h2>
-<p>This lab focuses on <strong>Interpretable Machine Learning</strong> techniques using R: LIME, Partial Dependence Plots (PDP), and SHAP values. You will work with the <code>iris</code> dataset and train models using different algorithms to demonstrate how these techniques help in interpreting machine learning models.</p>
-<section id="key-learning-objectives-7" class="level3" data-number="9.1">
-<h3 data-number="9.1" class="anchored" data-anchor-id="key-learning-objectives-7"><span class="header-section-number">9.1</span> Key Learning Objectives:</h3>
-<ul>
-<li>Understanding and applying LIME for local explanations of model predictions.</li>
-<li>Generating Partial Dependence Plots (PDP) to explore feature effects on predictions.</li>
-<li>Calculating SHAP values to understand the contribution of individual features to model predictions.</li>
-</ul>
-</section>
-<section id="tools-6" class="level3" data-number="9.2">
-<h3 data-number="9.2" class="anchored" data-anchor-id="tools-6"><span class="header-section-number">9.2</span> Tools:</h3>
-<ul>
-<li><strong>R packages</strong>: <code>caret</code>, <code>randomForest</code>, <code>lime</code>, <code>pdp</code>, <code>xgboost</code>.</li>
-<li><strong>Data Source</strong>: The <code>iris</code> dataset, which contains measurements of sepal and petal dimensions for three species of iris flowers.</li>
-</ul>
-<p><a href="./6323Lab_IML.html">Click here to view Lab08</a></p>
-<hr>
-<p>Each of these labs will help you develop essential skills in statistical modeling and data analysis. Click the links to access detailed instructions and resources for each lab.</p>
+<section id="conclusion" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">9</span> Conclusion</h2>
+<p>In this lab, we have explored logistic regression using the <code>Smarket</code> dataset to predict stock market direction. We fit models using lag variables and volume as predictors, generated predictions, and evaluated model accuracy on test data.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
