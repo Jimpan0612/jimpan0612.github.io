@@ -143,3 +143,68 @@ pre, code {
   margin-bottom: 5px; /* 列表項之間的間距 */
 }
 
+
+/* 定義基本動畫效果 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 旋轉與放大 */
+.zoom-rotate {
+  opacity: 0;
+  transform: scale(0.5) rotate(-45deg);
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.zoom-rotate.visible {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* 滑入效果 */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 彈跳效果 */
+.bounce-in {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 0.5s cubic-bezier(0.25, 1.5, 0.5, 1), opacity 0.5s ease;
+}
+
+.bounce-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 翻轉效果 */
+.flip-in {
+  opacity: 0;
+  transform: rotateY(90deg);
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.flip-in.visible {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
