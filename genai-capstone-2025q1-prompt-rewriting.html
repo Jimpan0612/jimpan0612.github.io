@@ -260,9 +260,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#few-shot-prompting-with-json-output" id="toc-few-shot-prompting-with-json-output" class="nav-link" data-scroll-target="#few-shot-prompting-with-json-output"><span class="header-section-number">3.1</span> 🧪 Few-shot Prompting with JSON Output</a></li>
   <li><a href="#classify-retrieve-examples-via-rag" id="toc-classify-retrieve-examples-via-rag" class="nav-link" data-scroll-target="#classify-retrieve-examples-via-rag"><span class="header-section-number">3.2</span> 🧠 Classify &amp; Retrieve Examples via RAG</a></li>
   <li><a href="#tool-routing-with-langgraph" id="toc-tool-routing-with-langgraph" class="nav-link" data-scroll-target="#tool-routing-with-langgraph"><span class="header-section-number">3.3</span> 🔧 Tool Routing with LangGraph</a></li>
-  <li><a href="#rewriting-output-full-json-example" id="toc-rewriting-output-full-json-example" class="nav-link" data-scroll-target="#rewriting-output-full-json-example"><span class="header-section-number">3.4</span> 🧪 Rewriting Output (Full JSON Example)</a></li>
-  <li><a href="#real-chat-flow-with-tool-calls" id="toc-real-chat-flow-with-tool-calls" class="nav-link" data-scroll-target="#real-chat-flow-with-tool-calls"><span class="header-section-number">3.5</span> 💬 Real Chat Flow with Tool Calls</a></li>
-  <li><a href="#debugging-agent-execution" id="toc-debugging-agent-execution" class="nav-link" data-scroll-target="#debugging-agent-execution"><span class="header-section-number">3.6</span> 🧪 Debugging Agent Execution</a></li>
+  <li><a href="#store-prompt-data-via-chromadb" id="toc-store-prompt-data-via-chromadb" class="nav-link" data-scroll-target="#store-prompt-data-via-chromadb"><span class="header-section-number">3.4</span> 🗂️ Store Prompt Data via ChromaDB</a></li>
+  <li><a href="#rewriting-output-full-json-example" id="toc-rewriting-output-full-json-example" class="nav-link" data-scroll-target="#rewriting-output-full-json-example"><span class="header-section-number">3.5</span> 🧪 Rewriting Output (Full JSON Example)</a></li>
+  <li><a href="#real-chat-flow-with-tool-calls" id="toc-real-chat-flow-with-tool-calls" class="nav-link" data-scroll-target="#real-chat-flow-with-tool-calls"><span class="header-section-number">3.6</span> 💬 Real Chat Flow with Tool Calls</a></li>
+  <li><a href="#debugging-agent-execution" id="toc-debugging-agent-execution" class="nav-link" data-scroll-target="#debugging-agent-execution"><span class="header-section-number">3.7</span> 🧪 Debugging Agent Execution</a></li>
   </ul></li>
   <li><a href="#limitations-future-possibilities" id="toc-limitations-future-possibilities" class="nav-link" data-scroll-target="#limitations-future-possibilities"><span class="header-section-number">4</span> 🚧 Limitations &amp; Future Possibilities</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> ✅ Conclusion</a></li>
@@ -370,7 +371,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>llm_with_tools <span class="ot">=</span> <span class="fu">llm.bind_tools</span>(tools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>A full LangGraph visualization is shown below:</p>
-<p><img src="files/genai-capstone-2025q1/mermaid.png" class="slide-in img-fluid" alt="Full LangGraph Structure"> ### 🗂️ Store Prompt Data via ChromaDB</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/genai-capstone-2025q1/mermaid.png" class="slide-in img-fluid figure-img"></p>
+<figcaption>Full LangGraph Structure</figcaption>
+</figure>
+</div>
+</section>
+<section id="store-prompt-data-via-chromadb" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="store-prompt-data-via-chromadb"><span class="header-section-number">3.4</span> 🗂️ Store Prompt Data via ChromaDB</h3>
 <p>I created a searchable example database using ChromaDB and Gemini’s embedding API. Each rewritten prompt and follow-up suggestion pair was embedded and stored for retrieval.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>embed_fn <span class="ot">=</span> <span class="fu">GeminiEmbeddingFunction</span>()</span>
@@ -382,8 +391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>This enables the assistant to retrieve relevant prompt examples to guide users with vague inputs.</p>
 </section>
-<section id="rewriting-output-full-json-example" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="rewriting-output-full-json-example"><span class="header-section-number">3.4</span> 🧪 Rewriting Output (Full JSON Example)</h3>
+<section id="rewriting-output-full-json-example" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="rewriting-output-full-json-example"><span class="header-section-number">3.5</span> 🧪 Rewriting Output (Full JSON Example)</h3>
 <p>After retrieving related prompts, the assistant generates a detailed rewritten version like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">=</span> <span class="fu">client.models.generate_content</span>(</span>
@@ -407,8 +416,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="real-chat-flow-with-tool-calls" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="real-chat-flow-with-tool-calls"><span class="header-section-number">3.5</span> 💬 Real Chat Flow with Tool Calls</h3>
+<section id="real-chat-flow-with-tool-calls" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="real-chat-flow-with-tool-calls"><span class="header-section-number">3.6</span> 💬 Real Chat Flow with Tool Calls</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>state <span class="ot">=</span> <span class="fu">prompt_assistant_graph.invoke</span>({<span class="st">"messages"</span><span class="sc">:</span> []}, config)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -474,8 +483,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="debugging-agent-execution" class="level3" data-number="3.6">
-<h3 data-number="3.6" class="anchored" data-anchor-id="debugging-agent-execution"><span class="header-section-number">3.6</span> 🧪 Debugging Agent Execution</h3>
+<section id="debugging-agent-execution" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="debugging-agent-execution"><span class="header-section-number">3.7</span> 🧪 Debugging Agent Execution</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, msg <span class="cf">in</span> <span class="fu">enumerate</span>(state[<span class="st">"messages"</span>])<span class="sc">:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(f<span class="st">"[{i}] {type(msg).__name__}: {msg.content}"</span>)</span>
