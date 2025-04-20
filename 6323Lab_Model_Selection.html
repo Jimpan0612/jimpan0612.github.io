@@ -156,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">About Me</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./files/Chunyen_Pan_CV_copy.pdf">
+    <a class="dropdown-item" href="./files/Chunyen_Pan_CV copy.pdf">
  <span class="dropdown-text">CV</span></a>
   </li>  
     </ul>
@@ -343,21 +343,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cran.rstudio.com/"</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"leaps"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(leaps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"leaps"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The downloaded binary packages are in
+    /var/folders/m3/k788kw6103zdvc0bwpc1lzd00000gn/T//RtmpguLOgo/downloaded_packages</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(leaps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-generation" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="data-generation"><span class="header-section-number">3</span> Data Generation</h2>
 <p>We will generate a dataset where <code>Y</code> is a cubic polynomial of <code>X</code> with added noise (<code>eps</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>eps <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">=</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">9</span> <span class="sc">*</span> X <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> X<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> X<span class="sc">^</span><span class="dv">3</span> <span class="sc">+</span> eps</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot X and Y</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X, Y, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">main =</span> <span class="st">"Scatter plot of X and Y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>eps <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">=</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">9</span> <span class="sc">*</span> X <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> X<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> X<span class="sc">^</span><span class="dv">3</span> <span class="sc">+</span> eps</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot X and Y</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X, Y, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">main =</span> <span class="st">"Scatter plot of X and Y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -371,12 +376,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4" class="anchored" data-anchor-id="best-subset-selection"><span class="header-section-number">4</span> Best Subset Selection</h2>
 <p>We perform Best Subset Selection to find the optimal polynomial degree for the model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Best Subset Selection</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>regfit.full <span class="ot">=</span> <span class="fu">regsubsets</span>(Y <span class="sc">~</span> <span class="fu">poly</span>(X, <span class="dv">10</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> <span class="fu">data.frame</span>(Y, X), <span class="at">nvmax =</span> <span class="dv">10</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>reg.summary <span class="ot">=</span> <span class="fu">summary</span>(regfit.full)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>reg.summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Best Subset Selection</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>regfit.full <span class="ot">=</span> <span class="fu">regsubsets</span>(Y <span class="sc">~</span> <span class="fu">poly</span>(X, <span class="dv">10</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> <span class="fu">data.frame</span>(Y, X), <span class="at">nvmax =</span> <span class="dv">10</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>reg.summary <span class="ot">=</span> <span class="fu">summary</span>(regfit.full)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>reg.summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Subset selection object
 Call: regsubsets.formula(Y ~ poly(X, 10, raw = TRUE), data = data.frame(Y, 
@@ -457,23 +462,23 @@ Selection Algorithm: exhaustive
 <h2 data-number="5" class="anchored" data-anchor-id="model-selection-criteria"><span class="header-section-number">5</span> Model Selection Criteria</h2>
 <p>We will now plot and identify the best models based on Cp, BIC, and Adjusted R².</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up plotting area</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Cp</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>min.cp <span class="ot">=</span> <span class="fu">which.min</span>(reg.summary<span class="sc">$</span>cp)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.summary<span class="sc">$</span>cp, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Best Subset Cp"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Cp Plot"</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.cp, reg.summary<span class="sc">$</span>cp[min.cp], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot BIC</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>min.bic <span class="ot">=</span> <span class="fu">which.min</span>(reg.summary<span class="sc">$</span>bic)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.summary<span class="sc">$</span>bic, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Best Subset BIC"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"BIC Plot"</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.bic, reg.summary<span class="sc">$</span>bic[min.bic], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Adjusted R²</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>max.adjr2 <span class="ot">=</span> <span class="fu">which.max</span>(reg.summary<span class="sc">$</span>adjr2)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.summary<span class="sc">$</span>adjr2, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Best Subset Adjusted R²"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Adjusted R² Plot"</span>)</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(max.adjr2, reg.summary<span class="sc">$</span>adjr2[max.adjr2], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up plotting area</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Cp</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>min.cp <span class="ot">=</span> <span class="fu">which.min</span>(reg.summary<span class="sc">$</span>cp)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.summary<span class="sc">$</span>cp, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Best Subset Cp"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Cp Plot"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.cp, reg.summary<span class="sc">$</span>cp[min.cp], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot BIC</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>min.bic <span class="ot">=</span> <span class="fu">which.min</span>(reg.summary<span class="sc">$</span>bic)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.summary<span class="sc">$</span>bic, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Best Subset BIC"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"BIC Plot"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.bic, reg.summary<span class="sc">$</span>bic[min.bic], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Adjusted R²</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>max.adjr2 <span class="ot">=</span> <span class="fu">which.max</span>(reg.summary<span class="sc">$</span>adjr2)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.summary<span class="sc">$</span>adjr2, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Best Subset Adjusted R²"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Adjusted R² Plot"</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(max.adjr2, reg.summary<span class="sc">$</span>adjr2[max.adjr2], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -487,22 +492,22 @@ Selection Algorithm: exhaustive
 <h2 data-number="6" class="anchored" data-anchor-id="model-coefficients"><span class="header-section-number">6</span> Model Coefficients</h2>
 <p>We can extract the coefficients of the best models based on Cp, BIC, and Adjusted R².</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficients for best models</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.full, min.cp)    <span class="co"># Best model by Cp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficients for best models</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.full, min.cp)    <span class="co"># Best model by Cp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
               4.07200775               9.38745596              -2.15424359 
 poly(X, 10, raw = TRUE)3 poly(X, 10, raw = TRUE)5 
               0.55797426               0.08072292 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.full, min.bic)   <span class="co"># Best model by BIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.full, min.bic)   <span class="co"># Best model by BIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
                 4.061507                 8.975280                -2.123791 
 poly(X, 10, raw = TRUE)3 
                 1.017639 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.full, max.adjr2) <span class="co"># Best model by Adjusted R²</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.full, max.adjr2) <span class="co"># Best model by Adjusted R²</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
               4.07200775               9.38745596              -2.15424359 
@@ -517,12 +522,12 @@ poly(X, 10, raw = TRUE)3 poly(X, 10, raw = TRUE)5
 <section id="forward-selection" class="level3" data-number="7.1">
 <h3 data-number="7.1" class="anchored" data-anchor-id="forward-selection"><span class="header-section-number">7.1</span> Forward Selection</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward Selection</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>regfit.fwd <span class="ot">=</span> <span class="fu">regsubsets</span>(Y <span class="sc">~</span> <span class="fu">poly</span>(X, <span class="dv">10</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> <span class="fu">data.frame</span>(Y, X), <span class="at">nvmax =</span> <span class="dv">10</span>, <span class="at">method =</span> <span class="st">"forward"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>fwd.summary <span class="ot">=</span> <span class="fu">summary</span>(regfit.fwd)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>fwd.summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward Selection</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>regfit.fwd <span class="ot">=</span> <span class="fu">regsubsets</span>(Y <span class="sc">~</span> <span class="fu">poly</span>(X, <span class="dv">10</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> <span class="fu">data.frame</span>(Y, X), <span class="at">nvmax =</span> <span class="dv">10</span>, <span class="at">method =</span> <span class="st">"forward"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>fwd.summary <span class="ot">=</span> <span class="fu">summary</span>(regfit.fwd)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>fwd.summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Subset selection object
 Call: regsubsets.formula(Y ~ poly(X, 10, raw = TRUE), data = data.frame(Y, 
@@ -602,12 +607,12 @@ Selection Algorithm: forward
 <section id="backward-selection" class="level3" data-number="7.2">
 <h3 data-number="7.2" class="anchored" data-anchor-id="backward-selection"><span class="header-section-number">7.2</span> Backward Selection</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward Selection</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>regfit.bwd <span class="ot">=</span> <span class="fu">regsubsets</span>(Y <span class="sc">~</span> <span class="fu">poly</span>(X, <span class="dv">10</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> <span class="fu">data.frame</span>(Y, X), <span class="at">nvmax =</span> <span class="dv">10</span>, <span class="at">method =</span> <span class="st">"backward"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>bwd.summary <span class="ot">=</span> <span class="fu">summary</span>(regfit.bwd)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>bwd.summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward Selection</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>regfit.bwd <span class="ot">=</span> <span class="fu">regsubsets</span>(Y <span class="sc">~</span> <span class="fu">poly</span>(X, <span class="dv">10</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> <span class="fu">data.frame</span>(Y, X), <span class="at">nvmax =</span> <span class="dv">10</span>, <span class="at">method =</span> <span class="st">"backward"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>bwd.summary <span class="ot">=</span> <span class="fu">summary</span>(regfit.bwd)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>bwd.summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Subset selection object
 Call: regsubsets.formula(Y ~ poly(X, 10, raw = TRUE), data = data.frame(Y, 
@@ -689,38 +694,38 @@ Selection Algorithm: backward
 <h2 data-number="8" class="anchored" data-anchor-id="plotting-forward-and-backward-selection-results"><span class="header-section-number">8</span> Plotting Forward and Backward Selection Results</h2>
 <p>We will now plot the results for forward and backward selection using Cp, BIC, and Adjusted R².</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up plotting area</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward Selection Cp</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>min.cp <span class="ot">=</span> <span class="fu">which.min</span>(fwd.summary<span class="sc">$</span>cp)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fwd.summary<span class="sc">$</span>cp, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Forward Selection Cp"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Forward Cp Plot"</span>)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.cp, fwd.summary<span class="sc">$</span>cp[min.cp], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward Selection Cp</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>min.cp <span class="ot">=</span> <span class="fu">which.min</span>(bwd.summary<span class="sc">$</span>cp)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bwd.summary<span class="sc">$</span>cp, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Backward Selection Cp"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Backward Cp Plot"</span>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.cp, bwd.summary<span class="sc">$</span>cp[min.cp], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward Selection BIC</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>min.bic <span class="ot">=</span> <span class="fu">which.min</span>(fwd.summary<span class="sc">$</span>bic)</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fwd.summary<span class="sc">$</span>bic, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Forward Selection BIC"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Forward BIC Plot"</span>)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.bic, fwd.summary<span class="sc">$</span>bic[min.bic], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward Selection BIC</span></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>min.bic <span class="ot">=</span> <span class="fu">which.min</span>(bwd.summary<span class="sc">$</span>bic)</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bwd.summary<span class="sc">$</span>bic, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Backward Selection BIC"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Backward BIC Plot"</span>)</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.bic, bwd.summary<span class="sc">$</span>bic[min.bic], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward Selection Adjusted R²</span></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>min.adjr2 <span class="ot">=</span> <span class="fu">which.max</span>(fwd.summary<span class="sc">$</span>adjr2)</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fwd.summary<span class="sc">$</span>adjr2, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Forward Selection Adjusted R²"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Forward Adjusted R² Plot"</span>)</span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.adjr2, fwd.summary<span class="sc">$</span>adjr2[min.adjr2], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward Selection Adjusted R²</span></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>min.adjr2 <span class="ot">=</span> <span class="fu">which.max</span>(bwd.summary<span class="sc">$</span>adjr2)</span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bwd.summary<span class="sc">$</span>adjr2, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Backward Selection Adjusted R²"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Backward Adjusted R² Plot"</span>)</span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.adjr2, bwd.summary<span class="sc">$</span>adjr2[min.adjr2], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up plotting area</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward Selection Cp</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>min.cp <span class="ot">=</span> <span class="fu">which.min</span>(fwd.summary<span class="sc">$</span>cp)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fwd.summary<span class="sc">$</span>cp, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Forward Selection Cp"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Forward Cp Plot"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.cp, fwd.summary<span class="sc">$</span>cp[min.cp], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward Selection Cp</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>min.cp <span class="ot">=</span> <span class="fu">which.min</span>(bwd.summary<span class="sc">$</span>cp)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bwd.summary<span class="sc">$</span>cp, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Backward Selection Cp"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Backward Cp Plot"</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.cp, bwd.summary<span class="sc">$</span>cp[min.cp], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward Selection BIC</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>min.bic <span class="ot">=</span> <span class="fu">which.min</span>(fwd.summary<span class="sc">$</span>bic)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fwd.summary<span class="sc">$</span>bic, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Forward Selection BIC"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Forward BIC Plot"</span>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.bic, fwd.summary<span class="sc">$</span>bic[min.bic], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward Selection BIC</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>min.bic <span class="ot">=</span> <span class="fu">which.min</span>(bwd.summary<span class="sc">$</span>bic)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bwd.summary<span class="sc">$</span>bic, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Backward Selection BIC"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Backward BIC Plot"</span>)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.bic, bwd.summary<span class="sc">$</span>bic[min.bic], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward Selection Adjusted R²</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>min.adjr2 <span class="ot">=</span> <span class="fu">which.max</span>(fwd.summary<span class="sc">$</span>adjr2)</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fwd.summary<span class="sc">$</span>adjr2, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Forward Selection Adjusted R²"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Forward Adjusted R² Plot"</span>)</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.adjr2, fwd.summary<span class="sc">$</span>adjr2[min.adjr2], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward Selection Adjusted R²</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>min.adjr2 <span class="ot">=</span> <span class="fu">which.max</span>(bwd.summary<span class="sc">$</span>adjr2)</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bwd.summary<span class="sc">$</span>adjr2, <span class="at">xlab =</span> <span class="st">"Number of Poly(X)"</span>, <span class="at">ylab =</span> <span class="st">"Backward Selection Adjusted R²"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Backward Adjusted R² Plot"</span>)</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(min.adjr2, bwd.summary<span class="sc">$</span>adjr2[min.adjr2], <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -734,44 +739,44 @@ Selection Algorithm: backward
 <h2 data-number="9" class="anchored" data-anchor-id="coefficients-of-selected-models"><span class="header-section-number">9</span> Coefficients of Selected Models</h2>
 <p>Finally, we extract the coefficients for the best models from forward and backward selection.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficients for best models from forward selection</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.fwd, <span class="fu">which.min</span>(fwd.summary<span class="sc">$</span>cp))    <span class="co"># Best model by Cp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficients for best models from forward selection</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.fwd, <span class="fu">which.min</span>(fwd.summary<span class="sc">$</span>cp))    <span class="co"># Best model by Cp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
               4.07200775               9.38745596              -2.15424359 
 poly(X, 10, raw = TRUE)3 poly(X, 10, raw = TRUE)5 
               0.55797426               0.08072292 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.fwd, <span class="fu">which.min</span>(fwd.summary<span class="sc">$</span>bic))   <span class="co"># Best model by BIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.fwd, <span class="fu">which.min</span>(fwd.summary<span class="sc">$</span>bic))   <span class="co"># Best model by BIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
                 4.061507                 8.975280                -2.123791 
 poly(X, 10, raw = TRUE)3 
                 1.017639 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.fwd, <span class="fu">which.max</span>(fwd.summary<span class="sc">$</span>adjr2)) <span class="co"># Best model by Adjusted R²</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.fwd, <span class="fu">which.max</span>(fwd.summary<span class="sc">$</span>adjr2)) <span class="co"># Best model by Adjusted R²</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
               4.07200775               9.38745596              -2.15424359 
 poly(X, 10, raw = TRUE)3 poly(X, 10, raw = TRUE)5 
               0.55797426               0.08072292 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficients for best models from backward selection</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.bwd, <span class="fu">which.min</span>(bwd.summary<span class="sc">$</span>cp))    <span class="co"># Best model by Cp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficients for best models from backward selection</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.bwd, <span class="fu">which.min</span>(bwd.summary<span class="sc">$</span>cp))    <span class="co"># Best model by Cp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
               4.06013965               9.70201369              -2.13582615 
 poly(X, 10, raw = TRUE)5 poly(X, 10, raw = TRUE)7 
               0.30330191              -0.02419389 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.bwd, <span class="fu">which.min</span>(bwd.summary<span class="sc">$</span>bic))   <span class="co"># Best model by BIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.bwd, <span class="fu">which.min</span>(bwd.summary<span class="sc">$</span>bic))   <span class="co"># Best model by BIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
                4.0738073                9.9427063               -2.1784855 
 poly(X, 10, raw = TRUE)5 
                0.1721833 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.bwd, <span class="fu">which.max</span>(bwd.summary<span class="sc">$</span>adjr2)) <span class="co"># Best model by Adjusted R²</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(regfit.bwd, <span class="fu">which.max</span>(bwd.summary<span class="sc">$</span>adjr2)) <span class="co"># Best model by Adjusted R²</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             (Intercept) poly(X, 10, raw = TRUE)1 poly(X, 10, raw = TRUE)2 
               4.06013965               9.70201369              -2.13582615 
