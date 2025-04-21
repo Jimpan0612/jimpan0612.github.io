@@ -258,14 +258,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#how-it-works-genai-techniques-in-action" id="toc-how-it-works-genai-techniques-in-action" class="nav-link" data-scroll-target="#how-it-works-genai-techniques-in-action"><span class="header-section-number">3</span> 🧩 How It Works – GenAI Techniques in Action</a>
   <ul class="collapse">
   <li><a href="#few-shot-prompting-with-json-output" id="toc-few-shot-prompting-with-json-output" class="nav-link" data-scroll-target="#few-shot-prompting-with-json-output"><span class="header-section-number">3.1</span> 🧪 Few-shot Prompting with JSON Output</a></li>
-  <li><a href="#classify-retrieve-examples-via-rag" id="toc-classify-retrieve-examples-via-rag" class="nav-link" data-scroll-target="#classify-retrieve-examples-via-rag"><span class="header-section-number">3.2</span> 🧠 Classify &amp; Retrieve Examples via RAG</a></li>
-  <li><a href="#tool-routing-with-langgraph" id="toc-tool-routing-with-langgraph" class="nav-link" data-scroll-target="#tool-routing-with-langgraph"><span class="header-section-number">3.3</span> 🔧 Tool Routing with LangGraph</a></li>
-  <li><a href="#store-prompt-data-via-chromadb" id="toc-store-prompt-data-via-chromadb" class="nav-link" data-scroll-target="#store-prompt-data-via-chromadb"><span class="header-section-number">3.4</span> 🗂️ Store Prompt Data via ChromaDB</a></li>
-  <li><a href="#rewriting-output-full-json-example" id="toc-rewriting-output-full-json-example" class="nav-link" data-scroll-target="#rewriting-output-full-json-example"><span class="header-section-number">3.5</span> 🧪 Rewriting Output (Full JSON Example)</a></li>
+  <li><a href="#classify-input-before-rag-retrieval" id="toc-classify-input-before-rag-retrieval" class="nav-link" data-scroll-target="#classify-input-before-rag-retrieval"><span class="header-section-number">3.2</span> 🧠 Classify Input before RAG Retrieval</a></li>
+  <li><a href="#store-prompt-data-via-chromadb" id="toc-store-prompt-data-via-chromadb" class="nav-link" data-scroll-target="#store-prompt-data-via-chromadb"><span class="header-section-number">3.3</span> 🗂️ Store Prompt Data via ChromaDB</a></li>
+  <li><a href="#retrieval-rewriting-debug-trace-via-textwrap" id="toc-retrieval-rewriting-debug-trace-via-textwrap" class="nav-link" data-scroll-target="#retrieval-rewriting-debug-trace-via-textwrap"><span class="header-section-number">3.4</span> 🔍 Retrieval &amp; Rewriting Debug Trace (via textwrap)</a></li>
+  <li><a href="#designing-the-agent-flow-with-langgraph" id="toc-designing-the-agent-flow-with-langgraph" class="nav-link" data-scroll-target="#designing-the-agent-flow-with-langgraph"><span class="header-section-number">3.5</span> 🔧 Designing the Agent Flow with LangGraph</a></li>
   <li><a href="#real-chat-flow-with-tool-calls" id="toc-real-chat-flow-with-tool-calls" class="nav-link" data-scroll-target="#real-chat-flow-with-tool-calls"><span class="header-section-number">3.6</span> 💬 Real Chat Flow with Tool Calls</a></li>
   <li><a href="#debugging-agent-execution" id="toc-debugging-agent-execution" class="nav-link" data-scroll-target="#debugging-agent-execution"><span class="header-section-number">3.7</span> 🧪 Debugging Agent Execution</a></li>
   </ul></li>
-  <li><a href="#limitations-future-possibilities" id="toc-limitations-future-possibilities" class="nav-link" data-scroll-target="#limitations-future-possibilities"><span class="header-section-number">4</span> 🚧 Limitations &amp; Future Possibilities</a></li>
+  <li><a href="#limitations-future-possibilities" id="toc-limitations-future-possibilities" class="nav-link" data-scroll-target="#limitations-future-possibilities"><span class="header-section-number">4</span> 🚧 Limitations &amp; Future Possibilities</a>
+  <ul class="collapse">
+  <li><a href="#add-new-tool-explain_cot" id="toc-add-new-tool-explain_cot" class="nav-link" data-scroll-target="#add-new-tool-explain_cot"><span class="header-section-number">4.1</span> Add New Tool: explain_cot</a></li>
+  </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> ✅ Conclusion</a></li>
   <li><a href="#try-it-yourself" id="toc-try-it-yourself" class="nav-link" data-scroll-target="#try-it-yourself"><span class="header-section-number">6</span> 📎 Try it Yourself</a></li>
   </ul>
@@ -325,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3" class="anchored" data-anchor-id="how-it-works-genai-techniques-in-action"><span class="header-section-number">3</span> 🧩 How It Works – GenAI Techniques in Action</h2>
 <section id="few-shot-prompting-with-json-output" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="few-shot-prompting-with-json-output"><span class="header-section-number">3.1</span> 🧪 Few-shot Prompting with JSON Output</h3>
-<p>A curated few-shot example guides the model to output both a rewritten prompt and follow-up suggestions in a structured JSON format:</p>
+<p>A curated few-shot prompt is used to guide the model toward producing structured JSON output that includes both a rewritten prompt and follow-up suggestions. This structure helps the assistant break down vague questions and suggest how to make them more actionable.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>base_few_shot_prompt <span class="ot">=</span> <span class="st">"""</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">EXAMPLE 1:</span></span>
@@ -343,9 +346,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="classify-retrieve-examples-via-rag" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="classify-retrieve-examples-via-rag"><span class="header-section-number">3.2</span> 🧠 Classify &amp; Retrieve Examples via RAG</h3>
-<p>The assistant classifies each input into one of six prompt types (e.g., Career, Technical) and uses retrieval-augmented generation to find a relevant example:</p>
+<section id="classify-input-before-rag-retrieval" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="classify-input-before-rag-retrieval"><span class="header-section-number">3.2</span> 🧠 Classify Input before RAG Retrieval</h3>
+<p>Before performing retrieval, the assistant first classifies the user’s input into one of several prompt types. This classification helps determine which vector index or example group to search from during the RAG step.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>classification_prompt <span class="ot">=</span> <span class="st">"""</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">You are a prompt-type classifier. Classify the input into one of:</span></span>
@@ -363,13 +366,89 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)<span class="fu">.text.strip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tool-routing-with-langgraph" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="tool-routing-with-langgraph"><span class="header-section-number">3.3</span> 🔧 Tool Routing with LangGraph</h3>
-<p>When needed, the model triggers tools automatically (like get_prompt_tips or search_prompt_examples) using Gemini’s Function Calling feature. LangGraph then controls how responses flow between model, tools, and user.</p>
+<section id="store-prompt-data-via-chromadb" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="store-prompt-data-via-chromadb"><span class="header-section-number">3.3</span> 🗂️ Store Prompt Data via ChromaDB</h3>
+<p>To enable retrieval of relevant prompt examples, I created a vector-based prompt database using ChromaDB and Gemini’s embedding API. Each entry consists of a rewritten prompt and follow-up suggestion pair, embedded as a single unit.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tools <span class="ot">=</span> [get_prompt_tips, search_prompt_examples]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>llm_with_tools <span class="ot">=</span> <span class="fu">llm.bind_tools</span>(tools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>embed_fn <span class="ot">=</span> <span class="fu">GeminiEmbeddingFunction</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>embed_fn.document_mode <span class="ot">=</span> True</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>chroma_client <span class="ot">=</span> <span class="fu">chromadb.Client</span>()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>db <span class="ot">=</span> <span class="fu">chroma_client.get_or_create_collection</span>(<span class="at">name=</span><span class="st">"promptassistdb"</span>, <span class="at">embedding_function=</span>embed_fn)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">db.add</span>(<span class="at">documents=</span>documents, <span class="at">ids=</span>[<span class="fu">str</span>(i) <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(documents))])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>This database powers the retrieval step in the assistant pipeline, allowing it to search for semantically similar prompt examples to guide users who provide vague inputs.</p>
+</section>
+<section id="retrieval-rewriting-debug-trace-via-textwrap" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="retrieval-rewriting-debug-trace-via-textwrap"><span class="header-section-number">3.4</span> 🔍 Retrieval &amp; Rewriting Debug Trace (via textwrap)</h3>
+<p>To verify whether the assistant successfully retrieved similar examples from the ChromaDB database, I used a function that prints the full conversation history. This allows for easy inspection of:<br>
+• Input interpretation<br>
+• Whether any examples were retrieved by search_prompt_examples<br>
+• The final JSON-format rewritten prompt</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>import textwrap</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>def <span class="fu">print_chat_turns</span>(chat)<span class="sc">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"""Show Gemini chat trace with tool calls and retrieved examples."""</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> event <span class="cf">in</span> <span class="fu">chat.get_history</span>()<span class="sc">:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">print</span>(f<span class="st">"{event.role.upper()}:"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> part <span class="cf">in</span> event.parts<span class="sc">:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> txt <span class="sc">:</span><span class="er">=</span> part.text<span class="sc">:</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">print</span>(f<span class="st">"  TEXT:</span><span class="sc">\n</span><span class="st">{textwrap.indent(txt, '    ')}"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            elif fn <span class="sc">:</span><span class="er">=</span> part.function_call<span class="sc">:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                args <span class="ot">=</span> <span class="st">", "</span><span class="fu">.join</span>(f<span class="st">"{k}={v}"</span> <span class="cf">for</span> k, v <span class="cf">in</span> <span class="fu">fn.args.items</span>())</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                <span class="fu">print</span>(f<span class="st">"  FUNCTION CALL: {fn.name}({args})"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            elif resp <span class="sc">:</span><span class="er">=</span> part.function_response<span class="sc">:</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">print</span>(<span class="st">"  FUNCTION RESPONSE:"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                <span class="fu">print</span>(<span class="fu">textwrap.indent</span>(<span class="fu">str</span>(resp.response[<span class="st">'result'</span>]), <span class="st">"    "</span>))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">print</span>(<span class="st">"-"</span> <span class="sc">*</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sample Output:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>USER<span class="sc">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  TEXT<span class="sc">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    I don’t know how to start.</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="sc">--------------------------------------------------</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>MODEL<span class="sc">:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  FUNCTION CALL<span class="sc">:</span> <span class="fu">search_prompt_examples</span>(<span class="at">n_results=</span><span class="dv">3</span>, <span class="at">query=</span>I don’t know how to start.)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="sc">--------------------------------------------------</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>USER<span class="sc">:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  FUNCTION RESPONSE<span class="sc">:</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      [<span class="st">"Input: How do I deal with imposter syndrome..."</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="st">"Input: How do I switch from finance to data science?"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>       <span class="st">"Input: I'm overwhelmed with job applications..."</span>]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="sc">--------------------------------------------------</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>MODEL<span class="sc">:</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  TEXT<span class="sc">:</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">"rewritten_prompt"</span><span class="sc">:</span> <span class="st">"I'm having trouble getting started with [Task or Project]. I need help breaking it down into manageable steps..."</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">"follow_up_suggestion"</span><span class="sc">:</span> {</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"[Task or Project]"</span><span class="sc">:</span> <span class="st">"e.g., writing a blog post, learning a new language"</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"[Specific Steps]"</span><span class="sc">:</span> <span class="st">"..."</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"[Resources Needed]"</span><span class="sc">:</span> <span class="st">"..."</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"[Potential Challenges]"</span><span class="sc">:</span> <span class="st">"..."</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="designing-the-agent-flow-with-langgraph" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="designing-the-agent-flow-with-langgraph"><span class="header-section-number">3.5</span> 🔧 Designing the Agent Flow with LangGraph</h3>
+<p>To coordinate conversation, tool usage, and response logic, I used LangGraph to define a multi-step agent workflow. The LangGraph structure specifies how messages flow between components — such as the model, tools, and user input — from start to end.</p>
+<p>The diagram below shows the full agent design:</p>
+<p>Main Nodes:<br>
+• <strong>start</strong>: Initialization point.</p>
+<p>• chatbot: The core Gemini model node, responsible for interpreting input and generating output or triggering tools.</p>
+<p>• human: Handles user replies and returns to the model.</p>
+<p>• tools: A function routing node that executes tools when called (e.g., get_prompt_tips, search_prompt_examples) and passes the results back to the model.</p>
+<p>• <strong>end</strong>: Terminates the conversation.</p>
+<p>The tools were bound using Gemini’s Function Calling support:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tools <span class="ot">=</span> [get_prompt_tips, search_prompt_examples]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>llm_with_tools <span class="ot">=</span> <span class="fu">llm.bind_tools</span>(tools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>LangGraph then ensures that if a tool is triggered, its result is inserted into the correct flow and conversation continues seamlessly.</p>
 <p>A full LangGraph visualization is shown below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -378,129 +457,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="store-prompt-data-via-chromadb" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="store-prompt-data-via-chromadb"><span class="header-section-number">3.4</span> 🗂️ Store Prompt Data via ChromaDB</h3>
-<p>I created a searchable example database using ChromaDB and Gemini’s embedding API. Each rewritten prompt and follow-up suggestion pair was embedded and stored for retrieval.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>embed_fn <span class="ot">=</span> <span class="fu">GeminiEmbeddingFunction</span>()</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>embed_fn.document_mode <span class="ot">=</span> True</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>chroma_client <span class="ot">=</span> <span class="fu">chromadb.Client</span>()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>db <span class="ot">=</span> <span class="fu">chroma_client.get_or_create_collection</span>(<span class="at">name=</span><span class="st">"promptassistdb"</span>, <span class="at">embedding_function=</span>embed_fn)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">db.add</span>(<span class="at">documents=</span>documents, <span class="at">ids=</span>[<span class="fu">str</span>(i) <span class="cf">for</span> i <span class="cf">in</span> <span class="fu">range</span>(<span class="fu">len</span>(documents))])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This enables the assistant to retrieve relevant prompt examples to guide users with vague inputs.</p>
-</section>
-<section id="rewriting-output-full-json-example" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="rewriting-output-full-json-example"><span class="header-section-number">3.5</span> 🧪 Rewriting Output (Full JSON Example)</h3>
-<p>After retrieving related prompts, the assistant generates a detailed rewritten version like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">=</span> <span class="fu">client.models.generate_content</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">model=</span><span class="st">"gemini-2.0-flash"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">contents=</span>augmented_prompt</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(response.text)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>json</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rewritten_prompt"</span><span class="sc">:</span> <span class="st">"I'm looking to purchase a new washer and dryer combo unit. Considering my specific needs and constraints, what are the top-rated brands known for reliability, performance, and longevity? Please provide a comparison, taking into account the following factors: 1. **Budget:** My budget for the combo unit is approximately [Budget Amount]. 2. **Space Constraints:** The available space for the unit is [Dimensions of Space]. Are there specific compact models you would recommend? 3. **Features:** I'm particularly interested in [Specific Features, e.g., steam cleaning, smart connectivity, sanitization cycles]. Are certain brands better known for these features? 4. **Energy Efficiency:** What are the most energy-efficient models available, and what are their estimated annual energy costs? 5. **Noise Level:** I'd prefer a quieter unit. Are there brands or models known for low noise operation? 6. **Maintenance and Repair:** Which brands have a reputation for requiring less maintenance and having readily available repair services in my area [Your Location]? Please provide specific model recommendations based on these criteria."</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"follow_up_suggestion"</span><span class="sc">:</span> {</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[Budget Amount]"</span><span class="sc">:</span> <span class="st">"e.g., $800, $1200, $2000"</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[Dimensions of Space]"</span><span class="sc">:</span> <span class="st">"e.g., 24 inches wide, standard size"</span>,</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[Specific Features, e.g., steam cleaning, smart connectivity, sanitization cycles]"</span><span class="sc">:</span> <span class="st">"e.g., Steam cleaning, Wi-Fi connectivity, Allergen removal cycle"</span>,</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[Your Location]"</span><span class="sc">:</span> <span class="st">"e.g., New York, NY; Los Angeles, CA; or a specific zip code"</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
 <section id="real-chat-flow-with-tool-calls" class="level3" data-number="3.6">
 <h3 data-number="3.6" class="anchored" data-anchor-id="real-chat-flow-with-tool-calls"><span class="header-section-number">3.6</span> 💬 Real Chat Flow with Tool Calls</h3>
+<p>To demonstrate how the assistant interacts with users in real time, the following example shows a full chat flow. It includes user input, assistant guidance, and automatically triggered tools (e.g., get_prompt_tips) in response to specific keywords.</p>
+<p>The conversation was executed using the prompt_assistant_graph.invoke() call:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>state <span class="ot">=</span> <span class="fu">prompt_assistant_graph.invoke</span>({<span class="st">"messages"</span><span class="sc">:</span> []}, config)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Assistant<span class="sc">:</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a> 👋 Welcome to the Prompt Assistant<span class="sc">!</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>I can help you rewrite your vague idea into a clear, structured prompt ready <span class="cf">for</span> use.</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>🛠 Tips<span class="sc">:</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Type <span class="st">`</span><span class="at">see the tips</span><span class="st">`</span> to get prompt format examples.</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Add <span class="st">`</span><span class="at">(spe)</span><span class="st">`</span> to the end of your input to search <span class="cf">for</span> similar prompt examples.</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>📩 Type your question, idea, or request below.</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>Type <span class="st">`</span><span class="at">q</span><span class="st">`</span> anytime to quit.</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  see the tips</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>Assistant<span class="sc">:</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a> Here are some general prompt formats that might be helpful<span class="sc">:</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span>  <span class="st">"Write a [type] about [topic]."</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span>  <span class="st">"Explain [concept] to a [audience level] person."</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span>  <span class="st">"Compare [X] and [Y] in terms of [criteria]."</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span>  <span class="st">"Give me ideas for [project goal]."</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span>  <span class="st">"Help me structure a prompt for [task type]."</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>Would you like me to help you create a prompt using one of these formats? Or would you like more options?</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  Write a story about chatbot.</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>Assistant<span class="sc">:</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a> json</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rewritten_prompt"</span><span class="sc">:</span> <span class="st">"Write a [genre] story about a chatbot named [chatbot's name] that [plot]."</span>,</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="st">"follow_up_suggestion"</span><span class="sc">:</span> {</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[genre]"</span><span class="sc">:</span> <span class="st">"e.g., science fiction, fantasy, mystery, romance"</span>,</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[chatbot's name]"</span><span class="sc">:</span> <span class="st">"e.g., Aura, Bolt, Echo"</span>,</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[plot]"</span><span class="sc">:</span> <span class="st">"e.g., becomes self-aware, falls in love with a user, solves a crime"</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>Would you like to refine it further or try a different version?</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  Write a story about <span class="fu">chatbot.</span>(spe)</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>Assistant<span class="sc">:</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a> json</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rewritten_prompt"</span><span class="sc">:</span> <span class="st">"Write a short story about a [adjective] chatbot named [chatbot's name] that [plot]. The story should explore [theme] and include a [conflict] that the chatbot must resolve, leading to [resolution]."</span>,</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>  <span class="st">"follow_up_suggestion"</span><span class="sc">:</span> {</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[adjective]"</span><span class="sc">:</span> <span class="st">"e.g., friendly, rebellious, sarcastic"</span>,</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[chatbot's name]"</span><span class="sc">:</span> <span class="st">"e.g., Aura, Bolt, Echo"</span>,</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[plot]"</span><span class="sc">:</span> <span class="st">"e.g., becomes self-aware, falls in love with a user, saves the world"</span>,</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[theme]"</span><span class="sc">:</span> <span class="st">"e.g., artificial intelligence, human connection, the future of technology"</span>,</span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[conflict]"</span><span class="sc">:</span> <span class="st">"e.g., a software glitch, a malicious hacker, a philosophical dilemma"</span>,</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[resolution]"</span><span class="sc">:</span> <span class="st">"e.g., the chatbot finds peace, the world is saved, a new understanding is reached"</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>Would you like to refine it further or try a different version?</span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>state <span class="ot">=</span> <span class="fu">prompt_assistant_graph.invoke</span>({<span class="st">"messages"</span><span class="sc">:</span> []}, config)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Assistant<span class="sc">:</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> 👋 Welcome to the Prompt Assistant<span class="sc">!</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>I can help you rewrite your vague idea into a clear, structured prompt ready <span class="cf">for</span> use.</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>🛠 Tips<span class="sc">:</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Type <span class="st">`</span><span class="at">see the tips</span><span class="st">`</span> to get prompt format examples.</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Add <span class="st">`</span><span class="at">(spe)</span><span class="st">`</span> to the end of your input to search <span class="cf">for</span> similar prompt examples.</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>📩 Type your question, idea, or request below.</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>Type <span class="st">`</span><span class="at">q</span><span class="st">`</span> anytime to quit.</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  see the tips</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>Assistant<span class="sc">:</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a> Here are some general prompt formats that might be helpful<span class="sc">:</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span>  <span class="st">"Write a [type] about [topic]."</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span>  <span class="st">"Explain [concept] to a [audience level] person."</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span>  <span class="st">"Compare [X] and [Y] in terms of [criteria]."</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span>  <span class="st">"Give me ideas for [project goal]."</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span>  <span class="st">"Help me structure a prompt for [task type]."</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>Would you like me to help you create a prompt using one of these formats? Or would you like more options?</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  Write a story about chatbot.</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>Assistant<span class="sc">:</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a> json</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rewritten_prompt"</span><span class="sc">:</span> <span class="st">"Write a [genre] story about a chatbot named [chatbot's name] that [plot]."</span>,</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="st">"follow_up_suggestion"</span><span class="sc">:</span> {</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[genre]"</span><span class="sc">:</span> <span class="st">"e.g., science fiction, fantasy, mystery, romance"</span>,</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[chatbot's name]"</span><span class="sc">:</span> <span class="st">"e.g., Aura, Bolt, Echo"</span>,</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[plot]"</span><span class="sc">:</span> <span class="st">"e.g., becomes self-aware, falls in love with a user, solves a crime"</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>Would you like to refine it further or try a different version?</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  Write a story about <span class="fu">chatbot.</span>(spe)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>Assistant<span class="sc">:</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a> json</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rewritten_prompt"</span><span class="sc">:</span> <span class="st">"Write a short story about a [adjective] chatbot named [chatbot's name] that [plot]. The story should explore [theme] and include a [conflict] that the chatbot must resolve, leading to [resolution]."</span>,</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>  <span class="st">"follow_up_suggestion"</span><span class="sc">:</span> {</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[adjective]"</span><span class="sc">:</span> <span class="st">"e.g., friendly, rebellious, sarcastic"</span>,</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[chatbot's name]"</span><span class="sc">:</span> <span class="st">"e.g., Aura, Bolt, Echo"</span>,</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[plot]"</span><span class="sc">:</span> <span class="st">"e.g., becomes self-aware, falls in love with a user, saves the world"</span>,</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[theme]"</span><span class="sc">:</span> <span class="st">"e.g., artificial intelligence, human connection, the future of technology"</span>,</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[conflict]"</span><span class="sc">:</span> <span class="st">"e.g., a software glitch, a malicious hacker, a philosophical dilemma"</span>,</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[resolution]"</span><span class="sc">:</span> <span class="st">"e.g., the chatbot finds peace, the world is saved, a new understanding is reached"</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>Would you like to refine it further or try a different version?</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>User<span class="sc">:</span>  q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="debugging-agent-execution" class="level3" data-number="3.7">
 <h3 data-number="3.7" class="anchored" data-anchor-id="debugging-agent-execution"><span class="header-section-number">3.7</span> 🧪 Debugging Agent Execution</h3>
+<p>To verify that tools are being triggered as expected, I added a simple diagnostic loop that inspects each message in the LangGraph state[“messages”]. This includes both user and model messages, and checks whether a tool call was made.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, msg <span class="cf">in</span> <span class="fu">enumerate</span>(state[<span class="st">"messages"</span>])<span class="sc">:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(f<span class="st">"[{i}] {type(msg).__name__}: {msg.content}"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">hasattr</span>(msg, <span class="st">"tool_calls"</span>) and msg.tool_calls<span class="sc">:</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">print</span>(<span class="st">"💡🛠 Tool calls detected:"</span>, [tool[<span class="st">"name"</span>] <span class="cf">for</span> tool <span class="cf">in</span> msg.tool_calls])</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">print</span>(<span class="st">"🚫 No tool calls."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, msg <span class="cf">in</span> <span class="fu">enumerate</span>(state[<span class="st">"messages"</span>])<span class="sc">:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(f<span class="st">"[{i}] {type(msg).__name__}: {msg.content}"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="fu">hasattr</span>(msg, <span class="st">"tool_calls"</span>) and msg.tool_calls<span class="sc">:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">print</span>(<span class="st">"💡🛠 Tool calls detected:"</span>, [tool[<span class="st">"name"</span>] <span class="cf">for</span> tool <span class="cf">in</span> msg.tool_calls])</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">print</span>(<span class="st">"🚫 No tool calls."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>[0] AIMessage: 👋 Welcome… 🚫 No tool calls.<br>
-[1] HumanMessage: see the tips.<br>
-[2] AIMessage: Tool call → get_prompt_tips ✅<br>
-[5] HumanMessage: Write a story about chatbot.<br>
-[6] AIMessage: Tool call → search_prompt_examples ✅.<br>
-[9] ToolMessage: retrieved rewritten prompts &amp; suggestions.</p>
-<p>These traces confirm that tool calls were triggered correctly based on user input type, and routed via LangGraph edges.</p>
+<p>Sample Output:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">0</span>] AIMessage<span class="sc">:</span> 👋 Welcome...   🚫 No tool calls.  </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] HumanMessage<span class="sc">:</span> see the tips.  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>] AIMessage<span class="sc">:</span> Tool call → get_prompt_tips ✅   </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">5</span>] HumanMessage<span class="sc">:</span> Write a story about chatbot.  </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">6</span>] AIMessage<span class="sc">:</span> Tool call → search_prompt_examples ✅.   </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">9</span>] ToolMessage<span class="sc">:</span> retrieved rewritten prompts <span class="sc">&amp;</span> suggestions. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These debug traces confirm that:<br>
+• Gemini correctly recognized the user input as requiring a tool.<br>
+• The corresponding tool function was triggered.<br>
+• The result was processed and integrated back into the chat via LangGraph routing.</p>
+<p>This makes it easier to validate the tool routing logic, especially in more complex agent flows where multiple tools are defined.</p>
 </section>
 </section>
 <section id="limitations-future-possibilities" class="level2" data-number="4">
@@ -508,11 +559,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>While this assistant improves accessibility for beginners, it still has limitations:<br>
 • Only supports English input.<br>
 • Cannot adjust tone or depth.<br>
-• Retrieval examples are relatively narrow.</p>
-<p>Future plans include:<br>
+• Retrieval examples are relatively narrow.<br>
+• CoT (Chain-of-Thought) logic is only implicitly embedded in the prompt structures.</p>
+<p>Future improvements may include:<br>
 • Multilingual support (e.g., Traditional Chinese).<br>
-• Toggle for formal/informal tone or concise/detailed mode.<br>
-• Improved semantic RAG retrieval with clustered embeddings.</p>
+•️ Tone control: Formal/informal toggle and concise/detailed output option.<br>
+• Improved RAG: Enhance retrieval using semantic clustering and diverse embeddings.<br>
+• Self-updating memory: Store high-quality generated prompts back into the database for future retrieval (semi-autonomous learning loop).<br>
+• Interactive user interface: Build a simple web-based UI (e.g., using Gradio or Streamlit) that allows users to type in vague questions and view rewritten prompts, suggestions, and debug traces in real time.</p>
+<section id="add-new-tool-explain_cot" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="add-new-tool-explain_cot"><span class="header-section-number">4.1</span> Add New Tool: explain_cot</h3>
+<p>A dedicated Chain-of-Thought prompting tool to explicitly generate step-by-step reasoning versions of prompts.<br>
+This tool would guide users through:</p>
+<ol type="1">
+<li>Identifying the objective.<br>
+</li>
+<li>Listing influencing factors.<br>
+</li>
+<li>Structuring a multi-stage rewritten prompt.</li>
+</ol>
+<p>Example CoT prompt format:</p>
+<p>User input: How should I plan my personal website?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rewritten_prompt"</span><span class="sc">:</span> <span class="st">"I'm planning to build my personal website. </span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">  Let's work through this step by step. First, define the [Main Objective] of the website. </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Then, consider [Key Factor 1] such as your content type, </span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">  [Factor 2] like your technical skills or preferred platform, </span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">  and any [Optional Constraint] like timeline or budget. Based on these, </span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">  can you help me outline a plan?"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"follow_up_suggestion"</span><span class="sc">:</span> {</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[Main Objective]"</span><span class="sc">:</span> <span class="st">"e.g., online portfolio, resume hub, blog, or personal brand site"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[Key Factor 1]"</span><span class="sc">:</span> <span class="st">"e.g., static content vs. interactive features"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[Factor 2]"</span><span class="sc">:</span> <span class="st">"e.g., coding experience, use of templates or CMS"</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[Optional Constraint]"</span><span class="sc">:</span> <span class="st">"e.g., publish by next month, minimal cost"</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This tool enhances the assistant by guiding users through a Chain-of-Thought (CoT) process. It helps break down vague inputs into structured prompts by identifying objectives, key factors, and constraints. Ideal for beginners or complex tasks, it encourages better reasoning and prompt clarity.</p>
+</section>
 </section>
 <section id="conclusion" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5</span> ✅ Conclusion</h2>
