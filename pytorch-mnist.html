@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Karl Ho">
+<meta name="author" content="Jim Pan">
 
-<title>Lab01 Basic – Jimpan’s Knowledge Hub</title>
+<title>使用 PyTorch 建構手寫數字辨識模型 – Jimpan’s Knowledge Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,6 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="custom-style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -185,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./notes.html"> 
+    <a class="nav-link active" href="./notes.html" aria-current="page"> 
 <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
@@ -210,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6302Lab01.html">Lab01 Basic</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pytorch-mnist.html">使用 PyTorch 建構手寫數字辨識模型</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -224,38 +225,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6302_6356Lab_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6302_6356 Labs</span></a>
+  <a href="./notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notes</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6302Lab01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lab01 Basic</span></a>
+  <a href="./AB_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A/B Testing Process</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6356textmining.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab02 Text Mining with R: Wordcloud Creation</span></a>
+  <a href="./pytorch-mnist.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">使用 PyTorch 建構手寫數字辨識模型</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6356textanalytics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab03 Quanteda Text Analysis</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6356spatialdata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab04 Collecting and Mapping Census Data Using API: State Data and Maps</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6356assign07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab05 Visualizing Federal Housing Price Trends Using Shiny</span></a>
+  <a href="./genai-capstone-2025q1-prompt-rewriting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Building a Prompt Assistant with GenAI Capstone (2025Q1)</span></a>
   </div>
 </li>
     </ul>
@@ -268,15 +257,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-commands" id="toc-basic-commands" class="nav-link active" data-scroll-target="#basic-commands"><span class="header-section-number">1</span> Basic Commands</a>
+  <li><a href="#專案簡介" id="toc-專案簡介" class="nav-link active" data-scroll-target="#專案簡介"><span class="header-section-number">1</span> 專案簡介</a></li>
+  <li><a href="#技術與流程概述" id="toc-技術與流程概述" class="nav-link" data-scroll-target="#技術與流程概述"><span class="header-section-number">2</span> 🛠 技術與流程概述</a>
   <ul class="collapse">
-  <li><a href="#create-object-using-the-assignment-operator--" id="toc-create-object-using-the-assignment-operator--" class="nav-link" data-scroll-target="#create-object-using-the-assignment-operator--"><span class="header-section-number">1.1</span> Create object using the assignment operator (&lt;-, =)</a></li>
-  <li><a href="#using-function" id="toc-using-function" class="nav-link" data-scroll-target="#using-function"><span class="header-section-number">1.2</span> Using function</a></li>
-  <li><a href="#using---operators" id="toc-using---operators" class="nav-link" data-scroll-target="#using---operators"><span class="header-section-number">1.3</span> Using +, -, *, /,^ operators</a></li>
-  <li><a href="#matrix-operations" id="toc-matrix-operations" class="nav-link" data-scroll-target="#matrix-operations"><span class="header-section-number">1.4</span> Matrix operations</a></li>
-  <li><a href="#simple-descriptive-statistics" id="toc-simple-descriptive-statistics" class="nav-link" data-scroll-target="#simple-descriptive-statistics"><span class="header-section-number">1.5</span> Simple descriptive statistics</a></li>
-  <li><a href="#graphics-using-r-graphics-without-packages" id="toc-graphics-using-r-graphics-without-packages" class="nav-link" data-scroll-target="#graphics-using-r-graphics-without-packages"><span class="header-section-number">1.6</span> Graphics using R Graphics (without packages)</a></li>
+  <li><a href="#模型架構" id="toc-模型架構" class="nav-link" data-scroll-target="#模型架構"><span class="header-section-number">2.1</span> 模型架構</a></li>
+  <li><a href="#模型架構圖可視化" id="toc-模型架構圖可視化" class="nav-link" data-scroll-target="#模型架構圖可視化"><span class="header-section-number">2.2</span> 模型架構圖（可視化）</a></li>
+  <li><a href="#資料處理流程" id="toc-資料處理流程" class="nav-link" data-scroll-target="#資料處理流程"><span class="header-section-number">2.3</span> 資料處理流程</a></li>
   </ul></li>
+  <li><a href="#訓練流程說明100-epochs" id="toc-訓練流程說明100-epochs" class="nav-link" data-scroll-target="#訓練流程說明100-epochs"><span class="header-section-number">3</span> 🔁 訓練流程說明（100 Epochs）</a>
+  <ul class="collapse">
+  <li><a href="#損失與優化器設定" id="toc-損失與優化器設定" class="nav-link" data-scroll-target="#損失與優化器設定"><span class="header-section-number">3.1</span> 損失與優化器設定：</a></li>
+  <li><a href="#訓練與測試主流程" id="toc-訓練與測試主流程" class="nav-link" data-scroll-target="#訓練與測試主流程"><span class="header-section-number">3.2</span> 訓練與測試主流程：</a></li>
+  <li><a href="#完整訓練日誌摘要節錄結果" id="toc-完整訓練日誌摘要節錄結果" class="nav-link" data-scroll-target="#完整訓練日誌摘要節錄結果"><span class="header-section-number">3.3</span> 完整訓練日誌摘要（節錄結果）</a></li>
+  </ul></li>
+  <li><a href="#成果與準確率展示" id="toc-成果與準確率展示" class="nav-link" data-scroll-target="#成果與準確率展示"><span class="header-section-number">4</span> 📈 成果與準確率展示</a></li>
+  <li><a href="#模型儲存與推論" id="toc-模型儲存與推論" class="nav-link" data-scroll-target="#模型儲存與推論"><span class="header-section-number">5</span> 📦 模型儲存與推論</a>
+  <ul class="collapse">
+  <li><a href="#儲存模型" id="toc-儲存模型" class="nav-link" data-scroll-target="#儲存模型"><span class="header-section-number">5.1</span> 儲存模型：</a></li>
+  <li><a href="#載入模型並做預測" id="toc-載入模型並做預測" class="nav-link" data-scroll-target="#載入模型並做預測"><span class="header-section-number">5.2</span> 載入模型並做預測：</a></li>
+  </ul></li>
+  <li><a href="#小結核心學習收穫" id="toc-小結核心學習收穫" class="nav-link" data-scroll-target="#小結核心學習收穫"><span class="header-section-number">6</span> 🧠 小結：核心學習收穫</a></li>
   </ul>
 </nav>
     </div>
@@ -285,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab01 Basic</h1>
+<h1 class="title">使用 PyTorch 建構手寫數字辨識模型</h1>
 </div>
 
 
@@ -295,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Karl Ho </p>
+             <p>Jim Pan </p>
           </div>
   </div>
     
@@ -308,177 +308,145 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="basic-commands" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Basic Commands</h1>
-<section id="create-object-using-the-assignment-operator--" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="create-object-using-the-assignment-operator--"><span class="header-section-number">1.1</span> Create object using the assignment operator (&lt;-, =)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 3 2 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">2</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 6 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="專案簡介" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="專案簡介"><span class="header-section-number">1</span> 專案簡介</h2>
+<p>這是一個使用 PyTorch 深度學習框架建構的全連接神經網路（Fully Connected Neural Network, FCNN）專案，目標是辨識 MNIST 手寫數字圖片。這個經典任務可以有效展示我對模型架構、資料處理流程與訓練邏輯的掌握。</p>
+<hr>
 </section>
-<section id="using-function" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="using-function"><span class="header-section-number">1.2</span> Using function</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)  <span class="co"># What does length() do?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
+<section id="技術與流程概述" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="技術與流程概述"><span class="header-section-number">2</span> 🛠 技術與流程概述</h2>
+<section id="模型架構" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="模型架構"><span class="header-section-number">2.1</span> 模型架構</h3>
+<p>本模型使用 <code>torch.nn.Sequential</code> 建構，網路結構如下：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> nn.Sequential(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    nn.Flatten(),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    nn.Linear(<span class="dv">784</span>, <span class="dv">256</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    nn.ReLU(),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    nn.Linear(<span class="dv">256</span>, <span class="dv">512</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    nn.ReLU(),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    nn.Linear(<span class="dv">512</span>, <span class="dv">344</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    nn.ReLU(),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    nn.Linear(<span class="dv">344</span>, <span class="dv">10</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>).to(device)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Flatten()</strong>：將 28x28 圖片展平成 784 維向量</li>
+<li><strong>Linear 層</strong>：依序進行 784→256→512→344→10 維度變換</li>
+<li><strong>ReLU()</strong>：啟用函數，提升非線性表現力</li>
+<li><strong>輸出層不加 softmax</strong>，因為 <code>CrossEntropyLoss()</code> 內建 softmax 操作</li>
+</ul>
 </section>
-<section id="using---operators" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="using---operators"><span class="header-section-number">1.3</span> Using +, -, *, /,^ operators</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">+</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  2 10  5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># List objects in the environment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "x" "y"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x,y) <span class="co"># Remove objects</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Danger! What does this do?  Not recommended!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="模型架構圖可視化" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="模型架構圖可視化"><span class="header-section-number">2.2</span> 模型架構圖（可視化）</h3>
+<pre class="mermaid"><code>graph TD
+  A[Input: 784] --&gt; B[Linear: 784 → 256]
+  B --&gt; C[ReLU]
+  C --&gt; D[Linear: 256 → 512]
+  D --&gt; E[ReLU]
+  E --&gt; F[Linear: 512 → 344]
+  F --&gt; G[ReLU]
+  G --&gt; H[Linear: 344 → 10]
+  H --&gt; I[CrossEntropyLoss (with Softmax)]</code></pre>
 </section>
-<section id="matrix-operations" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="matrix-operations"><span class="header-section-number">1.4</span> Matrix operations</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>?matrix</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">matrix</span>(<span class="at">data=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">2</span>) <span class="co"># Create a 2x2 matrix object</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]    1    3
-[2,]    2    4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">2</span>,<span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># What about byrow=F?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]    1    2
-[2,]    3    4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x) <span class="co"># What does x look like?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         [,1]     [,2]
-[1,] 1.000000 1.732051
-[2,] 1.414214 2.000000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]    1    9
-[2,]    4   16</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">50</span>) <span class="co"># Generate a vector of 50 numbers using the rnorm() function</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span>x<span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="at">mean=</span><span class="dv">50</span>,<span class="at">sd=</span>.<span class="dv">1</span>) <span class="co"># What does rnorm(50,mean=50,sd=.1) generate?</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x,y) <span class="co"># Correlation of x and y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9951917</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1303</span>) <span class="co"># Set the seed for Random Number Generator (RNG) to generate values that are reproducible.</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] -1.1439763145  1.3421293656  2.1853904757  0.5363925179  0.0631929665
- [6]  0.5022344825 -0.0004167247  0.5658198405 -0.5725226890 -1.1102250073
-[11] -0.0486871234 -0.6956562176  0.8289174803  0.2066528551 -0.2356745091
-[16] -0.5563104914 -0.3647543571  0.8623550343 -0.6307715354  0.3136021252
-[21] -0.9314953177  0.8238676185  0.5233707021  0.7069214120  0.4202043256
-[26] -0.2690521547 -1.5103172999 -0.6902124766 -0.1434719524 -1.0135274099
-[31]  1.5732737361  0.0127465055  0.8726470499  0.4220661905 -0.0188157917
-[36]  2.6157489689 -0.6931401748 -0.2663217810 -0.7206364412  1.3677342065
-[41]  0.2640073322  0.6321868074 -1.3306509858  0.0268888182  1.0406363208
-[46]  1.3120237985 -0.0300020767 -0.2500257125  0.0234144857  1.6598706557</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>) <span class="co"># Try different seeds?</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="資料處理流程" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="資料處理流程"><span class="header-section-number">2.3</span> 資料處理流程</h3>
+<p>使用 <code>torchvision.datasets</code> 匯入 MNIST 並轉換為 Tensor：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> transforms.Compose([</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    transforms.ToTensor()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>train_dataset <span class="op">=</span> datasets.MNIST(root<span class="op">=</span><span class="st">'./data'</span>, train<span class="op">=</span><span class="va">True</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transform)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>test_dataset <span class="op">=</span> datasets.MNIST(root<span class="op">=</span><span class="st">'./data'</span>, train<span class="op">=</span><span class="va">False</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transform)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(dataset<span class="op">=</span>train_dataset, batch_size<span class="op">=</span><span class="dv">10000</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>test_loader <span class="op">=</span> DataLoader(dataset<span class="op">=</span>test_dataset, batch_size<span class="op">=</span><span class="dv">1000</span>, shuffle<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="simple-descriptive-statistics" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="simple-descriptive-statistics"><span class="header-section-number">1.5</span> Simple descriptive statistics</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.01103557</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7328675</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8560768</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8560768</code></pre>
-</div>
-</div>
 </section>
-<section id="graphics-using-r-graphics-without-packages" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="graphics-using-r-graphics-without-packages"><span class="header-section-number">1.6</span> Graphics using R Graphics (without packages)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col =</span> <span class="st">"blue"</span>) <span class="co"># Scatterplot for two numeric variables by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="6302Lab01_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col =</span> <span class="st">"blue"</span>,<span class="at">xlab=</span><span class="st">"this is the x-axis"</span>,<span class="at">ylab=</span><span class="st">"this is the y-axis"</span>,<span class="at">main=</span><span class="st">"Plot of X vs Y"</span>) <span class="co"># Add labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="6302Lab01_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"Figure01.pdf"</span>) <span class="co"># Save as pdf, add a path or it will be stored on the project directory</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"forestgreen"</span>) <span class="co"># Try different colors?</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co"># Close the file using the dev.off function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>quartz_off_screen 
-                2 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>) <span class="co"># Same as x=c(1:10)</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">seq</span>(<span class="sc">-</span>pi,pi,<span class="at">length=</span><span class="dv">50</span>)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="訓練流程說明100-epochs" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="訓練流程說明100-epochs"><span class="header-section-number">3</span> 🔁 訓練流程說明（100 Epochs）</h2>
+<p>整個模型經過 <strong>100 次訓練迴圈（Epoch）</strong>，每次迭代都包含訓練與測試兩階段。</p>
+<section id="損失與優化器設定" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="損失與優化器設定"><span class="header-section-number">3.1</span> 損失與優化器設定：</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lossfunction <span class="op">=</span> nn.CrossEntropyLoss()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="訓練與測試主流程" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="訓練與測試主流程"><span class="header-section-number">3.2</span> 訓練與測試主流程：</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    model.train()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> features, labels <span class="kw">in</span> train_loader:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        features, labels <span class="op">=</span> features.to(device), labels.to(device)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        predict <span class="op">=</span> model(features.view(features.size(<span class="dv">0</span>), <span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> lossfunction(predict, labels)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    model.<span class="bu">eval</span>()</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> torch.no_grad():</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> features, labels <span class="kw">in</span> test_loader:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            features, labels <span class="op">=</span> features.to(device), labels.to(device)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            predict <span class="op">=</span> model(features.view(features.size(<span class="dv">0</span>), <span class="op">-</span><span class="dv">1</span>))</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            loss <span class="op">=</span> lossfunction(predict, labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="完整訓練日誌摘要節錄結果" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="完整訓練日誌摘要節錄結果"><span class="header-section-number">3.3</span> 完整訓練日誌摘要（節錄結果）</h3>
+<pre class="text"><code>Epoch [95/100], Train loss: 0.0715, Train acc: 0.9763
+Epoch [95/100], Test loss: 0.0521, Test acc: 0.9805
+
+Epoch [96/100], Train loss: 0.0690, Train acc: 0.9770
+Epoch [96/100], Test loss: 0.0508, Test acc: 0.9810
+
+Epoch [97/100], Train loss: 0.0672, Train acc: 0.9775
+Epoch [97/100], Test loss: 0.0495, Test acc: 0.9812
+
+Epoch [98/100], Train loss: 0.0661, Train acc: 0.9781
+Epoch [98/100], Test loss: 0.0483, Test acc: 0.9816
+
+Epoch [99/100], Train loss: 0.0650, Train acc: 0.9784
+Epoch [99/100], Test loss: 0.0468, Test acc: 0.9819
+
+Epoch [100/100], Train loss: 0.0647, Train acc: 0.9786
+Epoch [100/100], Test loss: 0.0452, Test acc: 0.9820</code></pre>
+<hr>
+</section>
+</section>
+<section id="成果與準確率展示" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="成果與準確率展示"><span class="header-section-number">4</span> 📈 成果與準確率展示</h2>
+<p>模型經過 100 輪訓練後，在測試資料集上達到穩定準確率：</p>
+<pre class="text"><code>Epoch [100/100], Test loss: 0.0452, Test acc: 0.9820</code></pre>
+<p>並成功預測前 20 筆測試資料：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"True Labels (first 20):"</span>, true_labels[:<span class="dv">20</span>])</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Predicted Classes (first 20):"</span>, predicted_classes[:<span class="dv">20</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="模型儲存與推論" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="模型儲存與推論"><span class="header-section-number">5</span> 📦 模型儲存與推論</h2>
+<section id="儲存模型" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="儲存模型"><span class="header-section-number">5.1</span> 儲存模型：</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>torch.save(model.state_dict(), <span class="st">'./mymodel.pt'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="載入模型並做預測" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="載入模型並做預測"><span class="header-section-number">5.2</span> 載入模型並做預測：</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> torch.load(<span class="st">'./mymodel.pt'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>model.load_state_dict(params)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="小結核心學習收穫" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="小結核心學習收穫"><span class="header-section-number">6</span> 🧠 小結：核心學習收穫</h2>
+<ul>
+<li>熟悉 MLP 架構與 PyTorch 設計流程</li>
+<li>掌握訓練、測試、儲存與推論完整流程</li>
+<li>體會學習率、迭代次數、ReLU 激活等超參數的影響</li>
+<li>熟悉 Apple Silicon 上的 MPS 設備加速</li>
+</ul>
+<blockquote class="blockquote">
+<p>💡 雖然這段程式碼未公開在 GitHub，但我在本頁完整保留流程與成果，方便未來自己或他人參考與回顧。</p>
+</blockquote>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1079,6 +1047,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const elements = document.querySelectorAll('.fade-in, .zoom-rotate, .slide-in, .bounce-in, .flip-in');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+     }
+    });
+   }, { threshold: 0.1 });
+
+  elements.forEach(element => {
+    observer.observe(element);
+  });
+  });
+</script>
 
 
 
